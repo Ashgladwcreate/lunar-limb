@@ -1,0 +1,361 @@
+---
+import '../styles/global.css';
+// This tells the Navbar to default to false, unless a page specifically says true
+const { hasDarkHero = false } = Astro.props;
+---
+
+<div class="fixed top-4 min-[850px]:top-6 w-full flex justify-center z-[60] px-4 min-[850px]:px-2">
+
+  <nav class="w-full max-w-7xl h-16 px-2 min-[850px]:px-8 flex justify-between items-center bg-transparent min-[850px]:bg-white/50 min-[850px]:backdrop-blur-md min-[850px]:shadow-md min-[850px]:rounded-4xl transition-all">
+
+      <!-- Logo -->
+      <div>
+        <a 
+          id="nav-logo" 
+          href="/" 
+          data-dark-hero={hasDarkHero ? "true" : "false"}
+          class:list={[
+            "font-bold text-3xl transition-all duration-300 opacity-100 min-[850px]:text-lime-900 min-[850px]:drop-shadow-none",
+            hasDarkHero ? "text-white drop-shadow-md" : "text-lime-900"
+          ]}
+        >
+          PPMHS
+        </a>
+      </div>
+
+      <div class="flex space-x-6 items-center">
+        
+        <!-- Desktop Links (Hidden until 850px) -->
+        <div class="hidden min-[850px]:flex space-x-6 items-center mr-6">
+          <a href="/" class="text-lime-900 hover:text-lime-500 font-bold">Beranda</a>
+          
+          <div class="relative group">
+            <button id="profil-toggle" class="text-lime-900 hover:text-lime-500 font-bold flex items-center gap-1 cursor-pointer">
+              Profil
+              <svg id="profil-arrow" class="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div id="profil-menu" class="absolute left-0 top-full pt-6 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0">
+              <div class="bg-mist-200/60 backdrop-blur-md shadow-xl rounded-xl flex flex-col p-2 w-32 border border-gray-100">
+                <a href="/yayasan" class="px-4 py-2 text-sm font-semibold text-lime-900 hover:bg-lime-100/50 hover:text-lime-500 rounded-lg transition-colors">Yayasan</a>
+                <a href="/visimisi" class="px-4 py-2 text-sm font-semibold text-lime-900 hover:bg-lime-100/50 hover:text-lime-500 rounded-lg transition-colors">Visi Misi</a>
+                <a href="/pendidik" class="px-4 py-2 text-sm font-semibold text-lime-900 hover:bg-lime-100/50 hover:text-lime-500 rounded-lg transition-colors">Pendidik</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative group">
+            <button id="pendidikan-toggle" class="text-lime-900 hover:text-lime-500 font-bold flex items-center gap-1 cursor-pointer">
+              Pendidikan
+              <svg id="pendidikan-arrow" class="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div id="pendidikan-menu" class="absolute left-0 top-full pt-6 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0">
+              <div class="bg-mist-200/60 backdrop-blur-md shadow-xl rounded-xl flex flex-col p-2 w-38 border border-gray-100">
+                <a href="/program" class="px-4 py-2 text-sm font-semibold text-lime-900 hover:bg-lime-100/50 hover:text-lime-500 rounded-lg transition-colors">Program</a>
+                <a href="/fasilitas" class="px-4 py-2 text-sm font-semibold text-lime-900 hover:bg-lime-100/50 hover:text-lime-500 rounded-lg transition-colors">Fasilitas</a>
+                <a href="/buffer" class="px-4 py-2 text-sm font-semibold text-lime-900 hover:bg-lime-100/50 hover:text-lime-500 rounded-lg transition-colors">Kegiatan Rutin</a>
+              </div>
+            </div>
+          </div>
+
+          <a href="/publikasi" class="text-lime-900 hover:text-lime-500 font-bold">Publikasi</a>
+
+          <a href="/kontak" class="text-lime-900 hover:text-lime-500 font-bold">Kontak</a>
+        </div>
+
+        <!-- 2. PENDAFTARAN BUTTON (Hidden until 850px) -->
+        <a id="pendaftaran-btn" href="/pendaftaran" class="hidden min-[850px]:inline-flex group relative items-center justify-center overflow-hidden rounded-lg bg-lime-300 px-2 py-1 font-semibold text-zinc-900 shadow-sm transition-all duration-300 hover:bg-lime-900 hover:text-lime-300">
+          <span class="block transition-transform duration-300 group-hover:-translate-y-[150%]">
+            Pendaftaran
+          </span>
+          <span class="absolute block translate-y-[150%] transition-transform duration-300 group-hover:translate-y-0">
+            Pendaftaran
+          </span>
+        </a>
+
+        <!-- 3. MOBILE MENU BUTTON (Shows on everything smaller than 850px) -->
+        <button id="mobile-menu-btn" class="relative group flex min-[850px]:hidden items-center justify-center w-12 h-12 focus:outline-none cursor-pointer transition-transform active:scale-90">
+          
+          <!-- 1. The Flower Background -->
+          <!-- We build the flower perfectly using overlapping SVG circles -->
+          <svg id="flower-bg" viewBox="0 0 100 100" class="absolute inset-0 w-full h-full text-white drop-shadow-sm transition-all duration-500 transform rotate-0 group-hover:text-mist-200" fill="currentColor">
+             <circle cx="50" cy="18" r="16"/>
+             <circle cx="73" cy="27" r="16"/>
+             <circle cx="82" cy="50" r="16"/>
+             <circle cx="73" cy="73" r="16"/>
+             <circle cx="50" cy="82" r="16"/>
+             <circle cx="27" cy="73" r="16"/>
+             <circle cx="18" cy="50" r="16"/>
+             <circle cx="27" cy="27" r="16"/>
+             <circle cx="50" cy="50" r="28"/>
+          </svg>
+          
+          <!-- 2. Hamburger Icon (Shrunk slightly to w-6 h-6 so it fits inside the flower) -->
+          <svg id="burger-icon" class="absolute z-10 w-6 h-6 text-lime-900 transition-all duration-300 transform rotate-0 scale-100 opacity-100 group-hover:text-lime-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+          
+          <!-- 3. Close 'X' Icon -->
+          <svg id="close-icon" class="absolute z-10 w-6 h-6 text-lime-900 transition-all duration-300 transform -rotate-90 scale-0 opacity-0 group-hover:text-lime-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+
+        </button>
+
+      </div>
+  </nav>
+</div>
+
+<div id="mobile-drawer" class="fixed inset-0 z-50 bg-lime-900 backdrop-blur-lg hidden flex-col px-8 pt-24 overflow-y-auto">
+  
+  <button id="menu-close-btn" class="absolute top-8 right-8 text-white hover:text-lime-200 active:text-lime-200 focus:outline-none cursor-pointer">
+    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+    </svg>
+  </button>
+
+  <div class="mb-4 w-full border-b border-white/80 pb-4">
+    <a href="/pendaftaran" class="text-3xl font-bold text-white hover:text-lime-200 active:text-lime-300 transition-colors tracking-wide pb-4 mb-4 border-b border-lime-900/20">
+      Pendaftaran
+    </a>
+  </div>
+
+  <div class="mb-4 w-full border-b border-white/80 pb-4">
+    
+    <button id="profil-accordion-btn" class="w-full flex justify-between items-center text-3xl font-bold text-white hover:text-lime-200 active:text-lime-300 transition-colors tracking-wide cursor-pointer focus:outline-none">
+      Profil
+      <svg id="profil-chevron" class="w-8 h-8 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M19 9l-7 7-7-7"></path>
+      </svg>
+    </button>
+
+    <div id="profil-sublinks" class="hidden flex-col mt-4 pl-4 border-l-2 border-white/80 space-y-2">
+      <a href="/yayasan" class="text-xl font-medium text-white hover:text-lime-200 active:text-lime-300 transition-colors">Yayasan</a>
+      <a href="/visimisi" class="text-xl font-medium text-white hover:text-lime-200 active:text-lime-300 transition-colors">Visi Misi</a>
+      <a href="/pendidik" class="text-xl font-medium text-white hover:text-lime-200 active:text-lime-300 transition-colors">Pendidik</a>
+    </div>
+    
+  </div>
+
+
+ <div class="mb-4 w-full border-b border-white/80 pb-4">
+    
+    <button id="pendidikan-accordion-btn" class="w-full flex justify-between items-center text-3xl font-bold text-white hover:text-lime-200 active:text-lime-300 transition-colors tracking-wide cursor-pointer focus:outline-none">
+      Pendidikan
+      <svg id="pendidikan-chevron" class="w-8 h-8 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M19 9l-7 7-7-7"></path>
+      </svg>
+    </button>
+
+    <div id="pendidikan-sublinks" class="hidden flex-col mt-4 pl-4 border-l-2 border-white/80 space-y-2">
+      <a href="/program" class="text-xl font-medium text-white hover:text-lime-200 active:text-lime-300 transition-colors">Program</a>
+      <a href="/fasilitas" class="text-xl font-medium text-white hover:text-lime-200 active:text-lime-300 transition-colors">Fasilitas</a>
+      <a href="/buffer" class="text-xl font-medium text-white hover:text-lime-200 active:text-lime-300 transition-colors">Kegiatan Rutin</a>
+    </div>
+    
+  </div>
+
+  <a href="/publikasi" class="text-3xl font-bold text-white hover:text-lime-200 active:text-lime-300 transition-colors tracking-wide pb-4 mb-4 border-b border-lime-900/20 border-white/80">
+    Berita & Publikasi
+  </a>
+
+  <a href="/kontak" class="text-3xl font-bold text-white hover:text-lime-200 active:text-lime-300 transition-colors tracking-wide pb-4 mb-4 border-b border-lime-900/20">
+    Kontak
+  </a>
+  
+</div>
+
+<script>
+  // --- 1. Variables: Desktop Dropdowns ---
+  const profilToggle = document.getElementById('profil-toggle');
+  const profilMenu = document.getElementById('profil-menu');
+  const profilArrow = document.getElementById('profil-arrow');
+
+  const pendidikanToggle = document.getElementById('pendidikan-toggle');
+  const pendidikanMenu = document.getElementById('pendidikan-menu');
+  const pendidikanArrow = document.getElementById('pendidikan-arrow');
+  
+  // --- 2. Variables: Mobile Drawer ---
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const burgerIcon = document.getElementById('burger-icon');
+  const closeIcon = document.getElementById('close-icon');
+  const drawer = document.getElementById('mobile-drawer');
+  const navLogo = document.getElementById('nav-logo');
+  const flowerBg = document.getElementById('flower-bg');
+  
+  let isMenuOpen = false;
+
+  // --- 3. Variables: Mobile Accordion ---
+  const profilBtn = document.getElementById('profil-accordion-btn');
+  const profilSub = document.getElementById('profil-sublinks');
+  const profilChevron = document.getElementById('profil-chevron');
+
+  const pendidikanBtn = document.getElementById('pendidikan-accordion-btn');
+  const pendidikanSub = document.getElementById('pendidikan-sublinks');
+  const pendidikanChevron = document.getElementById('pendidikan-chevron');
+
+
+   // --- 4. NEW: Master Close Function ---
+  // This instantly hides every desktop dropdown on the page
+  function closeAllDropdowns() {
+    if (profilMenu && !profilMenu.classList.contains('invisible')) {
+      profilMenu.classList.add('opacity-0', 'invisible');
+      profilMenu.classList.remove('opacity-100', 'visible');
+      profilArrow.classList.remove('rotate-180');
+    }
+    if (pendidikanMenu && !pendidikanMenu.classList.contains('invisible')) {
+      pendidikanMenu.classList.add('opacity-0', 'invisible');
+      pendidikanMenu.classList.remove('opacity-100', 'visible');
+      pendidikanArrow.classList.remove('rotate-180');
+    }
+  }
+
+
+  // --- 5. Clicker Logic: PROFIL ---
+  if (profilToggle && profilMenu && profilArrow) {
+    profilToggle.addEventListener('click', (e) => {
+      e.stopPropagation(); // Prevents immediate closing
+      const isClosed = profilMenu.classList.contains('invisible'); 
+      
+      closeAllDropdowns(); // Shut everything down first
+      
+      if (isClosed) { // Open if it was previously closed
+        profilMenu.classList.remove('opacity-0', 'invisible');
+        profilMenu.classList.add('opacity-100', 'visible');
+        profilArrow.classList.add('rotate-180');
+      }
+    });
+  }
+
+  // --- 6. Clicker Logic: PENDIDIKAN ---
+  if (pendidikanToggle && pendidikanMenu && pendidikanArrow) {
+    pendidikanToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isClosed = pendidikanMenu.classList.contains('invisible');
+      
+      closeAllDropdowns();
+      
+      if (isClosed) {
+        pendidikanMenu.classList.remove('opacity-0', 'invisible');
+        pendidikanMenu.classList.add('opacity-100', 'visible');
+        pendidikanArrow.classList.add('rotate-180');
+      }
+    });
+  }
+
+  // --- 8. Outside Click Listener ---
+  // A single listener that closes all menus if you click anywhere else on the page
+  document.addEventListener('click', () => {
+    closeAllDropdowns();
+  });
+
+
+ // --- 9. Mobile Drawer Logic ---
+  if (menuBtn && drawer) {
+    menuBtn.addEventListener('click', () => {
+      isMenuOpen = !isMenuOpen;
+
+      if (isMenuOpen) {
+        drawer.classList.remove('hidden');
+        drawer.classList.add('flex');
+
+        burgerIcon.classList.remove('rotate-0', 'scale-100', 'opacity-100');
+        burgerIcon.classList.add('rotate-90', 'scale-0', 'opacity-0');
+
+        closeIcon.classList.remove('-rotate-90', 'scale-0', 'opacity-0');
+        closeIcon.classList.add('rotate-0', 'scale-100', 'opacity-100');
+
+        // Spin the flower background
+        if (flowerBg) {
+          flowerBg.classList.remove('rotate-0');
+          flowerBg.classList.add('rotate-90');
+        }
+
+        if (navLogo) {
+          navLogo.classList.remove('text-lime-900', 'opacity-0', 'pointer-events-none');
+          navLogo.classList.add('text-white', 'opacity-100');
+        }
+      } else {
+        drawer.classList.add('hidden');
+        drawer.classList.remove('flex');
+
+        burgerIcon.classList.remove('rotate-90', 'scale-0', 'opacity-0');
+        burgerIcon.classList.add('rotate-0', 'scale-100', 'opacity-100');
+
+        closeIcon.classList.remove('rotate-0', 'scale-100', 'opacity-100');
+        closeIcon.classList.add('-rotate-90', 'scale-0', 'opacity-0');
+
+        // Spin the flower background back
+        if (flowerBg) {
+          flowerBg.classList.remove('rotate-90');
+          flowerBg.classList.add('rotate-0');
+        }
+
+        if (navLogo) {
+          const isDarkHeroPage = navLogo.getAttribute('data-dark-hero') === 'true';
+          if (!isDarkHeroPage) {
+            navLogo.classList.remove('text-white');
+            navLogo.classList.add('text-lime-900');
+          }
+          window.dispatchEvent(new Event('scroll'));
+        }
+      }
+    });
+  }
+
+  // --- 10. Mobile Accordion Logic ---
+  if (profilBtn && profilSub && profilChevron) {
+    profilBtn.addEventListener('click', () => {
+      profilSub.classList.toggle('hidden');
+      profilSub.classList.toggle('flex');
+      profilChevron.classList.toggle('rotate-180');
+    });
+  }
+
+   if (pendidikanBtn && pendidikanSub && pendidikanChevron) {
+    pendidikanBtn.addEventListener('click', () => {
+      pendidikanSub.classList.toggle('hidden');
+      pendidikanSub.classList.toggle('flex');
+      pendidikanChevron.classList.toggle('rotate-180');
+    });
+  }
+
+
+  // --- 11. Touch Animation for Pendaftaran ---
+  const pendaftaranBtn = document.getElementById('pendaftaran-btn');
+  if (pendaftaranBtn) {
+    // When the user touches the screen, slightly shrink the button
+    pendaftaranBtn.addEventListener('touchstart', () => {
+      pendaftaranBtn.classList.add('scale-90');
+    }, { passive: true });
+
+    // When the user lifts their finger, return it to normal size
+    pendaftaranBtn.addEventListener('touchend', () => {
+      pendaftaranBtn.classList.remove('scale-90');
+    }, { passive: true });
+  }
+
+ // --- 12. Fade Out Logo on Mobile Scroll ---
+  window.addEventListener('scroll', () => {
+    const scrollLogo = document.getElementById('nav-logo');
+    if (!scrollLogo) return; 
+    
+    const isMobile = window.innerWidth < 850;
+
+    // Only hide it if the drawer menu is currently closed
+    if (!isMenuOpen) {
+      if (isMobile && window.scrollY > window.innerHeight * 0.1) {
+        // Hide the logo
+        scrollLogo.classList.remove('opacity-100');
+        scrollLogo.classList.add('opacity-0', 'pointer-events-none');
+      } else {
+        // Show the logo
+        scrollLogo.classList.remove('opacity-0', 'pointer-events-none');
+        scrollLogo.classList.add('opacity-100');
+      }
+    }
+  });
+</script>

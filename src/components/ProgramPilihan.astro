@@ -1,0 +1,122 @@
+---
+// ProgramPilihan.astro
+import kitabImg from '../assets/kitab.jpg'; // Make sure to use your actual image paths!
+import tahfidzImg from '../assets/tahfidz.jpg';
+---
+
+<section class="py-10 lg:py-16 max-w-[1440px] mx-auto w-full">
+  
+  <!-- Section Title -->
+  <h2 class="text-3xl md:text-4xl lg:text-[2.5rem] font-bold text-center text-lime-900 mb-16">
+    Pilih program sesuai kebutuhan Anda dan Anak Anda
+  </h2>
+
+  <!-- The Grid -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 max-w-[1230px] mx-auto">
+
+    <!-- ==========================================
+         CARD 1: PROGRAM KITAB
+         ========================================== -->
+    <div class="relative w-full rounded-[2rem] bg-transparent group">
+      
+      <!-- Main Image -->
+      <img 
+        src={kitabImg.src} 
+        alt="Santri belajar kitab" 
+        class="w-full h-[280px] md:h-[400px] object-cover rounded-[2rem]"
+      />
+
+      <!-- White Wrapper -->
+      <div class="relative lg:absolute lg:bottom-0 lg:left-0 bg-lime-50 w-[90%] lg:w-[80%] mx-auto lg:mx-0 -mt-12 lg:mt-0 pt-3 px-3 lg:pr-3 lg:pl-0 lg:pt-3 rounded-t-[2rem] lg:rounded-tr-[2rem] lg:rounded-tl-none">
+        
+        <!-- The Wageningen Swoops (Desktop ONLY) -->
+        <div class="hidden lg:block absolute bottom-full left-0 w-6 h-6 bg-transparent swoop-desktop-top"></div>
+        <div class="hidden lg:block absolute bottom-0 left-full w-6 h-6 bg-transparent swoop-desktop-right"></div>
+
+        <!-- Green Content Box -->
+        <div class="relative bg-lime-300 p-6 md:p-8 pb-12 lg:pb-8 rounded-[24px] flex flex-col justify-center">
+          
+          <h3 class="text-2xl md:text-3xl font-bold text-lime-50 mb-3">Program Kitab</h3>
+          <p class="text-lime-950 font-medium leading-relaxed text-sm md:text-base">
+            Santri berfokus pada pembelajaran cara membaca kitab islam, menulis pegon, bahasa arab, dan memaknai kitab. Topik kitab meliputi: Fiqih, tajwid, sejarah islam, dll.
+          </p>
+
+          <!-- The Circular Arrow Button -->
+          <a href="/program#program-kitab" class="absolute -bottom-6 left-1/2 -translate-x-1/2 lg:left-auto lg:right-[-6px] lg:translate-x-0 lg:-bottom-6 w-14 h-14 bg-lime-900 text-lime-50 rounded-full flex items-center justify-center ring-[6px] ring-lime-50 transition-all duration-300 hover:scale-110 active:scale-95 hover:bg-lime-300 hover:text-lime-900 active:bg-lime-300 active:text-lime-900 z-10">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 12h14m-7-7l7 7-7 7"></path>
+            </svg>
+          </a>
+          
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ==========================================
+         CARD 2: PROGRAM TAHFIDZ
+         ========================================== -->
+    <div class="relative w-full rounded-[2rem] bg-transparent group">
+      
+      <!-- Main Image -->
+      <img 
+        src={tahfidzImg.src} 
+        alt="Santri membaca Al-Quran" 
+        class="w-full h-[280px] md:h-[400px] object-cover rounded-[2rem]"
+      />
+
+      <!-- White Wrapper -->
+      <div class="relative lg:absolute lg:bottom-0 lg:left-0 bg-lime-50 w-[90%] lg:w-[80%] mx-auto lg:mx-0 -mt-12 lg:mt-0 pt-3 px-3 lg:pr-3 lg:pl-0 lg:pt-3 rounded-t-[2rem] lg:rounded-tr-[2rem] lg:rounded-tl-none">
+        
+        <!-- The Wageningen Swoops (Desktop ONLY) -->
+        <div class="hidden lg:block absolute bottom-full left-0 w-6 h-6 bg-transparent swoop-desktop-top"></div>
+        <div class="hidden lg:block absolute bottom-0 left-full w-6 h-6 bg-transparent swoop-desktop-right"></div>
+
+        <!-- Green Content Box -->
+        <div class="relative bg-lime-300 p-6 md:p-8 pb-12 lg:pb-8 rounded-[24px] h-full flex flex-col justify-start">
+          
+          <h3 class="text-2xl md:text-3xl font-bold text-lime-50 mb-3">Program Tahfidz</h3>
+          <p class="text-lime-950 font-medium leading-relaxed text-sm md:text-base">
+            Program khusus santri putri dengan fokus menghafalkan kitab menggunakan metode tartil.
+          </p>
+
+          <!-- The Circular Arrow Button -->
+          <a href="/program#program-tahfidz" class="absolute -bottom-6 left-1/2 -translate-x-1/2 lg:left-auto lg:right-[-6px] lg:translate-x-0 lg:-bottom-6 w-14 h-14 bg-lime-900 text-lime-50 rounded-full flex items-center justify-center ring-[6px] ring-lime-50 transition-all duration-300 hover:scale-110 active:scale-95 hover:bg-lime-300 hover:text-lime-900 active:bg-lime-300 active:text-lime-900 z-10">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 12h14m-7-7l7 7-7 7"></path>
+            </svg>
+          </a>
+          
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  /* 
+   * THE WAGENINGEN SWOOP TRICK
+   * Using perfectly calculated radial gradients to fill in the inverted corners!
+   */
+
+  /* Desktop: Connects the top-left of the green box to the left image border */
+  .swoop-desktop-top {
+    background: radial-gradient(circle at 100% 0%, transparent 24px, oklch(98.6% 0.031 120.757) 24.5px);
+  }
+  
+  /* Desktop: Connects the bottom-right of the green box to the bottom image border */
+  .swoop-desktop-right {
+    background: radial-gradient(circle at 100% 0%, transparent 24px, oklch(98.6% 0.031 120.757) 24.5px);
+  }
+
+  /* Mobile: Connects the left side of the centered box to the image */
+  .swoop-mobile-left {
+    background: radial-gradient(circle at 0% 0%, transparent 24px, oklch(98.6% 0.031 120.757) 24.5px);
+  }
+
+  /* Mobile: Connects the right side of the centered box to the image */
+  .swoop-mobile-right {
+    background: radial-gradient(circle at 100% 0%, transparent 24px, oklch(98.6% 0.031 120.757) 24.5px);
+  }
+</style>

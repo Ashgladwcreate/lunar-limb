@@ -1,0 +1,59 @@
+---
+// src/pages/privacy-policy.astro
+import '../styles/global.css';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kebijakan Privasi & Data | PPMHS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-lime-50 text-lime-950 flex flex-col min-h-screen">
+    
+    <Navbar hasDarkHero={false} />
+
+    <main class="flex-grow max-w-[900px] mx-auto px-6 lg:px-8 pt-32 lg:pt-40 mb-32">
+      
+      <h1 class="text-3xl md:text-5xl font-bold text-lime-900 mb-12 tracking-tight">
+        Kebijakan Privasi & Data
+      </h1>
+
+      <div class="prose prose-lg md:prose-xl prose-lime max-w-none text-lime-950 prose-headings:font-bold prose-headings:tracking-tight prose-a:text-lime-700">
+        
+        <p>Pemberitahuan Pelindungan Data dan Privasi ini menetapkan bagaimana Pondok Pesantren Miftahul Huda Soko ("PPMHS", "Pondok", "kami") memproses data pribadi seluruh individu, yaitu santri, calon santri, orang tua/wali, pengajar, karyawan, tamu, dan siapa pun yang datanya kami kumpulkan dan gunakan, khususnya melalui portal pendaftaran website ini.</p>
+
+        <p>Sebagai lembaga pendidikan yang berlokasi di Indonesia, kami tunduk pada peraturan <strong>Undang-Undang Republik Indonesia Nomor 27 Tahun 2022 tentang Pelindungan Data Pribadi ("UU PDP")</strong> dan persyaratan hukum lain yang berlaku. Kami berkomitmen penuh untuk menjaga kepercayaan Anda dengan melindungi data pribadi Anda sesuai dengan UU PDP.</p>
+
+        <p>Pemberitahuan Privasi ini menjelaskan bagaimana kami mengumpulkan, menggunakan, menyimpan, dan melindungi data pribadi Anda.</p>
+
+        <h3 class="text-lime-900">1. Data yang Kami Kumpulkan</h3>
+        <p>Selama proses pendaftaran santri baru atau interaksi melalui website, kami mungkin mengumpulkan informasi berikut:</p>
+        <ul>
+          <li>Informasi identitas (Nama lengkap, NIK, NISN, Tempat/Tanggal Lahir, Kewarganegaraan).</li>
+          <li>Informasi kontak (Alamat rumah, Email, Nomor Telepon/WhatsApp).</li>
+          <li>Informasi keluarga (Nama orang tua/wali, Pekerjaan, Nomor Telepon/WhatsApp).</li>
+          <li>Riwayat kesehatan santri.</li>
+        </ul>
+
+        <h3 class="text-lime-900">2. Penggunaan Data</h3>
+        <p>Data pribadi yang dikumpulkan semata-mata digunakan untuk tujuan administratif dan pendidikan, termasuk namun tidak terbatas pada: proses seleksi penerimaan santri baru, pendataan di Kementerian Agama, pencatatan akademik, dan komunikasi keadaan darurat medis.</p>
+
+        <h3 class="text-lime-900">3. Keamanan Data</h3>
+        <p>Kami menerapkan langkah-langkah keamanan teknis dan administratif yang wajar untuk melindungi data pribadi Anda dari akses, perubahan, pengungkapan, atau pemusnahan yang tidak sah.</p>
+
+        <h3 class="text-lime-900">4. Pertanyaan dan Kontak</h3>
+        <p>Jika Anda memiliki pertanyaan berkaitan dengan pemberitahuan ini atau ingin menggunakan hak Anda terkait data pribadi (seperti memperbarui data pendaftaran), silakan hubungi tim administrasi kami melalui email di <strong>ppmhs2016@gmsil.com</strong> atau melalui nomor telepon resmi pondok.</p>
+
+      </div>
+
+    </main>
+
+    <Footer />
+  </body>
+</html>

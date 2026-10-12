@@ -1,0 +1,136 @@
+---
+import '../styles/global.css';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/footer.astro';
+
+// Mengambil data (frontmatter) dari file Markdown yang sedang dibaca
+const { frontmatter } = Astro.props;
+
+// Fungsi opsional untuk merapikan format tanggal
+const formatDate = (dateString) => {
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  return new Date(dateString).toLocaleDateString('id-ID', options);
+};
+---
+
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{frontmatter.judul} | PPMHS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-lime-50 text-lime-900">
+    
+    <Navbar hasDarkHero={false} />
+
+    <main class="max-w-[1440px] mx-auto px-4 lg:px-8 pt-28 lg:pt-36 mb-32">
+      
+      <!-- HEADER ARTIKEL -->
+      <header class="mb-10">
+        <div class="flex items-center gap-3 mb-5">
+          <!-- Tag Kategori (Merah Muda/Pink ala WUR) -->
+          <span class="inline-block bg-lime-300 text-lime-900 text-[10px] md:text-xs font-bold px-2.5 py-1 uppercase tracking-widest rounded-sm">
+            {frontmatter.kategori.includes('Berita') ? 'Berita' : 'Artikel'}
+          </span>
+          <!-- Tanggal Publikasi -->
+          <span class="text-xs md:text-sm font-semibold uppercase tracking-wider text-lime-900/60">
+            Tanggal Publikasi: {formatDate(frontmatter.tanggal)}
+          </span>
+        </div>
+
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-lime-900 leading-snug tracking-tight">
+          {frontmatter.judul}
+        </h1>
+      </header>
+
+      <!-- HERO IMAGE DENGAN 2 CUTOUT (WUR STYLE) -->
+      <div class="relative w-full mb-16">
+        <img 
+          src={frontmatter.gambar.src} 
+          alt={frontmatter.judul} 
+          class="w-full h-[300px] md:h-[500px] lg:h-[600px] object-cover rounded-[2.5rem] lg:rounded-[4rem]"
+        />
+
+        <!-- Cutout Kanan (Untuk Tombol Scroll) -->
+        <div class="wur-cutout-right hidden lg:flex absolute top-1/2 -translate-y-1/2 right-0 w-16 h-16 bg-lime-50 items-center justify-center z-10">
+          <button 
+            class="w-13 h-13 bg-lime-900 text-lime-50 rounded-full flex items-center justify-center hover:bg-lime-950 transition-colors group cursor-pointer"
+            aria-label="Scroll down"
+            onclick="window.scrollBy({ top: 500, behavior: 'smooth' })"
+          >
+            <svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Cutout Kiri Bawah (Untuk Info Penulis) -->
+        <div class="wur-cutout-bottom-left absolute bottom-0 left-0 bg-lime-50 rounded-tr-3xl pr-6 pt-5 z-10 flex items-center gap-3">
+          <!-- Kotak Profil Anonim -->
+          <div>
+            <p class="text-xs md:text-sm font-bold text-lime-900">{frontmatter.penulis}</p>
+            <p class="text-[10px] md:text-xs font-bold uppercase tracking-widest text-lime-900/60 mt-0.5">Penulis</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ISI ARTIKEL (KONTEN MARKDOWN) -->
+      <!-- class 'prose' dari Tailwind Typography akan otomatis merapikan ukuran H1, H2, p, list, dll dari file markdown -->
+      <article class="prose prose-lg md:prose-xl prose-lime max-w-3xl mx-auto text-lime-950 prose-headings:font-bold prose-headings:tracking-tight prose-a:text-lime-700 prose-img:rounded-2xl mt-12 md:mt-20 prose-p:mb-8 [&>p:first-of-type]:text-2xl [&>p:first-of-type]:md:text-[1.75rem] [&>p:first-of-type]:leading-snug [&>p:first-of-type]:text-lime-900 [&>p:first-of-type]:mb-12 [&>p:first-of-type]:font-medium">
+        <slot />
+      </article>
+
+    </main>
+
+    <Footer />
+
+  </body>
+
+  <style>
+    /* 1. Efek Lengkungan (Cutout) Kanan untuk Tombol Scroll */
+    .wur-cutout-right {
+      border-top-left-radius: 32px;
+      border-bottom-left-radius: 32px;
+    }
+    .wur-cutout-right::before, .wur-cutout-right::after {
+      content: ""; position: absolute; right: 0; width: 32px; height: 32px; background: transparent; pointer-events: none;
+    }
+    .wur-cutout-right::before { bottom: 100%; background: radial-gradient(circle at 0 0, transparent 31.5px, #f7fee7 32px); }
+    .wur-cutout-right::after { top: 100%; background: radial-gradient(circle at 0 100%, transparent 31.5px, #f7fee7 32px); }
+
+    /* 2. Efek Lengkungan (Cutout) Kiri Bawah untuk Profil Penulis */
+.wur-cutout-bottom-left {
+  /* Membentuk sudut membulat di kanan atas kotak putih agar menyatu dengan lengkungan luar */
+  border-top-right-radius: 32px;
+}
+
+.wur-cutout-bottom-left::before {
+  /* Lengkungan di sisi atas kotak putih */
+  content: ""; 
+  position: absolute; 
+  bottom: 100%; 
+  left: 0; 
+  width: 32px; 
+  height: 32px; 
+  background: transparent; 
+  pointer-events: none;
+  background: radial-gradient(circle at 100% 0, transparent 31.5px, #f7fee7 32px);
+}
+
+.wur-cutout-bottom-left::after {
+  /* Lengkungan di sisi kanan kotak putih (Koordinat diperbaiki) */
+  content: ""; 
+  position: absolute; 
+  bottom: 0; 
+  left: 100%; 
+  width: 32px; 
+  height: 32px; 
+  background: transparent; 
+  pointer-events: none;
+  background: radial-gradient(circle at 100% 0, transparent 31.5px, #f7fee7 32px);
+}
+  </style>
+</html>

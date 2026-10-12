@@ -1,0 +1,8 @@
+/* 1. Import Tailwind v4 */
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* 2. Tell Tailwind to use Raleway as the default sans-serif font */
+@theme {
+  --font-sans: "Raleway", system-ui, sans-serif;
+}

@@ -1,0 +1,225 @@
+---
+import '../styles/global.css';
+import karakterImg from '../assets/pilar_1.png';
+import kompetitifImg from '../assets/pilar_2.png';
+import kreatifImg from '../assets/pilar_3.png';
+import kontribusiImg from '../assets/pilar_4.png';
+
+---
+
+<section class="max-w-8xl mx-auto px-4 pb-10 lg:pb-16 flex flex-col lg:grid lg:grid-cols-3 gap-2 lg:gap-8 items-center lg:items-start">
+
+  <!-- ==========================================
+       CONTAINER A: Text Description (Left Desktop / Bottom Mobile)
+       ========================================== -->
+  <div class="order-2 lg:order-1 flex flex-col justify-center lg:self-center lg:-mt-16 w-full h-full min-h-[150px]">
+    <!-- Added an ID (description-text) so JavaScript can target it -->
+    <p id="description-text" class="text-lg md:text-[23px] text-lime-950 font-medium leading-relaxed text-center lg:text-right lg:px-0">
+      Menjadikan prinsip Ahlussunnah wal Jamaa'ah sebagai landasan dalam bersikap santun, toleran, dan berakhlak mulia.
+    </p>
+  </div>
+
+
+  <!-- ==========================================
+       CONTAINER B: The Green Box & Student (Center Desktop / Top Mobile)
+       ========================================== -->
+  <div class="order-1 lg:order-2 w-full flex flex-col items-center relative">
+    
+    <!-- MOBILE ONLY: Top Text -->
+    <div class="lg:hidden text-center relative z-0 w-full mb-1">
+      <p class="text-xl md:text-2xl font-normal uppercase tracking-[-0.05em] text-black mb-1">
+        4 Pilar Karakter
+      </p>
+      <h2 class="text-[4.5rem] font-bold uppercase text-lime-900 leading-none tracking-tighter">
+        PPMHS
+      </h2>
+    </div>
+
+    <!-- The lime Box & Student Image Wrapper -->
+    <div class="relative w-full max-w-[300px] flex justify-center items-end mt-2.5 lg:mt-0">
+      
+      <!-- The Solid lime Background -->
+      <div class="absolute inset-0 top-16 bottom-0 left-3.5 right-3.5 bg-lime-900 rounded-t-[90px] z-0"></div>
+      
+      <!-- The Student Image with ID for Javascript -->
+      <img 
+        id="slider-image"
+        src={karakterImg.src} 
+        alt="Karakter" 
+        class="relative z-10 w-11/12 h-auto object-cover object-bottom transition-opacity duration-300"
+      />
+
+      <!-- MOBILE ONLY: Slider Arrows -->
+      <div class="absolute bottom-8 z-20 flex lg:hidden gap-4">
+        <!-- Added class "slider-prev" -->
+        <button class="slider-prev bg-lime-300 border border-gray-300 w-12 h-12 rounded-full flex items-center justify-center text-lime-900 shadow-md text-xl transition-all duration-300 hover:scale-110 active:scale-95 hover:bg-lime-900 hover:text-lime-300 active:bg-lime-900 active:text-lime-300">
+          <svg class="w-6 h-6 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 12h14m-7-7l7 7-7 7"></path></svg>
+        </button>
+        <!-- Added class "slider-next" -->
+        <button class="slider-next bg-lime-300 border border-gray-300 w-12 h-12 rounded-full flex items-center justify-center text-lime-900 shadow-md text-xl transition-all duration-300 hover:scale-110 active:scale-95 hover:bg-lime-900 hover:text-lime-300 active:bg-lime-900 active:text-lime-300">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 12h14m-7-7l7 7-7 7"></path></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Bottom Text (Dynamic Title) -->
+    <div class="relative z-0 mt-4 w-full text-center">
+      <!-- Added an ID (value-title) -->
+      <h2 id="value-title" class="text-[3rem] md:text-[4rem] font-bold uppercase text-lime-900 leading-none tracking-tighter transition-all duration-300">
+        Karakter Aswaja
+      </h2>
+    </div>
+
+  </div>
+
+
+  <!-- ==========================================
+       CONTAINER C: Desktop Text & Arrows (Right Desktop / Hidden Mobile)
+       ========================================== -->
+  <div class="hidden lg:flex order-3 flex-col justify-start pt-16 pl-4 xl:pl-8 w-full">
+    
+    <div class="block w-full">
+      <p class="text-xl xl:text-2xl font-normal uppercase tracking-[-0.05em] text-black mb-1">
+        4 Pilar Karakter
+      </p>
+      <h2 class="text-[5rem] xl:text-[6.5rem] font-bold uppercase text-lime-900 leading-none tracking-tighter">
+        PPMHS
+      </h2>
+    </div>
+    
+    <div class="flex flex-row items-center justify-start gap-4 mt-6 w-full">
+      <!-- Added class "slider-prev" -->
+      <button class="slider-prev bg-lime-300 border border-gray-300 w-12 h-12 xl:w-14 xl:h-14 rounded-full flex items-center justify-center text-lime-900 shadow-sm transition-all duration-300 hover:scale-110 active:scale-95 hover:bg-lime-900 hover:text-lime-300 active:bg-lime-900 active:text-lime-300">
+        <svg class="w-6 h-6 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 12h14m-7-7l7 7-7 7"></path></svg>
+      </button>
+      
+      <!-- Added class "slider-next" -->
+      <button class="slider-next bg-lime-300 border border-gray-300 w-12 h-12 xl:w-14 xl:h-14 rounded-full flex items-center justify-center text-lime-900 shadow-sm transition-all duration-300 hover:scale-110 active:scale-95 hover:bg-lime-900 hover:text-lime-300 active:bg-lime-900 active:text-lime-300">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 12h14m-7-7l7 7-7 7"></path></svg>
+      </button>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==========================================
+     CLIENT-SIDE JAVASCRIPT FOR THE SLIDER
+     ========================================== -->
+<script define:vars={{ 
+  karakterPath: karakterImg.src, 
+  kompetitifPath: kompetitifImg.src, 
+  kreatifPath: kreatifImg.src, 
+  kontribusiPath: kontribusiImg.src 
+}}>
+  // 1. Define all your slide content here
+  const slides = [
+    {
+      title: "Karakter Aswaja",
+      image: karakterPath,
+      description: "Menjadikan prinsip Ahlussunnah wal Jamaa'ah sebagai landasan dalam bersikap santun, toleran, dan berakhlak mulia."
+    },
+    {
+      title: "Kompetitif",
+      image: kompetitifPath, 
+      description: "Berkomitmen pada standar tinggi dan memiliki daya juang untuk meraih prestasi."
+    },
+    {
+      title: "Kreatif",
+      image: kreatifPath, 
+      description: "Mendorong rasa ingin tahu dan keberanian untuk menciptakan karya-karya baru."
+    },
+    {
+      title: "Kontribusi Produktif",
+      image: kontribusiPath, 
+      description: "Membiasakan diri untuk bekerja cerdas dan memberikan dampak positif bagi lingkungan sekitar."
+    }
+  ];
+
+  // 2. Set the starting slide (0 is Karakter)
+  let currentIndex = 0;
+
+  // 3. Grab the HTML elements that need to change
+  const descEl = document.getElementById('description-text');
+  const imgEl = document.getElementById('slider-image');
+  const titleEl = document.getElementById('value-title');
+  
+  // Grab all Prev and Next buttons (desktop and mobile)
+  const prevBtns = document.querySelectorAll('.slider-prev');
+  const nextBtns = document.querySelectorAll('.slider-next');
+
+  // 4. Function to update the HTML with new content and animations
+  function updateSlide(index) {
+    if(descEl && imgEl && titleEl) {
+      
+      // Step A: Remove the animation classes so they can be restarted
+      descEl.classList.remove('animate-fade');
+      imgEl.classList.remove('animate-slide');
+      titleEl.classList.remove('animate-slide');
+
+      // Step B: Trigger a "reflow" (this forces the browser to restart the animation)
+      void descEl.offsetWidth;
+      void imgEl.offsetWidth;
+      void titleEl.offsetWidth;
+
+      // Step C: Swap the actual content
+      descEl.textContent = slides[index].description;
+      imgEl.src = slides[index].image;
+      titleEl.textContent = slides[index].title;
+
+      // Step D: Add the animation classes back to trigger the fade and slide!
+      descEl.classList.add('animate-fade');
+      imgEl.classList.add('animate-slide');
+      titleEl.classList.add('animate-slide');
+    }
+  }
+
+  // 5. Attach click events to the Previous buttons
+  prevBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Go to the previous slide, or loop back to the end if we are at the beginning
+      currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1;
+      updateSlide(currentIndex);
+    });
+  });
+
+  // 6. Attach click events to the Next buttons
+  nextBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Go to the next slide, or loop back to the beginning if we are at the end
+      currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
+      updateSlide(currentIndex);
+    });
+  });
+</script>
+
+<style>
+  /* The class for Container A text */
+  .animate-fade {
+    animation: fadeIn 0.6s ease-in-out forwards;
+  }
+  
+  /* The class for Container B image and title */
+  .animate-slide {
+    animation: slideIn 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+
+  /* The actual fade keyframes */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* The actual slide-in keyframes (starts 30px to the right and transparent) */
+  @keyframes slideIn {
+    from { 
+      opacity: 0; 
+      transform: translateX(30px); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateX(0); 
+    }
+  }
+</style>

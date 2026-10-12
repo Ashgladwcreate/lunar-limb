@@ -1,0 +1,413 @@
+---
+import '../styles/global.css';
+import Navbar from '../components/Navbar.astro';
+import heroImg from '../assets/pendidik.png'
+import pendidikImg from '../assets/Guru/Anonim.svg';
+import pengasuh1Img from '../assets/Pengasuh1.jpg';
+import pengasuh2Img from '../assets/Pengasuh2.jpeg';
+import ustadz1Img from '../assets/Guru/Azis.jpeg';
+import ustadz2Img from '../assets/Guru/Durotul.jpg';
+import ustadz3Img from '../assets/Guru/Syifauddin.jpeg';
+import ustadz4Img from '../assets/Guru/Alfin.jpeg';
+import ustadz6Img from '../assets/Guru/Imma.jpeg';
+import ustadz7Img from '../assets/Guru/Hafna.jpeg';
+import ustadz8Img from '../assets/Guru/Luluk.jpeg';
+import ustadz9Img from '../assets/Guru/Della.jpg';
+import ustadz10Img from '../assets/Guru/Risza.jpg';
+import ustadz11Img from '../assets/Guru/fahmi.jpeg';
+import ustadz12Img from '../assets/Guru/Rachel.jpeg';
+import ustadz13Img from '../assets/Guru/Zaidan.jpeg';
+import Footer from '../components/footer.astro';
+---
+
+<html lang="id">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pendidik di PPMHS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-lime-50">
+    
+    <Navbar hasDarkHero={false} />
+
+    <main class="max-w-[1440px] mx-auto px-4 lg:px-12 pt-28 lg:pt-36">
+      
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-lime-900 mb-8 md:mb-8 lg:mb-12 tracking-tight md:pr-20 lg:pr-0">
+        Pendidik di PPMHS
+      </h1>
+
+      <div class="relative w-full">
+        
+        <img 
+          src={heroImg.src} 
+          alt="Kegiatan Yayasan Miftahul Huda Soko" 
+          class="w-full h-[350px] md:h-[500px] lg:h-[650px] object-cover rounded-[2.5rem] lg:rounded-[4rem]"
+        />
+
+        <div class="wur-cutout hidden lg:flex absolute top-1/2 -translate-y-1/2 right-0 w-16 h-16 bg-lime-50 items-center justify-center z-10">
+          
+          <button 
+            class="w-13 h-13 bg-lime-900 text-lime-50 rounded-full flex items-center justify-center hover:bg-lime-950 transition-colors group cursor-pointer"
+            aria-label="Scroll down"
+            onclick="window.scrollBy({ top: 600, behavior: 'smooth' })"
+          >
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              class="w-5 h-5 transition-transform duration-300 group-hover:translate-y-0.5" 
+              fill="none" 
+              viewBox="0 0 24 24" 
+              stroke="currentColor" 
+              stroke-width="2.5"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </button>
+          
+        </div>
+      
+      </div>
+
+      <section class="w-full max-w-[1300px] mx-auto mt-16 md:mt-24 lg:mt-32 mb-24 lg:px-12">
+        
+        <!-- Big Intro Text -->
+        <h2 class="max-w-4xl mx-auto text-xl md:text-2xl lg:text-2xl md:text-center font-medium text-lime-900 leading-relaxed lg:leading-snug">
+          <span class="font-semibold">Jajaran pendidik dan pengurus kami adalah para pembelajar seumur hidup</span> yang senantiasa memperbaiki diri dan memperdalam ilmu. Semua itu dilakukan semata-mata untuk membersamai para santri dalam pengalaman belajar yang bermakna dan memuaskan batin. Mereka melangkah bersama di PPMHS untuk saling menebar inspirasi, serta mengambil hikmah dari setiap momen belajar mengajar demi meraih ridha Allah SWT.
+        </h2>
+      
+      </section>
+
+      <section class="w-full max-w-[1300px] mx-auto mb-24 lg:px-12">
+        
+        <div class="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center lg:items-start">
+          
+          <!-- Left: Profile Picture (Using blob shape to stay on-brand) -->
+          <div class="w-72 h-72 flex-shrink-0">
+            <div class="w-full h-full p-2 md:p-3 blob-shape-5 flex items-center justify-center overflow-visible">
+              <img 
+                src={pengasuh1Img.src} 
+                alt="Pengasuh PPMHS" 
+                class="w-full h-full object-cover blob-shape-5" 
+              />
+            </div>
+          </div>
+
+          <!-- Right: Message Content -->
+          <div class="flex-1 flex flex-col">
+            <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-lime-900 mb-6 text-center lg:text-left">
+              Pesan Hangat dari Pengasuh
+            </h2>
+            
+            <div id="pesan-wrapper" class="relative max-h-[280px] overflow-hidden transition-[max-height] duration-700 ease-in-out">
+              
+              <div class="text-lime-900 text-base md:text-lg font-medium leading-loose space-y-6 pb-4">
+                <p>
+                  Ahlan wa sahlan! Selamat datang di Pondok Pesantren Miftahul Huda Soko, tempat di mana proses belajar yang penuh suka cita dan ketekunan berlangsung setiap hari. Kami berikhtiar tanpa henti untuk menjadi ladang ilmu yang membawa rahmat bagi alam semesta.
+                </p>
+                
+                <p>
+                  Perjalanan saya membersamai pesantren ini dimulai bertahun-tahun yang lalu, berangkat dari niat tulus untuk membangun peradaban akhlak di tengah masyarakat. Kecintaan saya pada dunia pendidikan Islam berakar di sini, melalui interaksi tak ternilai dengan para kiai, asatidz, dan santri yang membuka mata saya akan pentingnya keikhlasan dalam beramal. Menyaksikan pondok ini berkembang dari masa ke masa dan tetap konsisten memegang teguh akidah Ahlussunnah wal Jamaah adalah sebuah anugerah yang tak terhingga.
+                </p>
+                
+                <p>
+                  Apa yang membuat PPMHS begitu istimewa? Pondok ini bukan sekadar asrama dan ruang kelas, melainkan sebuah komunitas ukhuwah yang unik. Kami tidak hanya membekali santri dengan kedalaman ilmu agama, tetapi juga menanamkan visi ke depan agar mereka membawa perubahan positif di tengah masyarakat. Para santri didorong untuk berpikir kritis, mandiri, dan bermuhasabah atas pencapaian mereka.
+                </p>
+                
+                <p>
+                  Salah satu kebahagiaan terbesar sebagai pendidik adalah menyaksikan tunas-tunas muda ini mekar dari waktu ke waktu. Komunitas santri kami menyimpan begitu banyak potensi luar biasa. Jantung dari pengabdian kami di sini adalah memastikan setiap santri mendapatkan peluang terbaik untuk tumbuh, memiliki akses pada literatur Islam yang kaya, dan merasa didukung penuh dalam setiap langkah hijrahnya. Insya Allah, dari bilik-bilik pesantren ini, akan lahir para pemimpin masa depan yang berwawasan luas dan berhati lembut.
+                </p>
+
+                <p>
+                  Kami berharap Anda dapat menjadi bagian dari komunitas kami dan turut membangun keluarga PPMHS yang hangat dan suportif.
+                </p>
+
+                <div class="pt-4">
+                  <h3 class="text-xl md:text-2xl font-bold text-lime-900 mb-1">
+                    K.H. Kholilur Rohman
+                  </h3>
+                  <p class="text-lime-900 text-lg leading-snug">
+                    Pengasuh Pondok Pesantren Miftahul Huda Soko
+                  </p>
+                </div>
+              </div>
+
+              <div id="pesan-gradient" class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-lime-50 to-transparent pointer-events-none transition-opacity duration-500"></div>
+
+          </div>
+          <button id="pesan-toggle" class="mt-4 flex items-center gap-2 text-lime-800 font-bold hover:text-lime-700 transition-colors focus:outline-none group self-start">
+              <span id="pesan-toggle-text">Baca Selengkapnya</span>
+              <svg id="pesan-toggle-icon" class="w-5 h-5 transition-transform duration-500 group-hover:translate-y-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+              </svg>
+          </button>
+
+        </div>
+      </section>
+
+      <section class="w-full max-w-[1300px] mx-auto mb-24">
+        
+        <!-- Overline Tag/Badge -->
+        <div class="inline-block bg-lime-200 text-lime-900 text-xs md:text-sm font-bold px-3 py-1 mb-6 uppercase tracking-widest rounded-sm">
+          Pengasuh
+        </div>
+        
+        <!-- Grid Title -->
+        <h2 class="text-3xl md:text-4xl font-bold text-lime-900 mb-12 md:mb-16">
+          Pengasuh Pondok Pesantren Miftahul Huda Soko
+        </h2>
+
+        <!-- 4-Column Grid Layout. It will automatically wrap to the next row after 4 items. -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
+          
+          <!-- Profile 1 -->
+          <div class="flex flex-col group">
+            <div class="bg-lime-200/60 rounded-[2rem] p-6 lg:p-8 mb-6 aspect-square flex items-center justify-center overflow-visible">
+               <img src={pengasuh1Img.src} alt="KH. Kholilur Rohman" class="w-full h-full object-cover blob-shape-1 shadow-sm group-hover:scale-105 transition-transform duration-500" />
+            </div>
+            <h3 class="text-xl font-bold text-lime-900 mb-1">K.H. Kholilur Rohman, M.Pd., M.Pd.I</h3>
+            <p class="text-lime-900 text-base">Pengasuh Utama PPMHS</p>
+          </div>
+
+          <!-- Profile 2 -->
+          <div class="flex flex-col group">
+            <div class="bg-lime-200/60 rounded-[2rem] p-6 lg:p-8 mb-6 aspect-square flex items-center justify-center overflow-visible">
+               <img src={pengasuh2Img.src} alt="Hj. Durotul Munawaroh" class="w-full h-full object-cover blob-shape-2 shadow-sm group-hover:scale-105 transition-transform duration-500" />
+            </div>
+            <h3 class="text-xl font-bold text-lime-900 mb-1">Hj. Durrotul Munawaroh, S.Pd.I.</h3>
+            <p class="text-lime-900 text-base">Pengasuh Program Tahfidz</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="w-full max-w-[1300px] mx-auto mb-24">
+        
+        <!-- Overline Tag/Badge -->
+        <div class="inline-block bg-lime-200 text-lime-900 text-xs md:text-sm font-bold px-3 py-1 mb-6 uppercase tracking-widest rounded-sm">
+          Asatidz
+        </div>
+        
+        <!-- Grid Title -->
+        <h2 class="text-3xl md:text-4xl font-bold text-lime-900 mb-12 md:mb-16">
+          Daftar pengajar kami saat ini:
+        </h2>
+
+        <!-- 4-Column Grid Layout. It will automatically wrap to the next row after 4 items. -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
+          
+          <!-- Profile 1 -->
+          <div class="flex flex-col group">
+            <div class="bg-lime-200/60 rounded-[2rem] p-6 lg:p-8 mb-6 aspect-square flex items-center justify-center overflow-visible">
+               <img src={ustadz1Img.src} alt="Ust. Aziz" class="w-full h-full object-cover blob-shape-1 shadow-sm group-hover:scale-105 transition-transform duration-500" />
+            </div>
+            <h3 class="text-xl font-bold text-lime-900 mb-1">Moh. Aziz, S.Pd.</h3>
+            <p class="text-lime-900 text-base">Wali Kelas 3 Wustha Putra/Pengajar Washiyatul Musthafa dan Khulashah Nurul Yaqin</p>
+          </div>
+
+          <!-- Profile 2 -->
+          <div class="flex flex-col group">
+            <div class="bg-lime-200/60 rounded-[2rem] p-6 lg:p-8 mb-6 aspect-square flex items-center justify-center overflow-visible">
+               <img src={ustadz2Img.src} alt="Ustazah Durroh" class="w-full h-full object-cover blob-shape-2 shadow-sm group-hover:scale-105 transition-transform duration-500" />
+            </div>
+            <h3 class="text-xl font-bold text-lime-900 mb-1">Durotul Azizah, S.Pd.I.</h3>
+            <p class="text-lime-900 text-base">Pengajar Taqrib</p>
+          </div>
+
+          <!-- Profile 3 -->
+          <div class="flex flex-col group">
+            <div class="bg-lime-200/60 rounded-[2rem] p-6 lg:p-8 mb-6 aspect-square flex items-center justify-center overflow-visible">
+               <img src={ustadz3Img.src} alt="Ust. Syifa" class="w-full h-full object-cover blob-shape-3 shadow-sm group-hover:scale-105 transition-transform duration-500" />
+            </div>
+            <h3 class="text-xl font-bold text-lime-900 mb-1">Moh. Syifaudin, S.H.</h3>
+            <p class="text-lime-900 text-base">Pengajar Taisirul Khalaq</p>
+          </div>
+          
+          <!-- Profile 4 -->
+          <div class="flex flex-col group">
+            <div class="bg-lime-200/60 rounded-[2rem] p-6 lg:p-8 mb-6 aspect-square flex items-center justify-center overflow-visible">
+               <img src={ustadz4Img.src} alt="Ust. Alfin" class="w-full h-full object-cover blob-shape-4 group-hover:scale-105 transition-transform duration-500" />
+            </div>
+            <h3 class="text-xl font-bold text-lime-900 mb-1">Alfin Nur Achsan, S.Pd.I.</h3>
+            <p class="text-lime-900 text-base">Pengajar Aqidatul Awam dan Aqidah Islamiyah</p>
+          </div>
+
+          <!-- Profile 5 -->
+          <div class="flex flex-col group">
+            <div class="bg-lime-200/60 rounded-[2rem] p-6 lg:p-8 mb-6 aspect-square flex items-center justify-center overflow-visible">
+               <img src={pendidikImg.src} alt="Ust. Wahyu" class="w-full h-full object-cover blob-shape-5 group-hover:scale-105 transition-transform duration-500" />
+            </div>
+            <h3 class="text-xl font-bold text-lime-900 mb-1">Muhammad Wahyu, S.H.</h3>
+            <p class="text-lime-900 text-base">Pengajar Ta'lim Muta'allim</p>
+          </div>
+
+          <!-- Profile 6 -->
+          <div class="flex flex-col group">
+            <div class="bg-lime-200/60 rounded-[2rem] p-6 lg:p-8 mb-6 aspect-square flex items-center justify-center overflow-visible">
+               <img src={ustadz6Img.src} alt="Ustazah Imma" class="w-full h-full object-cover blob-shape-6 shadow-sm group-hover:scale-105 transition-transform duration-500" />
+            </div>
+            <h3 class="text-xl font-bold text-lime-900 mb-1">Muhimmatul Khoir, S.Pd.</h3>
+            <p class="text-lime-900 text-base">Penanggung Jawab Santri Tahfidz/Wali Kelas 3 Wustha Putri/Pengajar Syifaul Jinan</p>
+          </div>
+
+          <!-- Profile 7 -->
+          <div class="flex flex-col group">
+            <div class="bg-lime-200/60 rounded-[2rem] p-6 lg:p-8 mb-6 aspect-square flex items-center justify-center overflow-visible">
+               <img src={ustadz7Img.src} alt="Ustadzah Hafna" class="w-full h-full object-cover blob-shape-1 shadow-sm group-hover:scale-105 transition-transform duration-500" />
+            </div>
+            <h3 class="text-xl font-bold text-lime-900 mb-1">Hafnatus Safira Putri</h3>
+            <p class="text-lime-900 text-base">Pembina Kegiatan Santri/Wali Kelas 2 Wustha Putri/Pengajar Bahasa Arab</p>
+          </div>
+
+          <!-- Profile 8 -->
+          <div class="flex flex-col group">
+            <div class="bg-lime-200/60 rounded-[2rem] p-6 lg:p-8 mb-6 aspect-square flex items-center justify-center overflow-visible">
+               <img src={ustadz8Img.src} alt="Ustadzah Luluk" class="w-full h-full object-cover blob-shape-2 shadow-sm group-hover:scale-105 transition-transform duration-500" />
+            </div>
+            <h3 class="text-xl font-bold text-lime-900 mb-1">Luluk Nur Hamidah</h3>
+            <p class="text-lime-900 text-base">Wali Kelas 1 Wustha Putri/Pengajar Jurumiyah dan Tashrif</p>
+          </div>
+
+          <!-- Profile 9 -->
+          <div class="flex flex-col group">
+            <div class="bg-lime-200/60 rounded-[2rem] p-6 lg:p-8 mb-6 aspect-square flex items-center justify-center overflow-visible">
+               <img src={ustadz9Img.src} alt="Della Hidayati Rahman" class="w-full h-full object-cover blob-shape-3 shadow-sm group-hover:scale-105 transition-transform duration-500" />
+            </div>
+            <h3 class="text-xl font-bold text-lime-900 mb-1">Della Hidayati Rahman, S.Si.</h3>
+            <p class="text-lime-900 text-base">Staf IT/Pengajar Fathul Qorib</p>
+          </div>
+
+          <!-- Profile 10 -->
+          <div class="flex flex-col group">
+            <div class="bg-lime-200/60 rounded-[2rem] p-6 lg:p-8 mb-6 aspect-square flex items-center justify-center overflow-visible">
+               <img src={ustadz10Img.src} alt="Ustazah Risza" class="w-full h-full object-cover blob-shape-5 shadow-sm group-hover:scale-105 transition-transform duration-500" />
+            </div>
+            <h3 class="text-xl font-bold text-lime-900 mb-1">Risza  Nuril Syamsiyah, S.Pd.</h3>
+            <p class="text-lime-900 text-base">Wali Kelas Santri Tahfidz/Pengajar Mabadi Fiqih dan Kitab Alala</p>
+          </div>
+
+          <!-- Profile 11 -->
+          <div class="flex flex-col group">
+            <div class="bg-lime-200/60 rounded-[2rem] p-6 lg:p-8 mb-6 aspect-square flex items-center justify-center overflow-visible">
+               <img src={ustadz11Img.src} alt="Ust. Fahmi" class="w-full h-full object-cover blob-shape-6 shadow-sm group-hover:scale-105 transition-transform duration-500" />
+            </div>
+            <h3 class="text-xl font-bold text-lime-900 mb-1">Muhammad Awwaludin Fahmi</h3>
+            <p class="text-lime-900 text-base">Wali Kelas 2 Wustha Putra/Pengajar Khulashah Nurul Yaqin dan Menulis Syarah Kitab</p>
+          </div>
+
+           <!-- Profile 12 -->
+          <div class="flex flex-col group">
+            <div class="bg-lime-200/60 rounded-[2rem] p-6 lg:p-8 mb-6 aspect-square flex items-center justify-center overflow-visible">
+               <img src={ustadz12Img.src} alt="Ustadzah Rachel" class="w-full h-full object-cover blob-shape-1 shadow-sm group-hover:scale-105 transition-transform duration-500" />
+            </div>
+            <h3 class="text-xl font-bold text-lime-900 mb-1">Rachel Dwi Hapsari</h3>
+            <p class="text-lime-900 text-base">Pengajar Tashrif dan Menulis Syarah Kitab</p>
+          </div>
+
+          <!-- Profile 13 -->
+          <div class="flex flex-col group">
+            <div class="bg-lime-200/60 rounded-[2rem] p-6 lg:p-8 mb-6 aspect-square flex items-center justify-center overflow-visible">
+               <img src={ustadz13Img.src} alt="Ust. Zaidan" class="w-full h-full object-cover blob-shape-2 shadow-sm group-hover:scale-105 transition-transform duration-500" />
+            </div>
+            <h3 class="text-xl font-bold text-lime-900 mb-1">M.Yuda Ramadhanu Zaidan </h3>
+            <p class="text-lime-900 text-base">Wali Kelas 1 Wustha Putra/Pengajar Mabadi Fiqih</p>
+          </div>
+
+        </div>
+
+      </section>
+    
+    </main>
+    <Footer />
+
+<script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const wrapper = document.getElementById('pesan-wrapper');
+        const gradient = document.getElementById('pesan-gradient');
+        const toggleBtn = document.getElementById('pesan-toggle');
+        const toggleText = document.getElementById('pesan-toggle-text');
+        const toggleIcon = document.getElementById('pesan-toggle-icon');
+        
+        let isExpanded = false;
+        
+        toggleBtn.addEventListener('click', () => {
+          isExpanded = !isExpanded;
+          
+          if (isExpanded) {
+            // EXPAND: Set height to the actual content size, hide gradient, rotate arrow
+            wrapper.style.maxHeight = wrapper.scrollHeight + "px";
+            gradient.classList.add('opacity-0');
+            
+            toggleText.textContent = "Lebih Sedikit";
+            // Flip the arrow upside down and reverse the hover animation
+            toggleIcon.classList.add('rotate-180');
+            toggleIcon.classList.replace('group-hover:translate-y-1', 'group-hover:-translate-y-1');
+          } else {
+            // COLLAPSE: Snap back to 280px, show gradient, reset arrow
+            wrapper.style.maxHeight = "280px";
+            gradient.classList.remove('opacity-0');
+            
+            toggleText.textContent = "Baca Selengkapnya";
+            toggleIcon.classList.remove('rotate-180');
+            toggleIcon.classList.replace('group-hover:-translate-y-1', 'group-hover:translate-y-1');
+          }
+        });
+      });
+    </script>
+
+  </body>
+  <style>
+    /* ==========================================
+       RIGHT CUTOUT CSS (Scroll Button)
+       ========================================== */
+    .wur-cutout {
+        border-top-left-radius: 32px;
+        border-bottom-left-radius: 32px;
+    }
+    .wur-cutout::before,
+    .wur-cutout::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        width: 32px;
+        height: 32px;
+        background: transparent;
+        pointer-events: none;
+    }
+    .wur-cutout::before {
+        bottom: 100%;
+        background: radial-gradient(circle at 0 0, transparent 31.5px, #f7fee7 32px);
+    }
+    .wur-cutout::after {
+        top: 100%;
+        background: radial-gradient(circle at 0 100%, transparent 31.5px, #f7fee7 32px);
+    }
+
+    /* ==========================================
+       ORGANIC BLOB SHAPES FOR PORTRAITS
+       ========================================== */
+    .blob-shape-1 {
+      border-radius: 73% 27% 41% 59% / 43% 54% 46% 57%;
+    }
+    .blob-shape-2 {
+      border-radius: 39% 61% 47% 53% / 58% 39% 61% 42%;
+    }
+    .blob-shape-3 {
+      border-radius: 54% 46% 30% 70% / 60% 36% 64% 40%;
+    }
+    .blob-shape-4 {
+      /* Smooth organic curve leaning top-left */
+      border-radius: 64% 36% 43% 57% / 52% 30% 70% 48%;
+    }
+    
+    .blob-shape-5 {
+      /* Softer, more rounded on the top-left and bottom-right */
+      border-radius: 50% 50% 65% 35% / 70% 45% 55% 30%;
+    }
+    
+    .blob-shape-6 {
+      /* Slightly squashed diagonally for nice variety */
+      border-radius: 32% 68% 55% 45% / 41% 63% 37% 59%;
+    }
+  </style>
+
+</html>

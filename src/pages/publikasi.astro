@@ -1,0 +1,536 @@
+---
+import { getCollection } from 'astro:content';
+import '../styles/global.css';
+import Navbar from '../components/Navbar.astro';
+import heroImg from '../assets/kreativiti.webp';
+import Footer from '../components/footer.astro';
+
+// 1. Mengambil semua data dari folder src/content/publikasi
+const semuaPublikasi = await getCollection('publikasi');
+
+// 2. Mengurutkan berdasarkan tanggal terbaru
+semuaPublikasi.sort((a, b) => new Date(b.data.tanggal).valueOf() - new Date(a.data.tanggal).valueOf());
+
+// 3. Memisahkan kategori (Perhatikan: sekarang menggunakan .data)
+const sorotanUtama = semuaPublikasi.filter(item => item.data.sorotan === true).slice(0,3);
+const artikelPengasuh = semuaPublikasi.filter(item => item.data.kategori === "Artikel Pengasuh");
+const artikelSantri = semuaPublikasi.filter(item => item.data.kategori === "Artikel Santri");
+const beritaKegiatan = semuaPublikasi.filter(item => item.data.kategori === "Berita Kegiatan");
+
+const formatTanggal = (dateString) => {
+  if (!dateString) return "";
+  const d = new Date(dateString);
+  // Akan menghasilkan format: "Sab, 10 Okt 2026"
+  return d.toLocaleDateString('id-ID', {
+    weekday: 'short',
+    day: 'numeric',
+    month: 'short', 
+    year: 'numeric'
+  });
+};
+---
+
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Publikasi | PPMHS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-lime-50">
+    
+    <Navbar hasDarkHero={false} />
+
+    <main class="max-w-[1440px] mx-auto px-4 lg:px-12 pt-28 lg:pt-36 mb-32">
+      
+      <!-- ==========================================
+           1. HERO & JUDUL HALAMAN
+           ========================================== -->
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-lime-900 mb-8 tracking-tight">
+        Publikasi & Berita PPMHS
+      </h1>
+
+      <div class="relative w-full mb-20 md:mb-28">
+        <img 
+          src={heroImg.src} 
+          alt="Publikasi PPMHS" 
+          class="w-full h-[350px] md:h-[500px] lg:h-[650px] object-cover rounded-[2.5rem] lg:rounded-[4rem]"
+        />
+        <div class="wur-cutout hidden lg:flex absolute top-1/2 -translate-y-1/2 right-0 w-16 h-16 bg-lime-50 items-center justify-center z-10">
+          <button 
+            class="w-13 h-13 bg-lime-900 text-lime-50 rounded-full flex items-center justify-center hover:bg-lime-950 transition-colors group cursor-pointer"
+            aria-label="Scroll down"
+            onclick="window.scrollBy({ top: 600, behavior: 'smooth' })"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 transition-transform duration-300 group-hover:translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- ==========================================
+           2. HIGHLIGHT (SOROTAN UTAMA)
+           ========================================== -->
+      <section class="w-full max-w-[1300px] mx-auto mb-20">
+        <h2 class="text-2xl lg:text-4xl font-bold text-lime-900 mb-6 tracking-tight">Publikasi Pilihan untuk Anda</h2>
+        
+        {sorotanUtama.length === 1 ? (
+          /* TAMPILAN 1: BANNER BESAR (JIKA BERITA HANYA 1) */
+          <a href={`/publikasi/${sorotanUtama[0].id}`} class="group block bg-lime-100/70 rounded-[2rem] overflow-hidden border border-lime-900/10 hover:border-lime-900/30 transition-all duration-300 hover:shadow-xl hover:shadow-lime-900/5">
+            <div class="grid grid-cols-1 md:grid-cols-2">
+              <div class="h-64 md:h-auto overflow-hidden">
+                <img src={sorotanUtama[0].data.gambar.src} alt={sorotanUtama[0].data.judul} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
+              </div>
+              <div class="p-8 md:p-12 lg:p-16 flex flex-col justify-center">
+                <span class="text-xs font-bold uppercase tracking-widest text-lime-900/60 mb-3">{sorotanUtama[0].data.kategori}</span>
+                <h3 class="text-2xl md:text-3xl font-bold text-lime-900 mb-4 leading-snug group-hover:text-lime-700 transition-colors">{sorotanUtama[0].data.judul}</h3>
+                <p class="text-base md:text-lg text-lime-900 leading-relaxed mb-6">{sorotanUtama[0].data.deskripsi}</p>
+                <div class="inline-flex items-center gap-2 text-sm font-bold text-lime-900">
+                  Baca selengkapnya 
+                  <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+                </div>
+              </div>
+            </div>
+          </a>
+        ) : (
+          /* TAMPILAN 2: GRID BERDAMPINGAN (JIKA BERITA LEBIH DARI 1) */
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {sorotanUtama.map((item, index) => {
+              // Menyiapkan 3 shade warna dari putih ke hijau lime
+              const pilihanWarna = [
+                "bg-lime-400/80 hover:bg-lime-300",      
+                "bg-lime-200 hover:bg-white",
+                "bg-white hover:bg-lime-50",
+              ];
+              // Mengambil warna sesuai nomor urut kartu (0, 1, 2)
+              const warnaCard = pilihanWarna[index];
+
+              return (
+                <a href={`/publikasi/${item.id}`} class={`group flex flex-col overflow-hidden border border-lime-900/10 transition-all duration-300 ease-out hover:-translate-y-1 hover:border-lime-900/30 hover:shadow-xl hover:shadow-lime-900/10 rounded-[2rem] ${warnaCard}`}>
+                  <div class="w-full h-56 overflow-hidden">
+                    <img src={item.data.gambar.src} alt={item.data.judul} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
+                  </div>
+                  <div class="p-6 md:p-8 flex flex-col flex-grow">
+                    <span class="text-[11px] font-bold uppercase tracking-widest text-lime-900/60 mb-3 block">{item.data.kategori}</span>
+                    <h3 class="text-xl md:text-2xl font-bold text-lime-900 mb-3 leading-snug group-hover:text-lime-700 transition-colors">{item.data.judul}</h3>
+                    <p class="text-sm text-lime-900 leading-relaxed mb-6 line-clamp-3">{item.data.deskripsi}</p>
+                    <div class="mt-auto">
+                      <div class="inline-flex items-center gap-2 text-sm font-bold text-lime-900 group-hover:text-lime-700">
+                        Baca selengkapnya 
+                        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              );
+            })}
+          </div>
+        )}
+      </section>
+
+      <!-- ==========================================
+           3. ARTIKEL PENGASUH
+           ========================================== -->
+      <section class="w-full max-w-[1300px] mx-auto mb-20">
+        <!-- HEADER KELOMPOK: Judul di Kiri, Tombol Panah di Kanan -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-6 gap-4">
+          <div>
+            <div class="inline-block bg-lime-300 text-lime-900 text-[10px] md:text-xs font-bold px-3 py-1 mb-3 uppercase tracking-widest rounded-sm">
+              Artikel
+            </div>
+            <h2 class="text-2xl lg:text-4xl font-bold text-lime-900 tracking-tight">
+              Artikel Pengasuh ({artikelPengasuh.length})
+            </h2>
+          </div>
+          
+          <!-- Tombol Panah Rata Kanan di HP dan Desktop -->
+          {artikelPengasuh.length > 0 && (
+            <div class="flex w-full md:w-auto justify-end items-center gap-2 mt-2 md:mt-0">
+              <button id="btn-prev-pengasuh" class="w-10 h-10 md:w-12 md:h-12 bg-lime-900 text-lime-50 rounded-full flex items-center justify-center hover:bg-lime-950 transition-colors cursor-pointer group" aria-label="Geser kiri">
+                <svg class="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+                </svg>
+              </button>
+              <button id="btn-next-pengasuh" class="w-10 h-10 md:w-12 md:h-12 bg-lime-900 text-lime-50 rounded-full flex items-center justify-center hover:bg-lime-950 transition-colors cursor-pointer group" aria-label="Geser kanan">
+                <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+              </button>
+            </div>
+          )}
+        </div>
+        
+        <!-- Pembungkus Flex Horizontal (Artikel Pengasuh) -->
+        <div id="slider-pengasuh" class="flex overflow-x-auto gap-3 md:gap-6 pb-8 pt-4 snap-x snap-mandatory hide-scrollbar scroll-smooth">
+          {artikelPengasuh.map((item) => (
+            <a href={`/publikasi/${item.id}`} class="group flex-shrink-0 w-[85vw] sm:w-[320px] lg:w-[380px] snap-start bg-lime-100/70 rounded-[1.75rem] p-5 flex flex-col border border-lime-900/5 transition-all duration-300 ease-out hover:scale-[1.02] hover:-translate-y-1 hover:bg-lime-100 hover:border-lime-900/20 hover:shadow-xl hover:shadow-lime-900/10">
+              <div class="w-full h-52 rounded-2xl overflow-hidden mb-5">
+                <img src={item.data.gambar.src} alt={item.data.judul} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" />
+              </div>
+              <span class="text-[11px] font-bold uppercase tracking-widest text-lime-900/60 mb-2">{item.data.kategori}</span>
+              <h3 class="text-xl font-bold text-lime-900 mb-3 leading-snug group-hover:text-lime-700 transition-colors">{item.data.judul}</h3>
+              <p class="text-sm text-lime-900 leading-relaxed">{item.data.deskripsi}</p>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <!-- ==========================================
+           4. ARTIKEL SANTRI
+           ========================================== -->
+      <section class="w-full max-w-[1300px] mx-auto mb-24">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-6 gap-4">
+          <div>
+            <div class="inline-block bg-lime-300 text-lime-900 text-[10px] md:text-xs font-bold px-3 py-1 mb-3 uppercase tracking-widest rounded-sm">
+              Artikel
+            </div>
+            <h2 class="text-2xl lg:text-4xl font-bold text-lime-900 tracking-tight">
+              Artikel Santri ({artikelSantri.length})
+            </h2>
+          </div>
+          
+          <!-- Tombol Panah Rata Kanan di HP dan Desktop -->
+          {artikelSantri.length > 0 && (
+            <div class="flex w-full md:w-auto justify-end items-center gap-2 mt-2 md:mt-0">
+              <button id="btn-prev-santri" class="w-10 h-10 md:w-12 md:h-12 bg-lime-900 text-lime-50 rounded-full flex items-center justify-center hover:bg-lime-950 transition-colors cursor-pointer group" aria-label="Geser kiri">
+                <svg class="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+                </svg>
+              </button>
+              <button id="btn-next-santri" class="w-10 h-10 md:w-12 md:h-12 bg-lime-900 text-lime-50 rounded-full flex items-center justify-center hover:bg-lime-950 transition-colors cursor-pointer group" aria-label="Geser kanan">
+                <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+              </button>
+            </div>
+          )}
+        </div>
+        
+        {artikelSantri.length > 0 ? (
+          <!-- Pembungkus Flex Horizontal (Artikel Santri) -->
+          <div id="slider-santri" class="flex overflow-x-auto gap-3 md:gap-6 pb-8 pt-4 snap-x snap-mandatory hide-scrollbar scroll-smooth">
+            {artikelSantri.map((item) => (
+              <a href={`/publikasi/${item.id}`} class="group flex-shrink-0 w-[85vw] sm:w-[320px] lg:w-[380px] snap-start bg-lime-100/70 rounded-[1.75rem] p-5 flex flex-col border border-lime-900/5 transition-all duration-300 ease-out hover:scale-[1.02] hover:-translate-y-1 hover:bg-lime-100 hover:border-lime-900/20 hover:shadow-xl hover:shadow-lime-900/10">
+                <div class="w-full h-52 rounded-2xl overflow-hidden mb-5">
+                  <img src={item.data.gambar.src} alt={item.data.judul} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" />
+                </div>
+                <span class="text-[11px] font-bold uppercase tracking-widest text-lime-900/60 mb-2">{item.data.kategori}</span>
+                <h3 class="text-xl font-bold text-lime-900 mb-3 leading-snug group-hover:text-lime-700 transition-colors">{item.data.judul}</h3>
+                <p class="text-sm text-lime-900 leading-relaxed">{item.data.deskripsi}</p>
+              </a>
+            ))}
+          </div>
+        ) : (
+          /* TAMPILAN "SEGERA HADIR" */
+          <div class="w-full bg-lime-50/50 border-2 border-dashed border-lime-900/20 rounded-[2rem] py-16 px-6 flex flex-col items-center justify-center text-center">
+            <svg class="w-12 h-12 text-lime-900/30 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+            </svg>
+            <h3 class="text-xl md:text-2xl font-bold text-lime-900 mb-2">Segera Hadir</h3>
+            <p class="text-sm md:text-base text-lime-900/70 max-w-md">Karya tulis dan opini dari para santri PPMHS sedang dalam proses penyiapan dan akan segera diterbitkan di sini.</p>
+          </div>
+        )}
+      </section>
+
+
+
+      <section class="relative w-[100vw] left-1/2 right-1/2 -mx-[50vw] mt-24 mb-16 overflow-hidden bg-lime-50 py-8">
+          
+          
+          <div class="px-4 lg:px-0 max-w-[1300px] mx-auto w-full mb-8">
+            <div class="inline-block bg-lime-300 text-lime-900 text-[10px] md:text-xs font-bold px-3 py-1 mb-3 uppercase tracking-widest rounded-sm">
+              Video
+            </div>
+            <a href="https://www.youtube.com/@santrippmhs1331" target="_blank" class="group flex items-center gap-3 text-2xl md:text-4xl text-lime-900 font-bold hover:text-lime-950 transition-colors w-max">
+                Sorotan Lensa Santri
+                <div class="w-6 h-6 lg:w-8 lg:h-8 rounded-full text-white bg-lime-900 flex items-center justify-center group-hover:bg-lime-950 group-hover:text-lime-50 transition-all duration-300">
+                  <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  </svg>
+                </div>
+              </a>
+          </div>
+
+          <!-- Wadah Scroll Horizontal (Film Roll) -->
+          <div class="w-full overflow-x-auto pb-8 hide-scrollbar cursor-grab active:cursor-grabbing" id="film-roll-container">
+            
+            <!-- Elemen Utama Film Roll (Lebar fleksibel) -->
+            <div class="inline-flex items-center w-max px-4 md:px-12">
+              
+              <!-- Pembungkus Film Roll (Latar Hitam Kehijauan) -->
+              <div class="relative bg-lime-950 flex p-6 md:p-8 rounded-lg shadow-2xl overflow-hidden border-4 border-lime-900">
+                
+                <!-- Ornamen Lubang Roll Film (Atas) -->
+                <div class="absolute top-2 left-0 right-0 h-4 flex justify-between px-2 gap-3" aria-hidden="true">
+                  {Array.from({ length: 40 }).map(() => (
+                    <div class="w-4 h-4 md:w-5 md:h-5 bg-[#edf3cf] rounded-[2px] flex-shrink-0 opacity-80"></div>
+                  ))}
+                </div>
+
+                <!-- Ornamen Lubang Roll Film (Bawah) -->
+                <div class="absolute bottom-2 left-0 right-0 h-4 flex justify-between px-2 gap-3" aria-hidden="true">
+                  {Array.from({ length: 40 }).map(() => (
+                    <div class="w-4 h-4 md:w-5 md:h-5 bg-[#edf3cf] rounded-[2px] flex-shrink-0 opacity-80"></div>
+                  ))}
+                </div>
+
+                <!-- Deretan Frame Video -->
+                <div class="flex gap-4 md:gap-6 mt-4 mb-4">
+                  
+                  <!-- FRAME 1 -->
+                  <div class="relative w-[300px] md:w-[450px] aspect-video bg-black rounded-md overflow-hidden flex-shrink-0 border border-lime-900/50 group">
+                    <iframe 
+                      class="w-full h-full" 
+                      src="https://www.youtube.com/embed/5XneIayuPOI?rel=0&autoplay=1&mute=1" 
+                      title="Video YouTube Santri 1" 
+                      frameborder="0" 
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                      allowfullscreen>
+                    </iframe>
+                  </div>
+
+                  <!-- FRAME 2 -->
+                  <div class="relative w-[300px] md:w-[450px] aspect-video bg-black rounded-md overflow-hidden flex-shrink-0 border border-lime-900/50 group">
+                    <iframe 
+                      class="w-full h-full" 
+                      src="https://www.youtube.com/embed/xTMQ9hyrkqQ?rel=0&autoplay=1&mute=1" 
+                      title="Video YouTube Santri 2" 
+                      frameborder="0" 
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                      allowfullscreen>
+                    </iframe>
+                  </div>
+
+                  <!-- FRAME 3 -->
+                  <div class="relative w-[300px] md:w-[450px] aspect-video bg-black rounded-md overflow-hidden flex-shrink-0 border border-lime-900/50 group">
+                    <iframe 
+                      class="w-full h-full" 
+                      src="https://www.youtube.com/embed/1OG5gydTdLc?rel=0&autoplay=1&mute=1" 
+                      title="Video YouTube Santri 3" 
+                      frameborder="0" 
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                      allowfullscreen>
+                    </iframe>
+                  </div>
+
+                  <!-- FRAME 4 -->
+                  <div class="relative w-[300px] md:w-[450px] aspect-video bg-black rounded-md overflow-hidden flex-shrink-0 border border-lime-900/50 group">
+                    <iframe 
+                      class="w-full h-full" 
+                      src="https://www.youtube.com/embed/3owvq4S8ePg?rel=0" 
+                      title="Video YouTube Santri 4" 
+                      frameborder="0" 
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                      allowfullscreen>
+                    </iframe>
+                  </div>
+                  
+                  <!-- Anda bisa terus menyalin blok FRAME di atas ke sini jika ada video tambahan -->
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Indikator Geser -->
+          <div class="flex items-center justify-center gap-2 mt-2 text-lime-900/60 text-sm font-medium">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
+            Geser untuk melihat video
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+          </div>
+
+          <!-- Tambahkan CSS untuk menyembunyikan scrollbar bawaan browser -->
+          <style>
+            .hide-scrollbar::-webkit-scrollbar {
+              display: none;
+            }
+            .hide-scrollbar {
+              -ms-overflow-style: none;
+              scrollbar-width: none;
+            }
+          </style>
+
+          <!-- Skrip ringan agar pengguna PC bisa menggeser (drag) layaknya di HP -->
+          <script>
+            document.addEventListener('DOMContentLoaded', () => {
+              const slider = document.getElementById('film-roll-container');
+              if(!slider) return;
+
+              let isDown = false;
+              let startX;
+              let scrollLeft;
+
+              slider.addEventListener('mousedown', (e) => {
+                isDown = true;
+                slider.classList.add('active');
+                startX = e.pageX - slider.offsetLeft;
+                scrollLeft = slider.scrollLeft;
+              });
+              slider.addEventListener('mouseleave', () => {
+                isDown = false;
+                slider.classList.remove('active');
+              });
+              slider.addEventListener('mouseup', () => {
+                isDown = false;
+                slider.classList.remove('active');
+              });
+              slider.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - slider.offsetLeft;
+                const walk = (x - startX) * 2; // Kecepatan geser
+                slider.scrollLeft = scrollLeft - walk;
+              });
+            });
+          </script>
+        </section>
+
+
+
+
+      <!-- ==========================================
+           5. BERITA KEGIATAN (LIST STYLE WUR)
+           ========================================== -->
+      <section class="w-full max-w-[1100px] mx-auto">
+        
+        <!-- HEADER (Sesuai gaya WUR dengan tombol kapsul hijau) -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+          <div>
+            <div class="inline-block bg-lime-300 text-lime-900 text-[10px] md:text-xs font-bold px-3 py-1 mb-3 uppercase tracking-widest rounded-sm">
+              Kegiatan
+            </div>
+            <h2 class="text-3xl lg:text-4xl font-bold text-lime-900 tracking-tight">Berita Kegiatan</h2>
+          </div>
+          
+          <!-- Tombol Lihat Semua (Kapsul Solid) -->
+          {beritaKegiatan.length > 0 && (
+            <a href="/publikasi/kegiatan" class="inline-flex items-center justify-center gap-2 text-sm font-bold bg-lime-900 text-lime-50 px-6 py-3 rounded-full hover:bg-lime-950 transition-colors w-full md:w-auto">
+              Lihat semua kegiatan 
+              <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+            </a>
+          )}
+        </div>
+
+        {beritaKegiatan.length > 0 ? (
+          <div class="flex flex-col border-b border-lime-900/10">
+            {beritaKegiatan.map((item) => (
+              <a href={`/publikasi/${item.id}`} class="group py-6 md:py-8 border-t border-lime-900/10 flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-8 hover:bg-lime-50 transition-colors px-4 -mx-4 rounded-2xl">
+                
+                <!-- Gambar (Kiri) -->
+                <div class="w-full md:w-48 h-56 md:h-32 flex-shrink-0 overflow-hidden rounded-2xl">
+                  <img src={item.data.gambar?.src || item.data.gambar} alt={item.data.judul} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                </div>
+
+                <!-- Konten Tengah -->
+                <div class="flex-1">
+                  <div class="flex flex-wrap items-center gap-2 mb-3">
+                    <!-- Tag Tanggal (hijau) -->
+                    <span class="bg-lime-300 text-lime-900 text-[10px] font-bold px-2 py-1 uppercase tracking-widest rounded-sm">
+                      {formatTanggal(item.data.tanggal)}
+                    </span>
+                    <!-- Tag Lokasi (Krem) -->
+                    <span class="bg-gray-200/80 text-gray-600 text-[10px] font-bold px-2 py-1 uppercase tracking-widest rounded-sm">
+                      {item.data.lokasi || 'PPMHS'}
+                    </span>
+                  </div>
+                  <h3 class="text-xl md:text-2xl font-bold text-lime-900 mb-2 leading-snug group-hover:text-lime-700 transition-colors">{item.data.judul}</h3>
+                  <p class="text-sm text-lime-900/80 leading-relaxed line-clamp-2 md:line-clamp-1">{item.data.deskripsi}</p>
+                </div>
+
+                <!-- Tombol Panah Kanan Bulat -->
+                <div class="hidden md:flex flex-shrink-0 w-10 h-10 rounded-full bg-lime-900 text-lime-50 items-center justify-center group-hover:bg-lime-950 transition-colors">
+                  <svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  </svg>
+                </div>
+
+              </a>
+            ))}
+          </div>
+        ) : (
+          /* TAMPILAN "BELUM ADA KEGIATAN" */
+          <div class="w-full bg-lime-50/50 border-2 border-dashed border-lime-900/20 rounded-[2rem] py-16 px-6 flex flex-col items-center justify-center text-center">
+            <svg class="w-12 h-12 text-lime-900/30 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+            </svg>
+            <h3 class="text-xl md:text-2xl font-bold text-lime-900 mb-2">Belum Ada Agenda Terdekat</h3>
+            <p class="text-sm md:text-base text-lime-900/70 max-w-md">Nantikan pembaruan informasi mengenai acara, kegiatan, dan agenda terbaru dari PPMHS.</p>
+          </div>
+        )}
+      </section>
+
+    </main>
+    <Footer />
+  </body>
+
+  <style>
+    /* CSS untuk efek sudut cutout Hero Image */
+    .wur-cutout {
+      border-top-left-radius: 32px;
+      border-bottom-left-radius: 32px;
+    }
+    .wur-cutout::before, .wur-cutout::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      width: 32px;
+      height: 32px;
+      background: transparent;
+      pointer-events: none;
+    }
+    .wur-cutout::before {
+      bottom: 100%;
+      background: radial-gradient(circle at 0 0, transparent 31.5px, #f7fee7 32px);
+    }
+    .wur-cutout::after {
+      top: 100%;
+      background: radial-gradient(circle at 0 100%, transparent 31.5px, #f7fee7 32px);
+    }
+
+    /* Menyembunyikan scrollbar untuk area flex mendatar */
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .hide-scrollbar {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+    }
+  </style>
+
+  <script>
+  // Fungsi universal untuk menggerakkan slider
+  function setupSlider(sliderId, prevBtnId, nextBtnId) {
+    const slider = document.getElementById(sliderId);
+    const prevBtn = document.getElementById(prevBtnId);
+    const nextBtn = document.getElementById(nextBtnId);
+
+    // Jika elemen tidak ditemukan (misal artikelnya 0), abaikan agar tidak error
+    if (!slider || !prevBtn || !nextBtn) return;
+
+    // Menghitung lebar 1 kartu ditambah jarak celah (gap)
+    const cardWidth = slider.firstElementChild ? slider.firstElementChild.clientWidth + 24 : 350; 
+
+    // Perintah geser ke kiri
+    prevBtn.addEventListener('click', () => {
+      slider.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+    });
+
+    // Perintah geser ke kanan
+    nextBtn.addEventListener('click', () => {
+      slider.scrollBy({ left: cardWidth, behavior: 'smooth' });
+    });
+  }
+
+  // Menjalankan fungsi setelah halaman selesai dimuat
+  document.addEventListener('DOMContentLoaded', () => {
+    setupSlider('slider-pengasuh', 'btn-prev-pengasuh', 'btn-next-pengasuh');
+    setupSlider('slider-santri', 'btn-prev-santri', 'btn-next-santri');
+  });
+</script>
+
+</html>

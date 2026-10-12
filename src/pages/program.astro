@@ -1,0 +1,1022 @@
+---
+import '../styles/global.css';
+import Navbar from '../components/Navbar.astro';
+import pilihanImg from '../assets/pilihanprogram.png';
+import kitabImg from '../assets/kitab.jpg';
+import tahsinImg from '../assets/spiritual.jpg';
+import ibadahImg from '../assets/ibadah.jpg';
+import kreativitasImg from '../assets/kreativiti.jpeg';
+import tahfidzImg from '../assets/tahfidz.jpg';
+import setoranImg from '../assets/setoran.jpg';
+import murajaahImg from '../assets/murajaah.png';
+import simaanImg from '../assets/simaan.jpg';
+import tajwidImg from '../assets/tahsin.jpg';
+import Footer from '../components/footer.astro';
+
+---
+
+<!-- Added 'scroll-smooth' here so clicking the links glides down the page smoothly -->
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pilihan Program</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-lime-50">
+    
+    <Navbar hasDarkHero={false} />
+
+    <main class="max-w-[1440px] mx-auto px-4 lg:px-12 pt-28 lg:pt-36">
+      
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-lime-900 mb-8 md:mb-8 lg:mb-12 tracking-tight md:pr-20 lg:pr-0">
+        Pilihan Program di PPMHS
+      </h1>
+
+      <!-- The parent is now flex-col on mobile, block on desktop -->
+      <div class="flex flex-col lg:block relative w-full lg:rounded-[4rem] lg:overflow-hidden lg:bg-lime-50">
+        
+        <!-- Image: Fully rounded with shadow on mobile. On desktop, it loses these so the parent can clip it smoothly -->
+        <img 
+          src={pilihanImg.src} 
+          alt="Program Pendidikan di PPMHS" 
+          class="w-full h-[350px] md:h-[500px] lg:h-[650px] object-cover rounded-[2.5rem] lg:rounded-none"
+        />
+
+        <!-- ==========================================
+             LEFT CUTOUT: Quick Navigation Menu
+             ========================================== -->
+        <!-- On mobile: transparent, no padding, spaced below image (mt-4). 
+             On desktop: absolute, lime-50 background, 20px padding (p-5) -->
+        <div class="wur-top-left-cutout flex flex-col relative lg:absolute top-0 left-0 z-10 w-full lg:w-auto bg-transparent lg:bg-lime-50 p-0 lg:p-5 mt-4 md:mt-6 lg:mt-0">
+          
+          <!-- Inner Menu Box: width matches image on mobile, gets exactly rounded-[2.5rem] to match. Desktop uses 2rem. -->
+          <div class="flex flex-col w-full lg:w-[320px] bg-lime-300 rounded-[2.5rem] lg:rounded-[2rem] p-6 md:p-8 shadow-sm">
+            
+            <h3 class="text-lg lg:text-xl font-semibold text-lime-900 mb-4">Langsung menuju:</h3>
+            
+            <ul class="flex flex-col w-full">
+              
+              <!-- Link 1: Program Kitab -->
+              <li>
+                <a href="#program-kitab" class="py-4 flex justify-between items-center group focus:outline-none">
+                  <span class="text-base font-base text-lime-900 group-hover:text-lime-700 transition-colors">
+                    Program Kitab
+                  </span>
+                  <svg class="w-5 h-5 text-lime-700 transition-transform duration-300 group-hover:translate-y-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                  </svg>
+                </a>
+              </li>
+
+              <!-- Link 2: Program Tahfidz -->
+              <li class="border-t border-b border-lime-900/50">
+                <a href="#program-tahfidz" class="py-4 flex justify-between items-center group focus:outline-none">
+                  <span class="text-base font-base text-lime-900 group-hover:text-lime-700 transition-colors">
+                    Program Tahfidz
+                  </span>
+                  <svg class="w-5 h-5 text-lime-700 transition-transform duration-300 group-hover:translate-y-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                  </svg>
+                </a>
+              </li>
+
+              <li class="border-b border-lime-900/50">
+                <a href="#biaya-pendidikan" class="py-4 flex justify-between items-center group focus:outline-none">
+                  <span class="text-base font-base text-lime-900 group-hover:text-lime-700 transition-colors">
+                    Biaya Pendidikan
+                  </span>
+                  <svg class="w-5 h-5 text-lime-700 transition-transform duration-300 group-hover:translate-y-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                  </svg>
+                </a>
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+
+        <!-- ==========================================
+             RIGHT CUTOUT: Scroll Button (Stays hidden on mobile)
+             ========================================== -->
+        <div class="wur-cutout hidden lg:flex absolute top-1/2 -translate-y-1/2 right-0 w-16 h-16 bg-lime-50 items-center justify-center z-10">
+          <button 
+            class="w-[52px] h-[52px] bg-lime-900 text-lime-50 rounded-full flex items-center justify-center hover:bg-lime-800 transition-colors group cursor-pointer"
+            aria-label="Scroll down"
+            onclick="window.scrollBy({ top: 600, behavior: 'smooth' })"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 transition-transform duration-300 group-hover:translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </button>
+        </div>
+      
+      </div>
+
+      <!-- Main Text and Dummy Sections remain unchanged -->
+      <section class="w-full max-w-[1300px] mx-auto mt-16 md:mt-24 lg:mt-32 mb-12 md:mb-18 lg:px-12">
+        <h2 class="max-w-4xl mx-auto text-2xl md:text-3xl lg:text-3xl text-center font-medium text-lime-900 leading-relaxed lg:leading-snug">
+          Baik ingin mendalami Bahasa Arab, hukum Islam, Fiqih, atau hafalan; Pondok Pesantren Miftahul Huda Soko menawarkan pilihan program yang dapat disesuaikan dengan tujuan Anda dan Anak Anda.
+        </h2>
+      </section>
+
+      <section id="program-kitab" class="w-full max-w-[1300px] mx-auto pt-24 mb-16">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-stretch">
+          <!-- Left Column: Image (1/4 Width / col-span-3) -->
+          <div class="lg:col-span-3 w-full h-full">
+            <!-- Removed aspect ratio, added h-full so it grows with the text column -->
+            <img 
+              src={kitabImg.src} 
+              alt="Program Kitab PPMHS" 
+              class="w-full h-full object-cover rounded-[1.5rem] shadow-sm"
+            />
+          </div>
+          <!-- Right Column: Content (3/4 Width / col-span-9) -->
+          <div class="lg:col-span-9 flex flex-col justify-center py-2 lg:py-6">
+            <!-- Tag / Badge -->
+            <div class="inline-block bg-lime-300 text-lime-900 text-xs md:text-sm font-bold px-3 py-1 mb-4 uppercase tracking-widest rounded-sm self-start">
+              Program Kitab
+            </div>
+            <!-- Big Heading -->
+            <h2 class="text-2xl lg:text-4xl font-bold text-lime-900 mb-6 tracking-tight leading-tight">
+              Ingin mendalami falsafah islam?
+            </h2>
+            <!-- Editorial Paragraph -->
+            <p class="text-lg lg:text-2xl text-lime-800 leading-relaxed font-medium lg:mb-20">
+              Jika Anda mendambakan generasi yang mampu mendalami khazanah keilmuan Islam klasik, Program Kitab menawarkan kurikulum yang dirancang khusus untuk menguasai literatur ulama salaf. Program ini memadukan pemahaman mendalam tentang tata bahasa Arab, fiqih, tafsir, serta hadits, sehingga membekali para santri dengan pondasi keagamaan yang kokoh dan kerangka berpikir yang kritis.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="w-full mt-12 md:mt-24">
+          
+          <!-- Section Header & Mobile Navigation Arrows -->
+          <div class="flex items-end justify-between mb-8">
+            <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold text-lime-900 tracking-tight mr-9">
+              Kegiatan Santri Program Kitab
+            </h3>
+            
+            <div class="flex lg:hidden gap-2">
+              <!-- Previous Button -->
+              <button id="btn-kegiatan-prev" class="w-[40px] h-[40px] bg-lime-900 text-lime-50 rounded-full flex items-center justify-center hover:bg-lime-800 transition-colors group cursor-pointer" aria-label="Geser ke kiri">
+                <!-- Straight Arrow Left -->
+                <svg class="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+                </svg>
+              </button>
+              
+              <!-- Next Button -->
+              <button id="btn-kegiatan-next" class="w-[40px] h-[40px] bg-lime-900 text-lime-50 rounded-full flex items-center justify-center hover:bg-lime-800 transition-colors group cursor-pointer" aria-label="Geser ke kanan">
+                <!-- Straight Arrow Right -->
+                <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Cards Container -->
+          <div id="kegiatan-container" class="flex flex-row gap-4 lg:gap-6 overflow-x-auto lg:overflow-hidden snap-x snap-mandatory no-scrollbar pb-4">
+            
+            <!-- Card 1 (Active by default) -->
+            <div class="kegiatan-card active flex flex-col flex-shrink-0 w-[85vw] md:w-[45vw] lg:w-auto snap-center group cursor-default">
+              <div class="w-full h-[220px] lg:h-[300px] rounded-[1.5rem] overflow-hidden mb-4">
+                <img src={ibadahImg.src} alt="Menambah Ibadah Sunnah Rutin" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              </div>
+              <!-- Added lg:h-[160px] here to lock the height and prevent wiggling -->
+              <div class="flex flex-col lg:h-[160px]">
+                <h4 class="kegiatan-title text-lg lg:text-xl font-bold text-lime-700 transition-colors duration-500">Menambah Ibadah Sunnah Rutin</h4>
+                <div class="kegiatan-desc-wrapper overflow-hidden">
+                  <p class="kegiatan-desc text-base text-lime-900 leading-relaxed pt-2 w-full pr-4 lg:pr-8">
+                    Pembiasaan shalat dhuha, tahajud, dan puasa sunnah secara konsisten guna menanamkan karakter spiritual dan kedisiplinan sejak dini.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="kegiatan-card flex flex-col flex-shrink-0 w-[85vw] md:w-[45vw] lg:w-auto snap-center group cursor-default">
+              <div class="w-full h-[220px] lg:h-[300px] rounded-[1.5rem] overflow-hidden mb-4">
+                <img src={pilihanImg.src} alt="Kegiatan Mengaji Kitab" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              </div>
+              <!-- Added lg:h-[160px] here -->
+              <div class="flex flex-col lg:h-[160px]">
+                <h4 class="kegiatan-title text-lg lg:text-xl font-bold text-lime-700 transition-colors duration-500">Kegiatan Mengaji Kitab</h4>
+                <div class="kegiatan-desc-wrapper overflow-hidden">
+                  <p class="kegiatan-desc text-base text-lime-900 leading-relaxed pt-2 w-full pr-4 lg:pr-8">
+                    Pendalaman makna dan tata bahasa melalui pengajian kitab kuning secara komprehensif bersama jajaran asatidz berpengalaman.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="kegiatan-card flex flex-col flex-shrink-0 w-[85vw] md:w-[45vw] lg:w-auto snap-center group cursor-default">
+              <div class="w-full h-[220px] lg:h-[300px] rounded-[1.5rem] overflow-hidden mb-4">
+                <img src={tahsinImg.src} alt="Bimbingan Baca Qur'an" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              </div>
+              <!-- Added lg:h-[160px] here -->
+              <div class="flex flex-col lg:h-[160px]">
+                <h4 class="kegiatan-title text-lg lg:text-xl font-bold text-lime-700 transition-colors duration-500">Bimbingan Tilawah Al-Qur'an</h4>
+                <div class="kegiatan-desc-wrapper overflow-hidden">
+                  <p class="kegiatan-desc text-base text-lime-900 leading-relaxed pt-2 w-full pr-4 lg:pr-8">
+                    Pendampingan intensif tahsin dan tartil untuk memastikan setiap santri memiliki kelancaran dan ketepatan makhraj dalam membaca ayat suci.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="kegiatan-card flex flex-col flex-shrink-0 w-[85vw] md:w-[45vw] lg:w-auto snap-center group cursor-default">
+              <div class="w-full h-[220px] lg:h-[300px] rounded-[1.5rem] overflow-hidden mb-4">
+                <img src={kreativitasImg.src} alt="Kegiatan Kreativitas Santri" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              </div>
+              <!-- Added lg:h-[160px] here -->
+              <div class="flex flex-col lg:h-[160px]">
+                <h4 class="kegiatan-title text-lg lg:text-xl font-bold text-lime-700 transition-colors duration-500">Kegiatan Kreativitas Santri</h4>
+                <div class="kegiatan-desc-wrapper overflow-hidden">
+                  <p class="kegiatan-desc text-base text-lime-900 leading-relaxed pt-2 w-full pr-4 lg:pr-8">
+                    Wadah interaktif bagi santri untuk mengembangkan bakat dan keterampilan kepemimpinan melalui berbagai ekstrakurikuler positif dan mubalaghah rutin.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+        <div class="w-full mt-12">
+          
+          <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold text-lime-900 mb-6 lg:mb-10 tracking-tight">
+            Kurikulum Pembelajaran
+          </h3>
+
+          <div class="flex flex-col w-full border-t border-lime-900/20">
+            
+            <!-- ACCORDION 1: Tahun 1 -->
+            <div class="border-b border-lime-900/20 accordion-item">
+              <button class="w-full py-6 flex justify-between items-center text-left focus:outline-none accordion-btn group">
+                <span class="text-xl lg:text-2xl font-medium text-lime-900 group-hover:text-lime-700 transition-colors">Tahun 1</span>
+                <svg class="w-5 h-5 text-lime-900 transform transition-transform duration-300 chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              
+              <div class="max-h-0 overflow-hidden transition-[max-height] duration-500 ease-in-out accordion-content">
+                <div class="pb-8 pt-2">
+                  <div class="overflow-x-auto no-scrollbar">
+                    <table class="w-full text-left border-collapse min-w-[600px]">
+                      <thead>
+                        <tr class="border-b-2 border-lime-800 text-lime-800 text-lg">
+                          <th class="py-3 px-4 font-bold w-1/4">Nama Kitab</th>
+                          <th class="py-3 px-4 font-bold w-1/4">Pengarang</th>
+                          <th class="py-3 px-4 font-bold w-1/2">Topik</th>
+                        </tr>
+                      </thead>
+                      <!-- Changed to border-b border-lime-800/30 -->
+                      <tbody class="text-lime-900/90 text-base border-b border-lime-800/30">
+                        <tr class="border-b border-lime-800/30">
+                          <td class="py-4 px-4 font-medium text-lime-900">Alala (Kumpulan Syair dari Kitab Ta'lim Muta'allim)</td>
+                          <td class="py-4 px-4">Imam Al-Zarnuji</td>
+                          <td class="py-4 px-4">37 bait syair berbahasa Arab yang memuat syarat mencari ilmu, adab kepada guru dan ilmu, hubungan sosial, dan disiplin diri.</td>
+                        </tr>
+                        <tr class="border-b border-lime-800/30">
+                          <td class="py-4 px-4 font-medium text-lime-900">Jurumiyah</td>
+                          <td class="py-4 px-4">Ibnu Ajurrum</td>
+                          <td class="py-4 px-4">Dasar Ilmu Nahwu (tata bahasa Arab) yang dikelompokkan dalam beberapa bab utama: Kalam, I'rab, Tanda-Tanda I'rab, Fi'il, dan Isim.</td>
+                        </tr>
+                        <tr class="border-b border-lime-800/30">
+                          <td class="py-4 px-4 font-medium text-lime-900">Bahasa Arab</td>
+                          <td class="py-4 px-4">Kurikulum PPMHS</td>
+                          <td class="py-4 px-4">Memperkaya kosa kata Bahasa Arab, khususnya yang sering ditemukan dalam kehidupan sehari-hari. Mata pelajaran ini jiga digunakan sebagai pelengkap Kitab Jurumiyah</td>
+                        </tr>
+                        <tr class="border-b border-lime-800/30">
+                          <td class="py-4 px-4 font-medium text-lime-900">Khulasah Nurul Yaqin Jilid 1</td>
+                          <td class="py-4 px-4">Syaikh Umar Abdul Jabbar</td>
+                          <td class="py-4 px-4">Kitab ini merupakan ringkasan dari kitab induk Nurul Yaqin fi Sirati Sayyidil Mursalin karya Syekh Muhammad Khudhari Beik yang membahas asal-usul atau nasab Nabi Muhammad SAW serta berbagai peristiwa penting sebelum beliau diangkat menjadi rasul.</td>
+                        </tr>
+                        <tr class="border-b border-lime-800/30">
+                          <td class="py-4 px-4 font-medium text-lime-900">Aqidatul Awam</td>
+                          <td class="py-4 px-4">Sayyid Ahmad al-Marzuqi al-Maliki</td>
+                          <td class="py-4 px-4">Kitab ini berisi 57 bait syair tentang dasar-dasar ilmu tauhid Ahlussunnah wal Jamaah yang ditujukan untuk pemula atau masyarakat awam. Bahasan tauhid mencakup: sifat bagi Allah, sifat bagi rasul/nabi, malaikat, kitab, dan sejarah Rasulullah.</td>
+                        </tr>
+                        <tr class="border-b border-lime-800/30">
+                          <td class="py-4 px-4 font-medium text-lime-900">Shorof/Tashrif Istilahi</td>
+                          <td class="py-4 px-4">KH. Muhammad Ma'shum bin Ali</td>
+                          <td class="py-4 px-4">Kitab ini memuat kaidah perubahan bentuk kata dalam bahasa Arab secara sistematis, yang terbagi menjadi dua metode utama: Tashrif Istilahi dan Tashrif Lughawi.</td>
+                        </tr>
+                        <tr class="border-b border-lime-800/30">
+                          <td class="py-4 px-4 font-medium text-lime-900">Menulis Makna Kitab (pego)</td>
+                          <td class="py-4 px-4">-</td>
+                          <td class="py-4 px-4">Melatih santri memaknai kitab tidak hanya dari segi arti, tetapi juga kedudukan kata dalam kalimat bahasa Arab.</td>
+                        </tr>
+                        <tr>
+                          <td class="py-4 px-4 font-medium text-lime-900">Syifaul Jinan</td>
+                          <td class="py-4 px-4">KH. Ahmad Muthohhar bin Abdurrahman</td>
+                          <td class="py-4 px-4">Kitab ini merupakan terjemahan dan penjelasan rinci dalam bahasa Jawa (menggunakan aksara Pegon) dari kitab nadzam Hidayatush Shibyan fi Tajwidil Quran karya Syekh Said bin Said Al-Hadhrami mengenai kaidah dasar ilmu tajwid.</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ACCORDION 2: Tahun 2 -->
+            <div class="border-b border-lime-900/20 accordion-item">
+              <button class="w-full py-6 flex justify-between items-center text-left focus:outline-none accordion-btn group">
+                <span class="text-xl lg:text-2xl font-medium text-lime-900 group-hover:text-lime-700 transition-colors">Tahun 2</span>
+                <svg class="w-5 h-5 text-lime-900 transform transition-transform duration-300 chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              
+              <div class="max-h-0 overflow-hidden transition-[max-height] duration-500 ease-in-out accordion-content">
+                <div class="pb-8 pt-2">
+                  <div class="overflow-x-auto no-scrollbar">
+                    <table class="w-full text-left border-collapse min-w-[600px]">
+                      <thead>
+                        <tr class="border-b-2 border-lime-800 text-lime-800 text-lg">
+                          <th class="py-3 px-4 font-bold w-1/4">Nama Kitab</th>
+                          <th class="py-3 px-4 font-bold w-1/4">Pengarang</th>
+                          <th class="py-3 px-4 font-bold w-1/2">Topik</th>
+                        </tr>
+                      </thead>
+                      <!-- Changed to border-b border-lime-800/30 -->
+                      <tbody class="text-lime-900/90 text-base border-b border-lime-800/30">
+                        <tr class="border-b border-lime-800/30">
+                          <td class="py-4 px-4 font-medium text-lime-900">Khulasah Nurul Yaqin Jilid 2</td>
+                          <td class="py-4 px-4">Syaikh Umar Abdul Jabbar</td>
+                          <td class="py-4 px-4">Kelanjutan dari jilid 1, kitab jilid 2 membahas perjalanan hidup dan dakwah Nabi Muhammad SAW setelah diangkat menjadi rasul (periode Makkah dan Madinah).</td>
+                        </tr>
+                        <tr class="border-b border-lime-800/30">
+                          <td class="py-4 px-4 font-medium text-lime-900">Imrithi</td>
+                          <td class="py-4 px-4">Syaikh Syarafuddin Yahya al-Imrithi</td>
+                          <td class="py-4 px-4">Kitab ini berisi kaidah tata bahasa Arab (ilmu nahwu) yang disajikan dalam bentuk bait-bait syair (nazham) sebagai pengembangan dari kitab Matan Jurumiyah.</td>
+                        </tr>
+                        <tr class="border-b border-lime-800/30">
+                          <td class="py-4 px-4 font-medium text-lime-900">Qami'uth Thughyan</td>
+                          <td class="py-4 px-4">Syaikh Muhammad Nawawi bin Umar al-Bantani</td>
+                          <td class="py-4 px-4">Kitab ini membahas secara rinci mengenai 77 cabang keimanan (Syu'ab al-Iman) berdasarkan hadis yang diriwayatkan oleh Imam Muslim. Kitab ini  merupakan penjelasan atau penjabaran dari risalah nazam (syair) karya Syaikh Zainuddin bin Ali bin Ahmad asy-Syafi'i al-Kusyini al-Malibari.</td>
+                        </tr>
+                        <tr class="border-b border-lime-800/30">
+                          <td class="py-4 px-4 font-medium text-lime-900">Bahasa Arab</td>
+                          <td class="py-4 px-4">Kurikulum PPMHS</td>
+                          <td class="py-4 px-4">Memperkaya kosa kata Bahasa Arab, khususnya yang sering ditemukan dalam kehidupan sehari-hari dan yangs ering ditemukan dalam kitab bacaan di kelas.</td>
+                        </tr>
+                        <tr class="border-b border-lime-800/30">
+                          <td class="py-4 px-4 font-medium text-lime-900">Taqrib</td>
+                          <td class="py-4 px-4">Syaikh Ahmad bin Husain bin Ahmad al-Asfahani</td>
+                          <td class="py-4 px-4">Kitab ini berisi ringkasan ilmu fikih Islam yang mencakup ibadah, muamalah dan kemasyarakatan, serta jinayat dan hukum pidana.</td>
+                        </tr>
+                        <tr class="border-b border-lime-800/30">
+                          <td class="py-4 px-4 font-medium text-lime-900">Aqidah Islamiyah</td>
+                          <td class="py-4 px-4">Syaikh Bashori bin Ahmad Al-Marghubi</td>
+                          <td class="py-4 px-4">Kitab ini membahas ilmu tauhid, rukun iman, perkara sam'iyyyat dan hari akhir, serta mencakup sejarah kehidupan Rasulullah dan Khulafaur Rasyidin.</td>
+                        </tr>
+                        <tr class="border-b border-lime-800/30">
+                          <td class="py-4 px-4 font-medium text-lime-900">Washiyatul Mustafa</td>
+                          <td class="py-4 px-4">Syaikh Abdul Wahhab asy-Sya'rani</td>
+                          <td class="py-4 px-4">Kitab ini berisi kumpulan wasiat, nasihat, serta bimbingan moral dan spiritual dari Nabi Muhammad SAW kepada menantu sekaligus sahabat beliau, Sayyidina Ali bin Abi Thalib RA.</td>
+                        </tr>
+                        <tr class="border-b border-lime-800/30">
+                          <td class="py-4 px-4 font-medium text-lime-900">Taisirul Khalaq</td>
+                          <td class="py-4 px-4">Syaikh Hafizh Hasan al-Mas'udi</td>
+                          <td class="py-4 px-4">Kitab ini terdiri dari sekitar 31 bab/pokok bahasan yang fokus pada pembentukan karakter seorang Muslim, meliputi: akhlak kepada Allah, adab dan kewajiban sosial, etika dalam pergaulan, sifat terpuji, dan sifat tercela.</td>
+                        </tr>
+                        <tr>
+                          <td class="py-4 px-4 font-medium text-lime-900">Fathul Mannan</td>
+                          <td class="py-4 px-4">KH. Maftuh Basthul Birri</td>
+                          <td class="py-4 px-4">Kitab ini membahas tata cara membaca Al-Qur'an secara mendetail sesuai riwayat Imam Hafsh bin Sulaiman. Pokok bahasannya mencakup kaidah huruf, makharijul huruf, sifat-sifat huruf, hukum bacaan, dan kesalahan dalam membaca al-Qur'an.</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ACCORDION 3: Tahun 3 -->
+            <div class="border-b border-lime-900/20 accordion-item">
+              <button class="w-full py-6 flex justify-between items-center text-left focus:outline-none accordion-btn group">
+                <span class="text-xl lg:text-2xl font-medium text-lime-900 group-hover:text-lime-700 transition-colors">Tahun 3</span>
+                <svg class="w-5 h-5 text-lime-900 transform transition-transform duration-300 chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              
+              <div class="max-h-0 overflow-hidden transition-[max-height] duration-500 ease-in-out accordion-content">
+                <div class="pb-8 pt-2">
+                  <div class="overflow-x-auto no-scrollbar">
+                    <table class="w-full text-left border-collapse min-w-[600px]">
+                      <thead>
+                        <tr class="border-b-2 border-lime-800 text-lime-800 text-lg">
+                          <th class="py-3 px-4 font-bold w-1/4">Nama Kitab</th>
+                          <th class="py-3 px-4 font-bold w-1/4">Pengarang</th>
+                          <th class="py-3 px-4 font-bold w-1/2">Topik</th>
+                        </tr>
+                      </thead>
+                      <!-- Changed to border-b border-lime-800/30 -->
+                      <tbody class="text-lime-900/90 text-base border-b border-lime-800/30">
+                        <tr class="border-b border-lime-800/30">
+                          <td class="py-4 px-4 font-medium text-lime-900">Bulughul Maram</td>
+                          <td class="py-4 px-4">Al-Hafizh Ibnu Hajar Al-Asqalani</td>
+                          <td class="py-4 px-4">Kitab ini memuat sekitar 1.358 hingga 1.596 hadits seputar hukum Islam yang bersumber dari kitab-kitab utama seperti Shahih Bukhari, Shahih Muslim, Sunan Abu Dawud, Tirmidzi, Nasa'i, Ibnu Majah, dan Musnad Ahmad</td>
+                        </tr>
+                        <tr class="border-b border-lime-800/30">
+                          <td class="py-4 px-4 font-medium text-lime-900">Qami'uth Thughyan</td>
+                          <td class="py-4 px-4">Syaikh Muhammad Nawawi bin Umar al-Bantani</td>
+                          <td class="py-4 px-4">Kitab ini membahas secara rinci mengenai 77 cabang keimanan (Syu'ab al-Iman) berdasarkan hadis yang diriwayatkan oleh Imam Muslim. Kitab ini  merupakan penjelasan atau penjabaran dari risalah nazam (syair) karya Syaikh Zainuddin bin Ali bin Ahmad asy-Syafi'i al-Kusyini al-Malibari.</td>
+                        </tr>
+                        <tr class="border-b border-lime-800/30">
+                          <td class="py-4 px-4 font-medium text-lime-900">Taqrib</td>
+                          <td class="py-4 px-4">Syaikh Ahmad bin Husain bin Ahmad al-Asfahani</td>
+                          <td class="py-4 px-4">Kitab ini berisi ringkasan ilmu fikih Islam yang mencakup ibadah, muamalah dan kemasyarakatan, serta jinayat dan hukum pidana.</td>
+                        </tr>
+                        <tr class="border-b border-lime-800/30">
+                          <td class="py-4 px-4 font-medium text-lime-900">Imrithi</td>
+                          <td class="py-4 px-4">Syaikh Syarafuddin Yahya al-Imrithi</td>
+                          <td class="py-4 px-4">Kitab ini berisi kaidah tata bahasa Arab (ilmu nahwu) yang disajikan dalam bentuk bait-bait syair (nazham) sebagai pengembangan dari kitab Matan Jurumiyah.</td>
+                        </tr>
+                        <tr class="border-b border-lime-800/30">
+                          <td class="py-4 px-4 font-medium text-lime-900">Mabadi awaliyah/Ushul Fiqih</td>
+                          <td class="py-4 px-4">Syaikh Abdul Hamid Hakim</td>
+                          <td class="py-4 px-4">Kitab ini merupakan pengantar untuk mempelajari disiplin ilmu Ushul Fiqih (metodologi hukum Islam) dan Kaidah Fiqih (kaidah-kaidah hukum Islam)</td>
+                        </tr>
+                        <tr class="border-b border-lime-800/30">
+                          <td class="py-4 px-4 font-medium text-lime-900">Khulasah Nurul Yaqin Jilid 3</td>
+                          <td class="py-4 px-4">Syaikh Umar Abdul Jabbar</td>
+                          <td class="py-4 px-4">Kelanjutan dari Jilid 1 dan 2, Jilid 3  membahas sejarah kepemimpinan para khalifah setelah wafatnya Rasulullah SAW, yaitu masa Khulafaur Rasyidin.</td>
+                        </tr>
+                        <tr class="border-b border-lime-800/30">
+                          <td class="py-4 px-4 font-medium text-lime-900">Ta'lim Muta'allim</td>
+                          <td class="py-4 px-4">Imam Burhanuddin Ibrahim al-Zarnuji al-Hanafi</td>
+                          <td class="py-4 px-4">Kitab ini adalah panduan lengkap tentang etika, adab, serta metode belajar bagi seorang penuntut ilmu. Bahasan utama termasuk hakikat ilmu dan keutamaannya, niat dalam mencari ilmu, memilih guru, menghormati ilmu dan guru, masa/waktu keberhasilan belajar, ketekunan, cara mengambil manfaat ilmu, serta sikap wara' (berhati-hati dari hal yang haram/syubhat).</td>
+                        </tr>
+                        <tr>
+                          <td class="py-4 px-4 font-medium text-lime-900">Fathul Mannan</td>
+                          <td class="py-4 px-4">KH. Maftuh Basthul Birri</td>
+                          <td class="py-4 px-4">Kitab ini membahas tata cara membaca Al-Qur'an secara mendetail sesuai riwayat Imam Hafsh bin Sulaiman. Pokok bahasannya mencakup kaidah huruf, makharijul huruf, sifat-sifat huruf, hukum bacaan, dan kesalahan dalam membaca al-Qur'an.</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </section>
+
+      <section id="program-tahfidz" class="w-full max-w-[1300px] mx-auto pt-24 mb-16">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-stretch">
+          <!-- Left Column: Image -->
+          <div class="lg:col-span-3 w-full h-full">
+            <img 
+              src={tahfidzImg.src} 
+              alt="Program Tahfidz PPMHS" 
+              class="w-full h-full object-cover rounded-[1.5rem] shadow-sm"
+            />
+          </div>
+          <!-- Right Column: Content -->
+          <div class="lg:col-span-9 flex flex-col justify-center py-2 lg:py-6">
+            <!-- Tag / Badge -->
+            <div class="inline-block bg-lime-300 text-lime-900 text-xs md:text-sm font-bold px-3 py-1 mb-4 uppercase tracking-widest rounded-sm self-start">
+              Program Tahfidz
+            </div>
+            <!-- Big Heading -->
+            <h2 class="text-2xl lg:text-4xl font-bold text-lime-900 mb-6 tracking-tight leading-tight">
+              Ingin mencetak generasi penjaga Kalam Ilahi?
+            </h2>
+            <!-- Editorial Paragraph -->
+            <p class="text-lg lg:text-2xl text-lime-800 leading-relaxed font-medium lg:mb-20">
+              Jika Anda mendambakan buah hati yang berakhlak mulia dan lekat dengan Al-Qur'an, Program Tahfidz kami dirancang khusus untuk memfasilitasi kelancaran hafalan 30 Juz. Program ini mengkombinasikan metode ziyadah dan muroja'ah yang disiplin, didukung dengan perbaikan tajwid serta tahsin secara intensif.
+            </p>
+          </div>
+        </div>
+
+        <div class="w-full mt-12 md:mt-24">
+          
+          <!-- Section Header & Mobile Navigation Arrows -->
+          <div class="flex items-end justify-between mb-8">
+            <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold text-lime-900 tracking-tight mr-9">
+              Kegiatan Santri Program Tahfidz
+            </h3>
+            
+            <div class="flex lg:hidden gap-2">
+              <!-- Previous Button (Tahfidz) -->
+              <button id="btn-kegiatan-prev-tahfidz" class="w-[40px] h-[40px] bg-lime-900 text-lime-50 rounded-full flex items-center justify-center hover:bg-lime-800 transition-colors group cursor-pointer" aria-label="Geser ke kiri">
+                <svg class="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+                </svg>
+              </button>
+              
+              <!-- Next Button (Tahfidz) -->
+              <button id="btn-kegiatan-next-tahfidz" class="w-[40px] h-[40px] bg-lime-900 text-lime-50 rounded-full flex items-center justify-center hover:bg-lime-800 transition-colors group cursor-pointer" aria-label="Geser ke kanan">
+                <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Cards Container (Tahfidz) -->
+          <div id="kegiatan-container-tahfidz" class="flex flex-row gap-4 lg:gap-6 overflow-x-auto lg:overflow-hidden snap-x snap-mandatory no-scrollbar pb-4">
+            
+            <!-- Card 1 (Active by default) -->
+            <div class="kegiatan-card active flex flex-col flex-shrink-0 w-[85vw] md:w-[45vw] lg:w-auto snap-center group cursor-default">
+              <div class="w-full h-[220px] lg:h-[300px] rounded-[1.5rem] overflow-hidden mb-4">
+                <img src={setoranImg.src} alt="Setoran Hafalan Baru" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              </div>
+              <div class="flex flex-col lg:h-[160px]">
+                <h4 class="kegiatan-title text-lg lg:text-xl font-bold text-lime-700 transition-colors duration-500">Setoran Hafalan (Ziyadah)</h4>
+                <div class="kegiatan-desc-wrapper overflow-hidden">
+                  <p class="kegiatan-desc text-base text-lime-900 leading-relaxed pt-2 w-full pr-4 lg:pr-8">
+                    Santri menyetorkan hafalan baru setiap pagi setelah subuh dan isya' kepada musyrif untuk memastikan kelancaran dan ketepatan makhraj.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="kegiatan-card flex flex-col flex-shrink-0 w-[85vw] md:w-[45vw] lg:w-auto snap-center group cursor-default">
+              <div class="w-full h-[220px] lg:h-[300px] rounded-[1.5rem] overflow-hidden mb-4">
+                <img src={murajaahImg.src} alt="Muroja'ah Bersama" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              </div>
+              <div class="flex flex-col lg:h-[160px]">
+                <h4 class="kegiatan-title text-lg lg:text-xl font-bold text-lime-700 transition-colors duration-500">Muroja'ah Rutin</h4>
+                <div class="kegiatan-desc-wrapper overflow-hidden">
+                  <p class="kegiatan-desc text-base text-lime-900 leading-relaxed pt-2 w-full pr-4 lg:pr-8">
+                    Pengulangan hafalan lama yang dilakukan secara berkelompok maupun mandiri agar hafalan tetap kuat tertanam di dalam dada.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="kegiatan-card flex flex-col flex-shrink-0 w-[85vw] md:w-[45vw] lg:w-auto snap-center group cursor-default">
+              <div class="w-full h-[220px] lg:h-[300px] rounded-[1.5rem] overflow-hidden mb-4">
+                <img src={simaanImg.src} alt="Simaan Al-Qur'an" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              </div>
+              <div class="flex flex-col lg:h-[160px]">
+                <h4 class="kegiatan-title text-lg lg:text-xl font-bold text-lime-700 transition-colors duration-500">Simaan Al-Qur'an</h4>
+                <div class="kegiatan-desc-wrapper overflow-hidden">
+                  <p class="kegiatan-desc text-base text-lime-900 leading-relaxed pt-2 w-full pr-4 lg:pr-8">
+                    Kegiatan memperdengarkan hafalan di hadapan santri lain untuk melatih mental dan kelancaran.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="kegiatan-card flex flex-col flex-shrink-0 w-[85vw] md:w-[45vw] lg:w-auto snap-center group cursor-default">
+              <div class="w-full h-[220px] lg:h-[300px] rounded-[1.5rem] overflow-hidden mb-4">
+                <img src={tajwidImg.src} alt="Pembinaan Tajwid" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              </div>
+              <div class="flex flex-col lg:h-[160px]">
+                <h4 class="kegiatan-title text-lg lg:text-xl font-bold text-lime-700 transition-colors duration-500">Pembinaan Tajwid Khusus</h4>
+                <div class="kegiatan-desc-wrapper overflow-hidden">
+                  <p class="kegiatan-desc text-base text-lime-900 leading-relaxed pt-2 w-full pr-4 lg:pr-8">
+                    Pendalaman teori tajwid menggunakan kitab khusus (seperti Tuhfatul Athfal) untuk menyempurnakan keindahan bacaan.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="w-full mt-12">
+          
+          <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold text-lime-900 mb-6 lg:mb-10 tracking-tight">
+            Struktur Program Tahfidz
+          </h3>
+
+          <div class="flex flex-col w-full border-t border-lime-900/20">
+            
+            <!-- ACCORDION 1: Tahun 1 -->
+            <div class="border-b border-lime-900/20 accordion-item">
+              <button class="w-full py-6 flex justify-between items-center text-left focus:outline-none accordion-btn group">
+                <span class="text-xl lg:text-2xl font-medium text-lime-900 group-hover:text-lime-700 transition-colors">Tahun 1</span>
+                <svg class="w-5 h-5 text-lime-900 transform transition-transform duration-300 chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              
+              <div class="max-h-0 overflow-hidden transition-[max-height] duration-500 ease-in-out accordion-content">
+                <div class="pb-8 pt-2">
+                  <div class="overflow-x-auto no-scrollbar">
+                    <table class="w-full text-left border-collapse min-w-[600px]">
+                      <thead>
+                        <tr class="border-b-2 border-lime-800 text-lime-800 text-lg">
+                          <th class="py-3 px-4 font-bold w-1/4">Kegiatan</th>
+                          <th class="py-3 px-4 font-bold w-1/4">Materi Pendukung</th>
+                          <th class="py-3 px-4 font-bold w-1/2">Topik/Fokus Capaian</th>
+                        </tr>
+                      </thead>
+                      <tbody class="text-lime-900/90 text-base border-b border-lime-800/30">
+                        <tr class="border-b border-lime-800/30">
+                          <td class="py-4 px-4 font-medium text-lime-900">Tahfidz</td>
+                          <td class="py-4 px-4">Tahsin & Tajwid Dasar</td>
+                          <td class="py-4 px-4">Penguatan makharijul huruf dan kelancaran membaca Al-Qur'an dengan tartil.</td>
+                        </tr>
+                        <tr class="border-b border-lime-800/30">
+                          <td class="py-4 px-4 font-medium text-lime-900">Mengaji kitab Syifa'ul Jinan</td>
+                          <td class="py-4 px-4">Kitab Syifa'ul Jinan karya KH. Ahmad Muthohhar bin Abdurrahman</td>
+                          <td class="py-4 px-4">Kitab ini merupakan terjemahan dan penjelasan rinci dalam bahasa Jawa (menggunakan aksara Pegon) dari kitab nadzam Hidayatush Shibyan fi Tajwidil Quran karya Syekh Said bin Said Al-Hadhrami mengenai kaidah dasar ilmu tajwid.</td>
+                        </tr>
+                        <tr class="border-b border-lime-800/30">
+                          <td class="py-4 px-4 font-medium text-lime-900">Belajar Bahasa Arab</td>
+                          <td class="py-4 px-4">Kurikulum Bahasa Arab PPMHS</td>
+                          <td class="py-4 px-4">Memperkaya kosa kata Bahasa Arab, khususnya yang sering ditemukan dalam kehidupan sehari-hari. Mata pelajaran ini jiga digunakan sebagai pelengkap Kitab Jurumiyah</td>
+                        </tr>
+                        <tr class="border-b border-lime-800/30">
+                          <td class="py-4 px-4 font-medium text-lime-900">Menulis Makna Kitab (pego)</td>
+                          <td class="py-4 px-4">-</td>
+                          <td class="py-4 px-4">Melatih santri memaknai kitab tidak hanya dari segi arti, tetapi juga kedudukan kata dalam kalimat bahasa Arab.</td>
+                        </tr>
+                        <tr>
+                          <td class="py-4 px-4 font-medium text-lime-900">Menelaah Kitab At-Targhib wa At-Tarhib</td>
+                          <td class="py-4 px-4">Kitab Al-Targhib wa Al-Tarhib min Al-Hadits Al-Syarif karya Imam Al-Mundziri</td>
+                          <td class="py-4 px-4">Membahas kumpulan hadits-hadits Nabi SAW yang berfungsi sebagai motivasi untuk melakukan amal kebajikan sekaligus peringatan agar menjauhi kemaksiatan.</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ACCORDION 2: Tahun 2 -->
+            <div class="border-b border-lime-900/20 accordion-item">
+              <button class="w-full py-6 flex justify-between items-center text-left focus:outline-none accordion-btn group">
+                <span class="text-xl lg:text-2xl font-medium text-lime-900 group-hover:text-lime-700 transition-colors">Tahun 2</span>
+                <svg class="w-5 h-5 text-lime-900 transform transition-transform duration-300 chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              
+              <div class="max-h-0 overflow-hidden transition-[max-height] duration-500 ease-in-out accordion-content">
+                <div class="pb-8 pt-2">
+                  <div class="overflow-x-auto no-scrollbar">
+                    <table class="w-full text-left border-collapse min-w-[600px]">
+                      <thead>
+                        <tr class="border-b-2 border-lime-800 text-lime-800 text-lg">
+                          <th class="py-3 px-4 font-bold w-1/4">Kegiatan</th>
+                          <th class="py-3 px-4 font-bold w-1/4">Materi Pendukung</th>
+                          <th class="py-3 px-4 font-bold w-1/2">Topik/Fokus Capaian</th>
+                        </tr>
+                      </thead>
+                      <tbody class="text-lime-900/90 text-base border-b border-lime-800/30">
+                        <tr class="border-b border-lime-800/30">
+                          <td class="py-4 px-4 font-medium text-lime-900">Tahfidz</td>
+                          <td class="py-4 px-4">Tahsin & Tajwid Lanjutan</td>
+                          <td class="py-4 px-4">Penguatan makharijul huruf dan kelancaran membaca Al-Qur'an dengan tartil.</td>
+                        </tr>
+                        <tr class="border-b border-lime-800/30">
+                          <td class="py-4 px-4 font-medium text-lime-900">Belajar Bahasa Arab</td>
+                          <td class="py-4 px-4">Kurikulum Bahasa Arab PPMHS</td>
+                          <td class="py-4 px-4">Memperkaya kosa kata Bahasa Arab, khususnya yang sering ditemukan dalam kehidupan sehari-hari. Mata pelajaran ini jiga digunakan sebagai pelengkap Kitab Jurumiyah</td>
+                        </tr>
+                        <tr class="border-b border-lime-800/30">
+                          <td class="py-4 px-4 font-medium text-lime-900">Mengaji Kitab Fathul Mannan</td>
+                          <td class="py-4 px-4">Kitab karya KH. Maftuh Basthul Birri</td>
+                          <td class="py-4 px-4">Kitab ini membahas tata cara membaca Al-Qur'an secara mendetail sesuai riwayat Imam Hafsh bin Sulaiman. Pokok bahasannya mencakup kaidah huruf, makharijul huruf, sifat-sifat huruf, hukum bacaan, dan kesalahan dalam membaca al-Qur'an.</td>
+                        </tr>
+                        <tr class="border-b border-lime-800/30">
+                          <td class="py-4 px-4 font-medium text-lime-900">Mengaji Kitab Al-Ghayah wa At-Taqrib</td>
+                          <td class="py-4 px-4">Kitab karya Syaikh Ahmad bin Husain bin Ahmad al-Asfahani</td>
+                          <td class="py-4 px-4">Kitab ini berisi ringkasan ilmu fikih Islam yang mencakup ibadah, muamalah dan kemasyarakatan, serta jinayat dan hukum pidana.</td>
+                        </tr>
+                        <tr>
+                          <td class="py-4 px-4 font-medium text-lime-900">Menelaah Kitab At-Targhib wa At-Tarhib</td>
+                          <td class="py-4 px-4">Kitab Al-Targhib wa Al-Tarhib min Al-Hadits Al-Syarif karya Imam Al-Mundziri</td>
+                          <td class="py-4 px-4">Membahas kumpulan hadits-hadits Nabi SAW yang berfungsi sebagai motivasi untuk melakukan amal kebajikan sekaligus peringatan agar menjauhi kemaksiatan.</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ACCORDION 3: Tahun 3 -->
+            <div class="border-b border-lime-900/20 accordion-item">
+              <button class="w-full py-6 flex justify-between items-center text-left focus:outline-none accordion-btn group">
+                <span class="text-xl lg:text-2xl font-medium text-lime-900 group-hover:text-lime-700 transition-colors">Tahun 3</span>
+                <svg class="w-5 h-5 text-lime-900 transform transition-transform duration-300 chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              
+              <div class="max-h-0 overflow-hidden transition-[max-height] duration-500 ease-in-out accordion-content">
+                <div class="pb-8 pt-2">
+                  <div class="overflow-x-auto no-scrollbar">
+                    <table class="w-full text-left border-collapse min-w-[600px]">
+                      <thead>
+                        <tr class="border-b-2 border-lime-800 text-lime-800 text-lg">
+                          <th class="py-3 px-4 font-bold w-1/4">Kegiatan</th>
+                          <th class="py-3 px-4 font-bold w-1/4">Materi Pendukung</th>
+                          <th class="py-3 px-4 font-bold w-1/2">Topik/Fokus Capaian</th>
+                        </tr>
+                      </thead>
+                      <tbody class="text-lime-900/90 text-base border-b border-lime-800/30">
+                        <tr class="border-b border-lime-800/30">
+                          <td class="py-4 px-4 font-medium text-lime-900">Tahfidz</td>
+                          <td class="py-4 px-4">Tahsin & Tajwid Lanjutan</td>
+                          <td class="py-4 px-4">Penguatan makharijul huruf dan kelancaran membaca Al-Qur'an dengan tartil.</td>
+                        </tr>
+                        <tr class="border-b border-lime-800/30">
+                          <td class="py-4 px-4 font-medium text-lime-900">Mengaji Kitab Al-Ghayah wa At-Taqrib</td>
+                          <td class="py-4 px-4">Kitab karya Syaikh Ahmad bin Husain bin Ahmad al-Asfahani</td>
+                          <td class="py-4 px-4">Kitab ini berisi ringkasan ilmu fikih Islam yang mencakup ibadah, muamalah dan kemasyarakatan, serta jinayat dan hukum pidana.</td>
+                        </tr>
+                        <tr class="border-b border-lime-800/30">
+                          <td class="py-4 px-4 font-medium text-lime-900">Belajar Bahasa Arab</td>
+                          <td class="py-4 px-4">Kurikulum Bahasa Arab PPMHS</td>
+                          <td class="py-4 px-4">Memperkaya kosa kata Bahasa Arab, khususnya yang sering ditemukan dalam kehidupan sehari-hari. Mata pelajaran ini jiga digunakan sebagai pelengkap Kitab Jurumiyah</td>
+                        </tr>
+                        <tr>
+                          <td class="py-4 px-4 font-medium text-lime-900">Menelaah Kitab At-Targhib wa At-Tarhib</td>
+                          <td class="py-4 px-4">Kitab Al-Targhib wa Al-Tarhib min Al-Hadits Al-Syarif karya Imam Al-Mundziri</td>
+                          <td class="py-4 px-4">Membahas kumpulan hadits-hadits Nabi SAW yang berfungsi sebagai motivasi untuk melakukan amal kebajikan sekaligus peringatan agar menjauhi kemaksiatan.</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </section>
+
+      <section id="biaya-pendidikan" class="w-full max-w-[1300px] mx-auto pt-16 mb-32 lg:px-12">
+        <div class="bg-lime-100/70 rounded-[2rem] lg:rounded-[3rem] p-8 md:p-12 lg:p-16">
+          
+          <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 lg:mb-12 gap-6">
+            <div class="max-w-2xl">
+              <h2 class="text-3xl lg:text-5xl font-bold text-lime-900 mb-4 tracking-tight">
+                Rincian Biaya Pendidikan
+              </h2>
+              <h2 class="text-lg lg:text-xl font-bold text-lime-900/80 mb-4 tracking-tight">
+                Berlaku hingga Desember 2026
+              </h2>
+              <p class="text-lg text-lime-900/80 leading-relaxed">
+                Kami berkomitmen memberikan transparansi penuh terkait investasi pendidikan Anak Anda. Berikut adalah rincian biaya untuk pendaftaran, bulanan (syahriah), dan kebutuhan kitab tahunan.
+              </p>
+            </div>
+          </div>
+
+          <!-- Table Wrapper for Mobile Scrolling -->
+          <div class="overflow-x-auto no-scrollbar">
+            <table class="w-full text-left border-collapse min-w-[750px]">
+              <thead>
+                <tr class="border-b-2 border-lime-800 text-lime-800 text-lg">
+                  <th class="py-4 px-4 font-bold w-1/4">Jenis Biaya</th>
+                  <th class="py-4 px-4 font-bold w-1/4">Waktu Pembayaran</th>
+                  <th class="py-4 px-4 font-bold w-1/4">Program Kitab</th>
+                  <th class="py-4 px-4 font-bold w-1/4">Program Tahfidz</th>
+                </tr>
+              </thead>
+              <tbody class="text-lime-900 text-base lg:text-lg border-b border-lime-800/30">
+                
+                <!-- Monthly Tuition -->
+                <tr class="border-b border-lime-800/30 hover:bg-lime-200/30 transition-colors">
+                  <td class="py-5 px-4 font-bold text-lime-900">Syahriah (SPP Bulanan)</td>
+                  <td class="py-5 px-4">Hari Minggu pertama di setiap bulan</td>
+                  <td class="py-5 px-4 font-medium">Rp500.000</td>
+                  <td class="py-5 px-4 font-medium">Rp500.000</td>
+                </tr>
+                
+                <!-- New Study Year / Kitab Fee -->
+                <tr class="hover:bg-lime-200/30 transition-colors">
+                  <td class="py-5 px-4 font-bold text-lime-900">Daftar Ulang & Kitab</td>
+                  <td class="py-5 px-4">Awal tahun ajaran baru</td>
+                  <td class="py-5 px-4 font-medium">Rp1.000.000</td>
+                  <td class="py-5 px-4 font-medium">Rp800.000</td>
+                </tr>
+                
+              </tbody>
+            </table>
+          </div>
+
+          <div class="mt-6 text-sm text-lime-900/60 flex items-start gap-2">
+            <svg class="w-5 h-5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <p>
+              *Biaya kitab pada Program Kitab sedikit lebih tinggi karena menyesuaikan dengan jumlah dan ketebalan literatur salaf yang digunakan pada tahun ajaran tersebut. Nominal di atas dapat berubah sewaktu-waktu sesuai kebijakan yayasan.
+            </p>
+          </div>
+
+        </div>
+      </section>
+    
+    </main>
+    <Footer />
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        
+        // --- 1. Desktop Accordion Hover Logic (Scoped per Section) ---
+        const sliders = [
+          document.getElementById('kegiatan-container'),
+          document.getElementById('kegiatan-container-tahfidz')
+        ];
+
+        sliders.forEach(slider => {
+          if (!slider) return; 
+          
+          const cards = slider.querySelectorAll('.kegiatan-card');
+          
+          // Force the first card to be expanded by default on page load
+          cards.forEach(c => c.classList.remove('active'));
+          if (cards.length > 0) cards[0].classList.add('active');
+
+          // Change active card on hover and KEEP it active
+          cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+              cards.forEach(c => c.classList.remove('active'));
+              card.classList.add('active');
+            });
+          });
+        });
+
+        // --- 2. Mobile Arrow Scrolling Logic (KITAB) ---
+        const containerKitab = document.getElementById('kegiatan-container');
+        const btnPrevKitab = document.getElementById('btn-kegiatan-prev');
+        const btnNextKitab = document.getElementById('btn-kegiatan-next');
+
+        if (containerKitab && btnPrevKitab && btnNextKitab) {
+          btnPrevKitab.addEventListener('click', () => {
+            const cardWidth = containerKitab.querySelector('.kegiatan-card').offsetWidth;
+            containerKitab.scrollBy({ left: -(cardWidth + 16), behavior: 'smooth' });
+          });
+          btnNextKitab.addEventListener('click', () => {
+            const cardWidth = containerKitab.querySelector('.kegiatan-card').offsetWidth;
+            containerKitab.scrollBy({ left: cardWidth + 16, behavior: 'smooth' });
+          });
+        }
+
+        // --- 3. Mobile Arrow Scrolling Logic (TAHFIDZ) ---
+        const containerTahfidz = document.getElementById('kegiatan-container-tahfidz');
+        const btnPrevTahfidz = document.getElementById('btn-kegiatan-prev-tahfidz');
+        const btnNextTahfidz = document.getElementById('btn-kegiatan-next-tahfidz');
+
+        if (containerTahfidz && btnPrevTahfidz && btnNextTahfidz) {
+          btnPrevTahfidz.addEventListener('click', () => {
+            const cardWidth = containerTahfidz.querySelector('.kegiatan-card').offsetWidth;
+            containerTahfidz.scrollBy({ left: -(cardWidth + 16), behavior: 'smooth' });
+          });
+          btnNextTahfidz.addEventListener('click', () => {
+            const cardWidth = containerTahfidz.querySelector('.kegiatan-card').offsetWidth;
+            containerTahfidz.scrollBy({ left: cardWidth + 16, behavior: 'smooth' });
+          });
+        }
+
+        // --- 4. Curriculum Accordion Logic ---
+        const accBtns = document.querySelectorAll('.accordion-btn');
+        
+        accBtns.forEach(btn => {
+          btn.addEventListener('click', function() {
+            const content = this.nextElementSibling;
+            const chevron = this.querySelector('.chevron');
+            const isOpen = content.style.maxHeight;
+
+            // Close all accordions
+            document.querySelectorAll('.accordion-content').forEach(c => {
+              c.style.maxHeight = null;
+            });
+            document.querySelectorAll('.chevron').forEach(c => {
+              c.classList.remove('rotate-180');
+            });
+
+            // Open clicked accordion if it was closed
+            if (!isOpen) {
+              content.style.maxHeight = content.scrollHeight + "px";
+              chevron.classList.add('rotate-180');
+            }
+          });
+        });
+        
+      });
+    </script>
+
+  </body>
+  
+ <style>
+    /* ==========================================
+       RIGHT CUTOUT CSS (Scroll Button)
+       ========================================== */
+    .wur-cutout {
+        border-top-left-radius: 32px;
+        border-bottom-left-radius: 32px;
+    }
+    .wur-cutout::before,
+    .wur-cutout::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        width: 32px;
+        height: 32px;
+        background: transparent;
+        pointer-events: none;
+    }
+    .wur-cutout::before {
+        bottom: 100%;
+        background: radial-gradient(circle at 0 0, transparent 31.5px, #f7fee7 32px);
+    }
+    .wur-cutout::after {
+        top: 100%;
+        background: radial-gradient(circle at 0 100%, transparent 31.5px, #f7fee7 32px);
+    }
+
+    /* ==========================================
+       LEFT CUTOUT CSS (Nav Menu Gap)
+       Only applies on large screens (desktop)
+       ========================================== */
+    @media (min-width: 1024px) {
+      .wur-top-left-cutout {
+          border-bottom-right-radius: 52px;
+      }
+      .wur-top-left-cutout::before,
+      .wur-top-left-cutout::after {
+          content: "";
+          position: absolute;
+          width: 32px;
+          height: 32px;
+          background: transparent;
+          pointer-events: none;
+      }
+      /* Right Inverse Corner */
+      .wur-top-left-cutout::before {
+          left: 100%;
+          top: 0;
+          background: radial-gradient(circle at 100% 100%, transparent 31.5px, #f7fee7 32px);
+      }
+      /* Bottom Inverse Corner */
+      .wur-top-left-cutout::after {
+          top: 100%;
+          left: 0;
+          background: radial-gradient(circle at 100% 100%, transparent 31.5px, #f7fee7 32px);
+      }
+    }
+    /* ==========================================
+       NO SCROLLBAR UTILITY (For mobile carousel)
+       ========================================== */
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+    .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    /* ==========================================
+       HORIZONTAL ACCORDION LOGIC (Video Style)
+       Only applies on large screens (desktop)
+       ========================================== */
+    @media (min-width: 1024px) {
+      .kegiatan-card {
+        flex: 1; /* All cards default to equal small width */
+        transition: flex 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+        min-width: 0; /* Allows the title text to wrap gracefully */
+      }
+      
+      /* The active/hovered card expands to take up ~3.5x more space */
+      .kegiatan-card.active {
+        flex: 3.5;
+      }
+      
+      /* Text Reveal Animation */
+      .kegiatan-desc-wrapper {
+        max-height: 0;
+        opacity: 0;
+        transition: max-height 0.5s ease, opacity 0.3s ease;
+      }
+      
+      .kegiatan-card.active .kegiatan-desc-wrapper {
+        max-height: 150px;
+        opacity: 1;
+        transition: max-height 0.7s ease, opacity 0.7s ease 0.2s; /* Delayed opacity for smooth fade-in */
+      }
+
+      /* Title Color Shift */
+      .kegiatan-card.active .kegiatan-title {
+        color: #1a2e05; /* Deep lime-950/900 when active */
+      }
+    }
+    
+  </style>
+  
+</html>

@@ -1,0 +1,939 @@
+---
+import '../styles/global.css';
+import Navbar from '../components/Navbar.astro';
+import pendafatranImg from '../assets/pendaftaran.png';
+import kitabImg from '../assets/kitab.jpg';
+import tahfidzImg from '../assets/tahfidz.jpg';
+import Footer from '../components/footer.astro';
+---
+
+<html lang="id">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pendaftaran</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-lime-50">
+    
+    <Navbar hasDarkHero={false} />
+
+    <main class="max-w-[1440px] mx-auto px-4 lg:px-12 pt-28 lg:pt-36">
+      
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-lime-900 mb-8 md:mb-8 lg:mb-12 tracking-tight md:pr-20 lg:pr-0">
+        Pendaftaran Santri Baru PPMHS
+      </h1>
+
+      <div class="relative w-full">
+        
+        <img 
+          src={pendafatranImg.src} 
+          alt="Kegiatan Yayasan Miftahul Huda Soko" 
+          class="w-full h-[350px] md:h-[500px] lg:h-[650px] object-cover rounded-[2.5rem] lg:rounded-[4rem]"
+        />
+
+        <div class="wur-cutout hidden lg:flex absolute top-1/2 -translate-y-1/2 right-0 w-16 h-16 bg-lime-50 items-center justify-center z-10">
+          
+          <button 
+            class="w-13 h-13 bg-lime-900 text-lime-50 rounded-full flex items-center justify-center hover:bg-lime-950 transition-colors group cursor-pointer"
+            aria-label="Scroll down"
+            onclick="window.scrollBy({ top: 600, behavior: 'smooth' })"
+          >
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              class="w-5 h-5 transition-transform duration-300 group-hover:translate-y-0.5" 
+              fill="none" 
+              viewBox="0 0 24 24" 
+              stroke="currentColor" 
+              stroke-width="2.5"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </button>
+          
+        </div>
+      
+      </div>
+
+      <section id="faq-pendaftaran" class="w-full max-w-[1300px] mx-auto mt-16 md:mt-24 lg:mt-32 mb-24 lg:px-12">
+        
+        <div class="inline-block bg-lime-300 text-lime-900 text-xs md:text-sm font-bold px-3 py-1 mb-4 uppercase tracking-widest rounded-sm">
+          Informasi Awal
+        </div>
+
+        <h2 class="text-3xl lg:text-5xl font-bold text-lime-900 mb-6 lg:mb-10 tracking-tight">
+          Pertanyaan Seputar Pendaftaran
+        </h2>
+
+        <div class="flex flex-col w-full border-t border-lime-900/20">
+          
+          <!-- FAQ 1: Cara Daftar -->
+          <div class="border-b border-lime-900/20 accordion-item">
+            <button class="w-full py-6 flex justify-between items-center text-left focus:outline-none accordion-btn group cursor-pointer">
+              <span class="text-xl lg:text-2xl font-medium text-lime-900 group-hover:text-lime-700 transition-colors pr-6">
+                Bagaimana alur dan cara mendaftar di PPMHS?
+              </span>
+              <svg class="w-5 h-5 text-lime-900 transform transition-transform duration-300 chevron flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            
+            <div class="max-h-0 overflow-hidden transition-[max-height] duration-500 ease-in-out accordion-content">
+              <div class="pb-8 pt-2 text-lime-900/80 text-base lg:text-lg leading-relaxed max-w-4xl space-y-4">
+                <p>
+                  Pendaftaran santri baru di Pondok Pesantren Miftahul Huda Soko dibuka secara fleksibel tanpa batasan gelombang khusus. Proses pendaftaran dilakukan melalui tahapan berikut:
+                </p>
+                <ol class="list-decimal list-inside space-y-2 font-medium text-lime-900">
+                  <li>Mengisi data diri calon santri sekaligus mengunggah <span class="italic">(upload)</span> salinan digital dokumen persyaratan melalui formulir pendaftaran di bagian bawah halaman ini.</li>
+                  <li>Menjelang hari masuk (kedatangan ke pondok), menyerahkan berkas fisik berupa fotokopi dokumen persyaratan ke sekretariat pondok untuk verifikasi akhir dan penempatan asrama.</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 2: Dokumen Persyaratan -->
+          <div class="border-b border-lime-900/20 accordion-item">
+            <button class="w-full py-6 flex justify-between items-center text-left focus:outline-none accordion-btn group cursor-pointer">
+              <span class="text-xl lg:text-2xl font-medium text-lime-900 group-hover:text-lime-700 transition-colors pr-6">
+                Apa saja dokumen persyaratan yang perlu disiapkan?
+              </span>
+              <svg class="w-5 h-5 text-lime-900 transform transition-transform duration-300 chevron flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            
+            <div class="max-h-0 overflow-hidden transition-[max-height] duration-500 ease-in-out accordion-content">
+              <div class="pb-8 pt-2 text-lime-900/80 text-base lg:text-lg leading-relaxed max-w-4xl">
+                <p class="mb-4">
+                  Mohon siapkan dokumen berikut dalam bentuk <span class="font-bold">file digital (foto/scan)</span> untuk diunggah pada formulir daring di bawah, serta <span class="font-semibold">berkas fisik (fotokopi) untuk diserahkan ke sekretariat</span> menjelang hari masuk:
+                </p>
+                <ul class="list-disc list-inside space-y-2 text-lime-900 font-medium">
+                  <li>Kartu Keluarga (KK) dan Akta Kelahiran calon santri (file unggahan & fotokopi masing-masing 2 lembar).</li>
+                  <li>KTP kedua orang tua atau wali (file unggahan & fotokopi 2 lembar).</li>
+                  <li>Pas foto terbaru berbusana muslim/rapi (file unggahan & cetak ukuran 3x4 sebanyak 4 lembar).</li>
+                  <li>Catatan riwayat kesehatan khusus (jika santri memiliki alergi atau kondisi medis tertentu).</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 3: Biaya Pendidikan -->
+          <div class="border-b border-lime-900/20 accordion-item">
+            <button class="w-full py-6 flex justify-between items-center text-left focus:outline-none accordion-btn group cursor-pointer">
+              <span class="text-xl lg:text-2xl font-medium text-lime-900 group-hover:text-lime-700 transition-colors pr-6">
+                Bagaimana rincian biaya pendaftaran dan syahriah bulanan?
+              </span>
+              <svg class="w-5 h-5 text-lime-900 transform transition-transform duration-300 chevron flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            
+            <div class="max-h-0 overflow-hidden transition-[max-height] duration-500 ease-in-out accordion-content">
+              <div class="pb-8 pt-2 text-lime-900/80 text-base lg:text-lg leading-relaxed max-w-4xl">
+                <p>
+                  Komponen biaya pendidikan di PPMHS dibagi menjadi tiga bagian utama: Uang Pangkal (dibayarkan sekali saat awal masuk), Syahriah atau SPP bulanan, serta biaya daftar ulang dan kitab di awal tahun ajaran baru. Besaran biaya menyesuaikan dengan jalur program yang dipilih (Program Kitab atau Program Tahfidz). 
+                </p>
+                <p class="mt-4">
+                  Tabel perbandingan nominal lengkap untuk masing-masing program dapat Anda periksa langsung pada <a href="/program#biaya-pendidikan" class="text-lime-900 font-bold underline decoration-lime-700/50 underline-offset-4 hover:text-lime-700 hover:decoration-lime-700 transition-colors">bagian Rincian Biaya Pendidikan</a> di halaman Program.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Link "Lebih Banyak" ke Halaman Kontak -->
+        <div class="mt-8 flex justify-start">
+          <a 
+            href="/kontak" 
+            class="inline-flex items-center gap-3 text-lg font-bold text-lime-900 hover:text-lime-700 transition-colors group"
+          >
+            <span class="underline decoration-lime-900/40 underline-offset-8 group-hover:decoration-lime-700">
+              Lihat pertanyaan lebih banyak
+            </span>
+            <span class="w-9 h-9 rounded-full bg-lime-300 text-lime-900 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </span>
+          </a>
+        </div>
+
+      </section>
+
+      <!-- ==========================================
+           FORMULIR PENDAFTARAN SECTION
+           ========================================== -->
+      <section id="formulir-pendaftaran" class="w-full mx-auto mb-32 scroll-mt-28">
+        <div class="bg-lime-100/70 rounded-[2.5rem] lg:rounded-[4rem] p-6 md:p-12 lg:p-16">
+          
+          <!-- PEMBUNGKUS FORMULIR (Akan disembunyikan setelah berhasil kirim) -->
+          <div id="form-wrapper">
+            <div class="max-w-2xl mb-10 lg:mb-14">
+              <div class="inline-block bg-lime-300 text-lime-900 text-xs md:text-sm font-bold px-3 py-1 mb-4 uppercase tracking-widest rounded-sm">
+                Formulir Daring
+              </div>
+              <h2 class="text-3xl lg:text-5xl font-bold text-lime-900 mb-4 tracking-tight">
+                Formulir Pendaftaran Santri
+              </h2>
+              <p class="text-lg text-lime-900/80 leading-relaxed">
+                Silakan pilih program pendidikan yang dituju, lengkapi seluruh rincian data diri, dan unggah dokumen persyaratan di bawah ini.
+              </p>
+            </div>
+
+          <form id="form-pendaftaran-ppmhs" class="space-y-12">
+            
+            <!-- ==========================================
+                 BAGIAN 1: PILIHAN PROGRAM (IMAGE CARDS)
+                 ========================================== -->
+            <div>
+              <h3 class="text-xl lg:text-2xl font-bold text-lime-900 mb-2">
+                1. Pilih Program Pendidikan <span class="text-red-600">*</span>
+              </h3>
+              <p class="text-sm md:text-base text-lime-900/70 mb-6">
+                Klik pada salah satu pilihan program di bawah ini sesuai minat calon santri.
+              </p>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+                
+                <!-- Card 1: Program Kitab -->
+                <label class="relative cursor-pointer group">
+                  <input type="radio" name="entry.709398308" value="Program Kitab" class="peer sr-only" required />
+                  
+                  <div class="h-full bg-lime-50 rounded-[2rem] p-4 lg:p-6 border-2 border-lime-900/10 transition-all duration-300 hover:border-lime-900/40 peer-checked:border-lime-900 peer-checked:bg-lime-200/40 peer-checked:shadow-md flex flex-col">
+                    <div class="relative w-full h-48 lg:h-56 rounded-[1.5rem] overflow-hidden mb-4">
+                      <img src={kitabImg.src} alt="Program Kitab" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                    </div>
+                    <span class="text-xl lg:text-2xl font-bold text-lime-900 px-1">Program Kitab</span>
+                  </div>
+
+                  <div class="w-9 h-9 rounded-full border-2 border-lime-900/30 bg-lime-50 text-transparent peer-checked:bg-lime-900 peer-checked:border-lime-900 peer-checked:text-lime-300 flex items-center justify-center transition-all duration-300 absolute top-8 right-8 lg:top-10 lg:right-10 shadow-sm">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                </label>
+
+                <!-- Card 2: Program Tahfidz -->
+                <label class="relative cursor-pointer group">
+                  <input type="radio" name="entry.709398308" value="Program Tahfidz" class="peer sr-only" required />
+                  
+                  <div class="h-full bg-lime-50 rounded-[2rem] p-4 lg:p-6 border-2 border-lime-900/10 transition-all duration-300 hover:border-lime-900/40 peer-checked:border-lime-900 peer-checked:bg-lime-200/40 peer-checked:shadow-md flex flex-col">
+                    <div class="relative w-full h-48 lg:h-56 rounded-[1.5rem] overflow-hidden mb-4">
+                      <img src={tahfidzImg.src} alt="Program Tahfidz" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                    </div>
+                    <div class="px-1 flex flex-wrap items-center justify-between gap-2">
+                      <span class="text-xl lg:text-2xl font-bold text-lime-900">Program Tahfidz</span>
+                      <span class="text-xs font-bold bg-lime-300/80 text-lime-900 px-3 py-1 rounded-full">
+                        Khusus Santri Putri
+                      </span>
+                    </div>
+                  </div>
+
+                  <div class="w-9 h-9 rounded-full border-2 border-lime-900/30 bg-lime-50 text-transparent peer-checked:bg-lime-900 peer-checked:border-lime-900 peer-checked:text-lime-300 flex items-center justify-center transition-all duration-300 absolute top-8 right-8 lg:top-10 lg:right-10 shadow-sm">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                </label>
+
+              </div>
+            </div>
+
+            <hr class="border-lime-900/15" />
+
+            <!-- ==========================================
+                 BAGIAN 2: DATA DIRI CALON SANTRI
+                 ========================================== -->
+            <div>
+              <h3 class="text-xl lg:text-2xl font-bold text-lime-900 mb-6">
+                2. Identitas Calon Santri
+              </h3>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- entry.704223399 -->
+                <div>
+                  <label class="block text-sm font-bold text-lime-900 mb-2">Nama Lengkap Calon Santri <span class="text-red-600">*</span></label>
+                  <input type="text" name="entry.704223399" required placeholder="Sesuai Akta Kelahiran" class="w-full px-4 py-3.5 rounded-xl bg-lime-50 border border-lime-900/20 text-lime-900 focus:outline-none focus:border-lime-900 transition-colors" />
+                </div>
+
+                <!-- entry.72329184 -->
+                <div>
+                  <label class="block text-sm font-bold text-lime-900 mb-2">Nama Panggilan <span class="text-red-600">*</span></label>
+                  <input type="text" name="entry.72329184" required placeholder="Nama panggilan sehari-hari" class="w-full px-4 py-3.5 rounded-xl bg-lime-50 border border-lime-900/20 text-lime-900 focus:outline-none focus:border-lime-900 transition-colors" />
+                </div>
+
+                <!-- entry.2042165995 -->
+                <div>
+                  <label class="block text-sm font-bold text-lime-900 mb-2">Tempat Lahir <span class="text-red-600">*</span></label>
+                  <input type="text" name="entry.2042165995" required placeholder="Kota/Kabupaten tempat lahir" class="w-full px-4 py-3.5 rounded-xl bg-lime-50 border border-lime-900/20 text-lime-900 focus:outline-none focus:border-lime-900 transition-colors" />
+                </div>
+
+                <!-- entry.1944038293 -->
+                <div>
+                  <label class="block text-sm font-bold text-lime-900 mb-2">Tanggal Lahir <span class="text-red-600">*</span></label>
+                  <input type="date" name="entry.1944038293" required class="w-full px-4 py-3.5 rounded-xl bg-lime-50 border border-lime-900/20 text-lime-900 focus:outline-none focus:border-lime-900 transition-colors" />
+                </div>
+
+                <!-- entry.1015670036 -->
+                <div>
+                  <label class="block text-sm font-bold text-lime-900 mb-2">Jenis Kelamin <span class="text-red-600">*</span></label>
+                  <select 
+                    id="select-jenis-kelamin" 
+                    name="entry.1015670036" 
+                    required 
+                    class="w-full px-4 py-3.5 rounded-xl bg-lime-50 border border-lime-900/20 text-lime-900 focus:outline-none focus:border-lime-900 transition-colors"
+                  >
+                    <option value="" disabled selected>Pilih Jenis Kelamin</option>
+                    <option id="opt-laki" value="Laki - Laki">Laki - Laki</option>
+                    <option value="Perempuan">Perempuan</option>
+                  </select>
+                  <p id="note-gender-tahfidz" class="hidden mt-1.5 text-xs text-lime-800 font-medium">
+                    *Program Tahfidz hanya diperuntukkan bagi santri putri (Perempuan).
+                  </p>
+                </div>
+
+                <!-- entry.331529746 (NIK Calon Santri - Wajib 16 Digit) -->
+                <div>
+                  <label class="block text-sm font-bold text-lime-900 mb-2">
+                    NIK (Nomor Induk Kependudukan) <span class="text-red-600">*</span>
+                  </label>
+                  <input 
+                    type="text" 
+                    name="entry.331529746" 
+                    inputmode="numeric"
+                    minlength="16"
+                    maxlength="16"
+                    pattern="[0-9]{16}" 
+                    required 
+                    placeholder="16 digit NIK sesuai KK" 
+                    oninput="this.value = this.value.replace(/[^0-9]/g, ''); this.setCustomValidity('');"
+                    oninvalid="this.setCustomValidity('NIK harus terdiri dari tepat 16 digit angka.')"
+                    class="peer w-full px-4 py-3.5 rounded-xl bg-lime-50 border border-lime-900/20 text-lime-900 focus:outline-none focus:border-lime-900 [&:not(:placeholder-shown):invalid]:border-red-600 transition-colors" 
+                  />
+                  <p class="mt-1.5 text-xs text-lime-900/60 peer-[&:not(:placeholder-shown):invalid]:hidden">
+                    *Pastikan NIK berjumlah tepat 16 digit angka sesuai Kartu Keluarga.
+                  </p>
+                  <p class="mt-1.5 text-xs font-semibold text-red-600 hidden peer-[&:not(:placeholder-shown):invalid]:block">
+                    NIK belum sesuai (wajib terisi tepat 16 digit angka).
+                  </p>
+                </div>
+
+                <!-- entry.1032658681 -->
+                <div>
+                  <label class="block text-sm font-bold text-lime-900 mb-2">Kewarganegaraan <span class="text-red-600">*</span></label>
+                  <select name="entry.1032658681" required class="w-full px-4 py-3.5 rounded-xl bg-lime-50 border border-lime-900/20 text-lime-900 focus:outline-none focus:border-lime-900 transition-colors">
+                    <option value="Warga Negara Indonesia (WNI)" selected>Warga Negara Indonesia (WNI)</option>
+                    <option value="Warga Negara Asing (WNA)">Warga Negara Asing (WNA)</option>
+                  </select>
+                </div>
+
+                <!-- Anak ke & Jumlah Saudara -->
+                <div class="grid grid-cols-2 gap-4">
+                  <!-- entry.1567770694 -->
+                  <div>
+                    <label class="block text-sm font-bold text-lime-900 mb-2">Anak ke- <span class="text-red-600">*</span></label>
+                    <input type="number" name="entry.1567770694" min="1" required placeholder="Contoh: 2" class="w-full px-4 py-3.5 rounded-xl bg-lime-50 border border-lime-900/20 text-lime-900 focus:outline-none focus:border-lime-900 transition-colors" />
+                  </div>
+                  <!-- entry.2105679234 -->
+                  <div>
+                    <label class="block text-sm font-bold text-lime-900 mb-2">Dari ... Bersaudara <span class="text-red-600">*</span></label>
+                    <input type="number" name="entry.2105679234" min="1" required placeholder="Contoh: 3" class="w-full px-4 py-3.5 rounded-xl bg-lime-50 border border-lime-900/20 text-lime-900 focus:outline-none focus:border-lime-900 transition-colors" />
+                  </div>
+                </div>
+
+                <!-- ==========================================
+                     BLOK ALAMAT SANTRI (TERSTRUKTUR RAPI)
+                     ========================================== -->
+                <!-- entry.893759222 (Detail Jalan, Desa, Kecamatan) -->
+                <div class="md:col-span-2">
+                  <label class="block text-sm font-bold text-lime-900 mb-2">Alamat Lengkap Calon Santri <span class="text-red-600">*</span></label>
+                  <textarea name="entry.893759222" rows="2" required placeholder="Nama Jalan, RT/RW, Dusun, Desa/Kelurahan, Kecamatan" class="w-full px-4 py-3.5 rounded-xl bg-lime-50 border border-lime-900/20 text-lime-900 focus:outline-none focus:border-lime-900 transition-colors"></textarea>
+                </div>
+
+                <!-- Kabupaten / Kota (Kiri) -->
+                <div>
+                  <label class="block text-sm font-bold text-lime-900 mb-2">Kabupaten / Kota <span class="text-red-600">*</span></label>
+                  <input type="text" name="kabupaten_santri" required placeholder="Contoh: Kab. Kediri" class="w-full px-4 py-3.5 rounded-xl bg-lime-50 border border-lime-900/20 text-lime-900 focus:outline-none focus:border-lime-900 transition-colors" />
+                </div>
+
+                <!-- Provinsi (Kanan) -->
+                <div>
+                  <label class="block text-sm font-bold text-lime-900 mb-2">Provinsi <span class="text-red-600">*</span></label>
+                  <input type="text" name="provinsi_santri" required placeholder="Contoh: Jawa Timur" class="w-full px-4 py-3.5 rounded-xl bg-lime-50 border border-lime-900/20 text-lime-900 focus:outline-none focus:border-lime-900 transition-colors" />
+                </div>
+
+                <!-- entry.1519488344 (Email - OPSIONAL) -->
+                <div class="md:col-span-2">
+                  <label class="block text-sm font-bold text-lime-900 mb-2">
+                    Alamat Email Aktif <span class="text-red-600">*</span>
+                  </label>
+                  <input 
+                    type="email" 
+                    name="entry.1519488344" 
+                    required 
+                    placeholder="contoh@gmail.com" 
+                    oninvalid="this.setCustomValidity('Mohon masukkan alamat email aktif yang valid untuk pengiriman bukti pendaftaran.')"
+                    oninput="this.setCustomValidity('')"
+                    class="w-full px-4 py-3.5 rounded-xl bg-lime-50 border border-lime-900/20 text-lime-900 focus:outline-none focus:border-lime-900 transition-colors" 
+                  />
+                  <p class="mt-1.5 text-xs text-lime-900/60">
+                    *Bukti konfirmasi pendaftaran akan dikirimkan secara otomatis ke alamat email ini.
+                  </p>
+                </div>
+
+                <!-- entry.1738912937 (Riwayat Penyakit / Catatan Khusus - OPSIONAL) -->
+                <div class="md:col-span-2">
+                  <label class="block text-sm font-bold text-lime-900 mb-1">
+                    Riwayat Penyakit / Catatan Khusus <span class="text-lime-900/50 font-normal">(Opsional)</span>
+                  </label>
+                  <p class="text-xs md:text-sm text-lime-900/75 leading-relaxed mb-3">
+                    Silakan deskripsikan kebutuhan khusus pendaftar untuk mendukung kegiatan dan kehidupan di pondok pesantren. Kebutuhan khusus termasuk riwayat penyakit, penyandang disabilitas, alergi makanan, atau kebutuhan lain yang memengaruhi aktivitas.
+                  </p>
+                  <textarea name="entry.1738912937" rows="3" placeholder="Tuliskan deskripsi kebutuhan khusus atau riwayat penyakit di sini (Kosongkan jika tidak ada)" class="w-full px-4 py-3.5 rounded-xl bg-lime-50 border border-lime-900/20 text-lime-900 focus:outline-none focus:border-lime-900 transition-colors"></textarea>
+                </div>
+              </div>
+            </div>
+
+            <hr class="border-lime-900/15" />
+
+            <!-- ==========================================
+                 BAGIAN 3: DATA ORANG TUA (AYAH & IBU)
+                 ========================================== -->
+            <div>
+              <h3 class="text-xl lg:text-2xl font-bold text-lime-900 mb-6">
+                3. Data Orang Tua Kandung
+              </h3>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Data Ayah -->
+                <!-- entry.1332223012 -->
+                <div>
+                  <label class="block text-sm font-bold text-lime-900 mb-2">Nama Lengkap Ayah <span class="text-red-600">*</span></label>
+                  <input type="text" name="entry.1332223012" required placeholder="Nama lengkap ayah kandung" class="w-full px-4 py-3.5 rounded-xl bg-lime-50 border border-lime-900/20 text-lime-900 focus:outline-none focus:border-lime-900 transition-colors" />
+                </div>
+
+                <!-- entry.2031849252 -->
+                <div>
+                  <label class="block text-sm font-bold text-lime-900 mb-2">Status Ayah <span class="text-red-600">*</span></label>
+                  <select name="entry.2031849252" required class="w-full px-4 py-3.5 rounded-xl bg-lime-50 border border-lime-900/20 text-lime-900 focus:outline-none focus:border-lime-900 transition-colors">
+                    <option value="Hidup" selected>Hidup</option>
+                    <option value="Meninggal">Meninggal</option>
+                  </select>
+                </div>
+
+                <!-- entry.1258437064 -->
+                <div>
+                  <label class="block text-sm font-bold text-lime-900 mb-2">Pekerjaan Ayah <span class="text-red-600">*</span></label>
+                  <input type="text" name="entry.1258437064" required placeholder="Pekerjaan ayah saat ini" class="w-full px-4 py-3.5 rounded-xl bg-lime-50 border border-lime-900/20 text-lime-900 focus:outline-none focus:border-lime-900 transition-colors" />
+                </div>
+
+                <!-- entry.545345621 -->
+                <div>
+                  <label class="block text-sm font-bold text-lime-900 mb-2">Nomor Telepon / WhatsApp Ayah <span class="text-red-600">*</span></label>
+                  <input type="tel" name="entry.545345621" required placeholder="Contoh: 081234567890 (atau 0 jika tidak ada)" class="w-full px-4 py-3.5 rounded-xl bg-lime-50 border border-lime-900/20 text-lime-900 focus:outline-none focus:border-lime-900 transition-colors" />
+                </div>
+
+                <!-- Data Ibu -->
+                <!-- entry.775582815 -->
+                <div class="mt-4 md:mt-2">
+                  <label class="block text-sm font-bold text-lime-900 mb-2">Nama Lengkap Ibu <span class="text-red-600">*</span></label>
+                  <input type="text" name="entry.775582815" required placeholder="Nama lengkap ibu kandung" class="w-full px-4 py-3.5 rounded-xl bg-lime-50 border border-lime-900/20 text-lime-900 focus:outline-none focus:border-lime-900 transition-colors" />
+                </div>
+
+                <!-- entry.1362220068 -->
+                <div class="md:mt-2">
+                  <label class="block text-sm font-bold text-lime-900 mb-2">Status Ibu <span class="text-red-600">*</span></label>
+                  <select name="entry.1362220068" required class="w-full px-4 py-3.5 rounded-xl bg-lime-50 border border-lime-900/20 text-lime-900 focus:outline-none focus:border-lime-900 transition-colors">
+                    <option value="Hidup" selected>Hidup</option>
+                    <option value="Meninggal">Meninggal</option>
+                  </select>
+                </div>
+
+                <!-- entry.253995055 -->
+                <div>
+                  <label class="block text-sm font-bold text-lime-900 mb-2">Pekerjaan Ibu <span class="text-red-600">*</span></label>
+                  <input type="text" name="entry.253995055" required placeholder="Pekerjaan ibu saat ini" class="w-full px-4 py-3.5 rounded-xl bg-lime-50 border border-lime-900/20 text-lime-900 focus:outline-none focus:border-lime-900 transition-colors" />
+                </div>
+
+                <!-- entry.31144614 -->
+                <div>
+                  <label class="block text-sm font-bold text-lime-900 mb-2">Nomor Telepon / WhatsApp Ibu <span class="text-red-600">*</span></label>
+                  <input type="tel" name="entry.31144614" required placeholder="Contoh: 081234567890 (atau 0 jika tidak ada)" class="w-full px-4 py-3.5 rounded-xl bg-lime-50 border border-lime-900/20 text-lime-900 focus:outline-none focus:border-lime-900 transition-colors" />
+                </div>
+
+                <!-- entry.753310079 -->
+                <div class="md:col-span-2">
+                  <label class="block text-sm font-bold text-lime-900 mb-2">Alamat Lengkap Orang Tua <span class="text-red-600">*</span></label>
+                  <textarea name="entry.753310079" rows="2" required placeholder="Alamat domisili orang tua saat ini" class="w-full px-4 py-3.5 rounded-xl bg-lime-50 border border-lime-900/20 text-lime-900 focus:outline-none focus:border-lime-900 transition-colors"></textarea>
+                </div>
+              </div>
+            </div>
+
+            <hr class="border-lime-900/15" />
+
+            <!-- ==========================================
+                 BAGIAN 4: DATA WALI SANTRI
+                 ========================================== -->
+            <div>
+              <h3 class="text-xl lg:text-2xl font-bold text-lime-900 mb-6">
+                4. Data Wali Santri (Penanggung Jawab)
+              </h3>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- entry.644445832 -->
+                <div>
+                  <label class="block text-sm font-bold text-lime-900 mb-2">Hubungan Wali dengan Santri <span class="text-red-600">*</span></label>
+                  <select name="entry.644445832" required class="w-full px-4 py-3.5 rounded-xl bg-lime-50 border border-lime-900/20 text-lime-900 focus:outline-none focus:border-lime-900 transition-colors">
+                    <option value="Ayah" selected>Ayah</option>
+                    <option value="Ibu">Ibu</option>
+                    <option value="Wali">Wali Lainnya (Kerabat/Keluarga)</option>
+                  </select>
+                </div>
+
+                <!-- entry.634253908 -->
+                <div>
+                  <label class="block text-sm font-bold text-lime-900 mb-2">Nama Lengkap Wali <span class="text-red-600">*</span></label>
+                  <input type="text" name="entry.634253908" required placeholder="Sesuai KTP Wali" class="w-full px-4 py-3.5 rounded-xl bg-lime-50 border border-lime-900/20 text-lime-900 focus:outline-none focus:border-lime-900 transition-colors" />
+                </div>
+
+                <!-- entry.1943679578 -->
+                <div>
+                  <label class="block text-sm font-bold text-lime-900 mb-2">NIK Wali Santri <span class="text-red-600">*</span></label>
+                  <input type="text" name="entry.1943679578" pattern="[0-9]{16}" required placeholder="16 digit NIK Wali" class="w-full px-4 py-3.5 rounded-xl bg-lime-50 border border-lime-900/20 text-lime-900 focus:outline-none focus:border-lime-900 transition-colors" />
+                </div>
+
+                <!-- entry.694281237 -->
+                <div>
+                  <label class="block text-sm font-bold text-lime-900 mb-2">Pekerjaan Wali <span class="text-red-600">*</span></label>
+                  <input type="text" name="entry.694281237" required placeholder="Pekerjaan wali saat ini" class="w-full px-4 py-3.5 rounded-xl bg-lime-50 border border-lime-900/20 text-lime-900 focus:outline-none focus:border-lime-900 transition-colors" />
+                </div>
+
+                <!-- entry.1177100584 -->
+                <div>
+                  <label class="block text-sm font-bold text-lime-900 mb-2">Nomor Telepon / WhatsApp Aktif Wali <span class="text-red-600">*</span></label>
+                  <input type="tel" name="entry.1177100584" required placeholder="Contoh: 081234567890" class="w-full px-4 py-3.5 rounded-xl bg-lime-50 border border-lime-900/20 text-lime-900 focus:outline-none focus:border-lime-900 transition-colors" />
+                </div>
+
+                <!-- entry.2065151062 -->
+                <div>
+                  <label class="block text-sm font-bold text-lime-900 mb-2">Alamat Lengkap Wali <span class="text-red-600">*</span></label>
+                  <input type="text" name="entry.2065151062" required placeholder="Alamat domisili wali saat ini" class="w-full px-4 py-3.5 rounded-xl bg-lime-50 border border-lime-900/20 text-lime-900 focus:outline-none focus:border-lime-900 transition-colors" />
+                </div>
+              </div>
+            </div>
+
+            <hr class="border-lime-900/15" />
+
+            <!-- ==========================================
+                 BAGIAN 5: UNGGAH DOKUMEN (4 KOLOM UPLOAD)
+                 ========================================== -->
+            <div>
+              <h3 class="text-xl lg:text-2xl font-bold text-lime-900 mb-2">
+                5. Unggah Dokumen Persyaratan <span class="text-red-600">*</span>
+              </h3>
+              <p class="text-sm md:text-base text-lime-900/70 mb-6">
+                Format file yang didukung: JPG, PNG, atau PDF (Maksimal 5MB per file).
+              </p>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <!-- Upload 1: Passphoto -->
+                <div class="bg-lime-50 p-5 rounded-2xl border border-lime-900/20">
+                  <label class="block text-base font-bold text-lime-900 mb-1">
+                    Pas Foto Calon Santri <span class="text-red-600">*</span>
+                  </label>
+                  <p class="text-xs text-lime-900/60 mb-4">Foto terbaru berbusana muslim/rapi (rasio 3x4).</p>
+                  <input 
+                    type="file" 
+                    id="file_passphoto"
+                    accept=".jpg,.jpeg,.png,.pdf" 
+                    required 
+                    class="block w-full text-sm text-lime-900/80 file:mr-4 file:py-2.5 file:px-5 file:rounded-full file:border-0 file:text-xs file:font-bold file:bg-lime-900 file:text-lime-50 hover:file:bg-lime-800 file:cursor-pointer cursor-pointer"
+                  />
+                </div>
+
+                <!-- Upload 2: Akte Kelahiran -->
+                <div class="bg-lime-50 p-5 rounded-2xl border border-lime-900/20">
+                  <label class="block text-base font-bold text-lime-900 mb-1">
+                    Akta Kelahiran <span class="text-red-600">*</span>
+                  </label>
+                  <p class="text-xs text-lime-900/60 mb-4">Foto atau hasil scan Akta Kelahiran calon santri.</p>
+                  <input 
+                    type="file" 
+                    id="file_akte"
+                    accept=".jpg,.jpeg,.png,.pdf" 
+                    required 
+                    class="block w-full text-sm text-lime-900/80 file:mr-4 file:py-2.5 file:px-5 file:rounded-full file:border-0 file:text-xs file:font-bold file:bg-lime-900 file:text-lime-50 hover:file:bg-lime-800 file:cursor-pointer cursor-pointer"
+                  />
+                </div>
+
+                <!-- Upload 3: KK Orang Tua -->
+                <div class="bg-lime-50 p-5 rounded-2xl border border-lime-900/20">
+                  <label class="block text-base font-bold text-lime-900 mb-1">
+                    Kartu Keluarga (KK) Orang Tua <span class="text-red-600">*</span>
+                  </label>
+                  <p class="text-xs text-lime-900/60 mb-4">Foto atau hasil scan Kartu Keluarga terbaru.</p>
+                  <input 
+                    type="file" 
+                    id="file_kk"
+                    accept=".jpg,.jpeg,.png,.pdf" 
+                    required 
+                    class="block w-full text-sm text-lime-900/80 file:mr-4 file:py-2.5 file:px-5 file:rounded-full file:border-0 file:text-xs file:font-bold file:bg-lime-900 file:text-lime-50 hover:file:bg-lime-800 file:cursor-pointer cursor-pointer"
+                  />
+                </div>
+
+                <!-- Upload 4: KTP Wali Santri -->
+                <div class="bg-lime-50 p-5 rounded-2xl border border-lime-900/20">
+                  <label class="block text-base font-bold text-lime-900 mb-1">
+                    KTP Wali Santri <span class="text-red-600">*</span>
+                  </label>
+                  <p class="text-xs text-lime-900/60 mb-4">Foto atau hasil scan KTP wali penanggung jawab.</p>
+                  <input 
+                    type="file" 
+                    id="file_ktp"
+                    accept=".jpg,.jpeg,.png,.pdf" 
+                    required 
+                    class="block w-full text-sm text-lime-900/80 file:mr-4 file:py-2.5 file:px-5 file:rounded-full file:border-0 file:text-xs file:font-bold file:bg-lime-900 file:text-lime-50 hover:file:bg-lime-800 file:cursor-pointer cursor-pointer"
+                  />
+                </div>
+
+              </div>
+            </div>
+
+            <hr class="border-lime-900/15" />
+
+            <!-- ==========================================
+                 BAGIAN 6: PERNYATAAN KESEDIAAN
+                 ========================================== -->
+            <div>
+              <h3 class="text-xl lg:text-2xl font-bold text-lime-900 mb-6">
+                6. Pernyataan Kesediaan <span class="text-red-600">*</span>
+              </h3>
+
+              <div class="space-y-4">
+                <!-- entry.724930391 -->
+                <label class="flex items-start gap-4 p-5 rounded-2xl bg-lime-50 border border-lime-900/20 cursor-pointer hover:border-lime-900/50 transition-colors">
+                  <input 
+                    type="checkbox" 
+                    name="entry.724930391" 
+                    value="Saya BERSEDIA mematuhi semua peraturan dan ketentuan yang ditetapkan oleh pondok pesantren dengan penuh kesadaran dan rasa tanggung jawab." 
+                    required 
+                    class="mt-1 w-5 h-5 accent-lime-900 rounded cursor-pointer flex-shrink-0" 
+                  />
+                  <span class="text-sm lg:text-base text-lime-900 leading-relaxed font-medium">
+                    Saya <strong>BERSEDIA</strong> mematuhi semua peraturan dan ketentuan yang ditetapkan oleh pondok pesantren dengan penuh kesadaran dan rasa tanggung jawab.
+                  </span>
+                </label>
+
+                <!-- entry.838903562 -->
+                <label class="flex items-start gap-4 p-5 rounded-2xl bg-lime-50 border border-lime-900/20 cursor-pointer hover:border-lime-900/50 transition-colors">
+                  <input 
+                    type="checkbox" 
+                    name="entry.838903562" 
+                    value="Saya BERSEDIA memenuhi kewajiban selaku orang tua untuk memenuhi kewajiban sesuai ketentuan pondok pesantren dan tidak menuntut hal-hal yang tidak sesuai dengan aturan pondok dan peraturan negara." 
+                    required 
+                    class="mt-1 w-5 h-5 accent-lime-900 rounded cursor-pointer flex-shrink-0" 
+                  />
+                  <span class="text-sm lg:text-base text-lime-900 leading-relaxed font-medium">
+                    Saya <strong>BERSEDIA</strong> memenuhi kewajiban selaku orang tua untuk memenuhi kewajiban sesuai ketentuan pondok pesantren dan tidak menuntut hal-hal yang tidak sesuai dengan aturan pondok dan peraturan negara.
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Status Notifikasi Pengiriman -->
+            <div id="form-status" class="hidden p-5 rounded-2xl text-base font-semibold"></div>
+
+            <!-- TOMBOL KIRIM -->
+            <div class="pt-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <p class="text-sm text-lime-900/70">
+                Pastikan seluruh data dan dokumen yang diunggah sudah benar sebelum mengirim.
+              </p>
+              
+              <button 
+                type="submit" 
+                id="btn-submit-form"
+                class="w-full sm:w-auto px-8 py-4 bg-lime-900 text-lime-50 rounded-full font-bold flex items-center justify-center gap-3 hover:bg-lime-800 transition-colors group cursor-pointer disabled:opacity-90 disabled:cursor-wait"
+              >
+                <span id="btn-submit-text">Kirim Pendaftaran</span>
+                
+                <!-- Ikon Panah Kanan (Tampil Normal) -->
+                <svg id="icon-submit-default" class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+
+                <!-- Ikon Panah Naik Looping (Tampil Saat Mengunggah) -->
+                <span id="icon-submit-uploading" class="hidden w-5 h-5 overflow-hidden items-center justify-center">
+                  <svg class="w-5 h-5 animate-upload-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18" />
+                  </svg>
+                </span>
+              </button>
+            </div>
+
+          </form>
+        </div>
+
+        <!-- ==========================================
+               TAMPILAN NOTIFIKASI BESAR (MUNCUL SETELAH SUBMIT)
+               ========================================== -->
+          <div id="success-screen" class="hidden py-10 lg:py-16 px-4 text-center max-w-2xl mx-auto flex-col items-center justify-center">
+            
+            <!-- Ikon Centang Besar -->
+            <div class="w-20 h-20 md:w-24 md:h-24 rounded-full bg-lime-300 text-lime-900 flex items-center justify-center mx-auto mb-6 shadow-sm">
+              <svg class="w-10 h-10 md:w-12 md:h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+
+            <!-- Badge -->
+            <div class="inline-block bg-lime-300 text-lime-900 text-xs md:text-sm font-bold px-3 py-1 mb-4 uppercase tracking-widest rounded-sm">
+              Pendaftaran Berhasil
+            </div>
+
+            <!-- Judul Notifikasi -->
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-lime-900 mb-4 tracking-tight">
+              Alhamdulillah, Data Anda Telah Kami Terima!
+            </h2>
+
+            <!-- Paragraf Penjelasan -->
+            <p class="text-base md:text-lg text-lime-900/80 leading-relaxed mb-10">
+              Terima kasih telah melakukan pendaftaran santri baru di Pondok Pesantren Miftahul Huda Soko. Seluruh data diri dan berkas digital Anda telah tersimpan di sistem kami. Kami juga telah mengirimkan rincian bukti pendaftaran resmi ke alamat email yang Anda daftarkan.
+            </p>
+
+            <!-- Tombol Navigasi (Kembali ke Beranda & Hubungi Kami) -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
+              
+              <!-- Tombol 1: Kembali ke Beranda -->
+              <a 
+                href="/" 
+                class="w-full sm:w-auto px-7 py-4 bg-lime-900 text-lime-50 rounded-full font-semibold flex items-center justify-center gap-3 hover:bg-lime-800 transition-colors group"
+              >
+                <svg class="w-5 h-5 transition-transform duration-300 group-hover:-translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+                </svg>
+                <span>Kembali ke Beranda</span>
+              </a>
+
+              <!-- Tombol 2: Hubungi Kami -->
+              <a 
+                href="/kontak" 
+                class="w-full sm:w-auto px-7 py-4 bg-lime-300/80 text-lime-900 rounded-full font-semibold flex items-center justify-center gap-3 hover:bg-lime-300 transition-colors group"
+              >
+                <span>Hubungi Kami</span>
+                <svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+              </a>
+
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+    <Footer />
+  </body>
+
+  <style>
+    /* 1. Main container (48px tall). 24px radius creates a perfect half-circle on the left */
+    .wur-cutout {
+      border-top-left-radius: 32px;
+      border-bottom-left-radius: 32px;
+    }
+
+    /* 2. The inverse curves are now exactly 24x24px to match the remaining flat edges */
+    .wur-cutout::before,
+    .wur-cutout::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      width: 32px;
+      height: 32px;
+      background: transparent;
+      pointer-events: none;
+    }
+
+    /* 3. Top Inverse Corner */
+    .wur-cutout::before {
+      bottom: 100%;
+      background: radial-gradient(circle at 0 0, transparent 31.5px, #f7fee7 32px);
+    }
+
+    /* 4. Bottom Inverse Corner */
+    .wur-cutout::after {
+      top: 100%;
+      background: radial-gradient(circle at 0 100%, transparent 31.5px, #f7fee7 32px);
+    }
+
+    /* Animasi panah naik berulang saat mengunggah berkas */
+    @keyframes uploadArrowLoop {
+      0% {
+        transform: translateY(85%);
+        opacity: 0;
+      }
+      30%, 70% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-85%);
+        opacity: 0;
+      }
+    }
+
+    .animate-upload-arrow {
+      animation: uploadArrowLoop 1.1s infinite ease-in-out;
+    }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Logika Accordion FAQ
+      const accBtns = document.querySelectorAll('.accordion-btn');
+      
+      accBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          const content = this.nextElementSibling;
+          const chevron = this.querySelector('.chevron');
+          const isOpen = content.style.maxHeight;
+
+          // Tutup semua tab yang sedang terbuka
+          document.querySelectorAll('.accordion-content').forEach(c => {
+            c.style.maxHeight = null;
+          });
+          document.querySelectorAll('.chevron').forEach(c => {
+            c.classList.remove('rotate-180');
+          });
+
+          // Buka tab yang diklik jika sebelumnya tertutup
+          if (!isOpen) {
+            content.style.maxHeight = content.scrollHeight + "px";
+            chevron.classList.add('rotate-180');
+          }
+        });
+      });
+
+      // 2. Logika Kunci Jenis Kelamin untuk Program Tahfidz
+      const radioPrograms = document.querySelectorAll('input[name="entry.709398308"]');
+      const selectGender = document.getElementById('select-jenis-kelamin');
+      const optLaki = document.getElementById('opt-laki');
+      const noteGenderTahfidz = document.getElementById('note-gender-tahfidz');
+
+      radioPrograms.forEach(radio => {
+        radio.addEventListener('change', function() {
+          if (this.value === 'Program Tahfidz') {
+            selectGender.value = 'Perempuan';
+            optLaki.disabled = true;
+            optLaki.hidden = true;
+            noteGenderTahfidz.classList.remove('hidden');
+          } else {
+            optLaki.disabled = false;
+            optLaki.hidden = false;
+            noteGenderTahfidz.classList.add('hidden');
+          }
+        });
+      });
+
+      // 3. Logika Pengiriman Formulir & Upload File
+      const form = document.getElementById('form-pendaftaran-ppmhs');
+      const formWrapper = document.getElementById('form-wrapper');
+      const successScreen = document.getElementById('success-screen');
+      const sectionForm = document.getElementById('formulir-pendaftaran');
+      const statusBox = document.getElementById('form-status');
+      const submitBtn = document.getElementById('btn-submit-form');
+      const submitText = document.getElementById('btn-submit-text');
+      const iconDefault = document.getElementById('icon-submit-default');
+      const iconUploading = document.getElementById('icon-submit-uploading');
+
+      const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxJJTF0rLGs04EuVWegLqJcFZZeutqF9xlilD4fkb1V8L1dsOgdpEn9bk7Kk53PZIJj/exec";
+
+      const fileToBase64 = (fileInput) => {
+        return new Promise((resolve, reject) => {
+          const file = fileInput.files[0];
+          if (!file) return resolve(null);
+          const reader = new FileReader();
+          reader.onload = () => {
+            const base64String = reader.result.split(',')[1];
+            resolve({
+              fileName: file.name,
+              mimeType: file.type,
+              base64: base64String
+            });
+          };
+          reader.onerror = (error) => reject(error);
+          reader.readAsDataURL(file);
+        });
+      };
+
+      if (form) {
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          submitBtn.disabled = true;
+          submitText.textContent = "Mengunggah Data & Berkas...";
+          statusBox.className = "hidden";
+
+          // Sembunyikan panah kanan, tampilkan animasi panah naik
+          iconDefault.classList.add('hidden');
+          iconUploading.classList.remove('hidden');
+          iconUploading.classList.add('flex');
+
+          try {
+            const formData = new FormData(form);
+            const fields = {};
+            formData.forEach((value, key) => {
+              fields[key] = value;
+            });
+
+            // Jika opsi Laki-Laki sedang dikunci (Program Tahfidz), pastikan nilai Perempuan tetap terkirim
+            if (selectGender && selectGender.value) {
+              fields["entry.1015670036"] = selectGender.value;
+            }
+
+            const files = {
+              passphoto: await fileToBase64(document.getElementById('file_passphoto')),
+              akte: await fileToBase64(document.getElementById('file_akte')),
+              kk: await fileToBase64(document.getElementById('file_kk')),
+              ktp: await fileToBase64(document.getElementById('file_ktp'))
+            };
+
+            await fetch(SCRIPT_URL, {
+              method: 'POST',
+              mode: 'no-cors',
+              headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+              body: JSON.stringify({ fields, files })
+            });
+
+            // Sembunyikan form dan tampilkan layar notifikasi besar
+            form.reset();
+            optLaki.disabled = false;
+            optLaki.hidden = false;
+            noteGenderTahfidz.classList.add('hidden');
+
+            formWrapper.classList.add('hidden');
+            successScreen.classList.remove('hidden');
+            successScreen.classList.add('flex');
+            
+            // Gulir layar dengan mulus ke bagian atas kartu notifikasi
+            sectionForm.scrollIntoView({ behavior: 'smooth' });
+
+          } catch (error) {
+            statusBox.textContent = "Maaf, terjadi kendala saat mengirim formulir. Silakan periksa koneksi internet Anda dan coba lagi.";
+            statusBox.className = "block p-5 rounded-2xl text-base font-semibold bg-red-100 text-red-900 border border-red-900/20";
+          } finally {
+            submitBtn.disabled = false;
+            submitText.textContent = "Kirim Pendaftaran";
+
+            // Kembalikan ke panah kanan normal setelah selesai
+            iconDefault.classList.remove('hidden');
+            iconUploading.classList.add('hidden');
+            iconUploading.classList.remove('flex');
+          }
+        });
+      }
+    });
+  </script>
+
+</html>

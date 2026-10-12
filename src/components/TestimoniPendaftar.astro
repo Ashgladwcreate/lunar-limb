@@ -1,0 +1,54 @@
+---
+import '../styles/global.css';
+import fotosantri from '../assets/fotosantri.png';
+import { Image } from 'astro:assets';
+---
+
+<section class="relative w-full max-w-7xl mx-auto px-4 py-24 overflow-hidden mt-12">
+  
+  <!-- This grid container will stack them on mobile and put them side-by-side on desktop -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+
+    <!-- Left Column: The Image Layout -->
+    <div class="relative flex justify-center pt-16 md:pt-24">
+
+      <!-- 1. The Background Text (REVIEWS) - Bottom Layer -->
+      <!-- Positioned absolutely at the top, horizontally centered -->
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 z-0">
+        <h2 class="text-[6.5rem] md:text-[8.5rem] font-black text-green-500 leading-none tracking-tighter uppercase m-0 select-none">
+          Siap?
+        </h2>
+      </div>
+
+      <!-- 2. The Dark Gray Box - Middle Layer -->
+      <!-- Starts about 30% down to let the head overlap the text, goes to the bottom -->
+      <div class="absolute top-[25%] md:top-[30%] bottom-0 left-2 right-2 md:-left-4 md:-right-4 bg-[#333333] z-10"></div>
+
+      <!-- 3. The Girl Image - Top Layer -->
+      <!-- Using object-contain and z-20 to ensure she pops out of the dark box -->
+      <Image
+        src={fotosantri}
+        alt="Siswa PPMHS"
+        class="relative z-20 w-full max-w-[280px] md:max-w-[340px] object-contain drop-shadow-2xl"
+      />
+
+    </div>
+
+    <!-- Right Column: The Review Text -->
+    <!-- Added 'relative' so z-20 works, ensuring it sits on top if there's any overlap -->
+    <div class="relative z-20 px-2 md:px-0">
+      
+      <!-- We removed the frosted glass background to match the clean reference -->
+      <p class="text-[17px] md:text-lg font-bold text-gray-900 leading-[1.7]">
+        "PPMHS menyediakan lingkungan yang luar biasa untuk belajar. Kurikulum dan metodenya memicu pemikiran kritis dan memberdayakan saya untuk berani berpendapat dalam forum besar. Saya sangat bersyukur atas ilmu dan nilai-nilai agama yang diberikan oleh para guru. Pengalaman saya sebagai orang tua semakin melipatgandakan apresiasi saya saat melihat pikiran dan hati anak-anak saya berkembang di lingkungan ini."
+      </p>
+
+      <p class="mt-6 text-[15px] md:text-base text-gray-700 font-medium">
+        - Katherine D., Alumna & Orang Tua Siswa
+      </p>
+
+    </div>
+  
+  </div> <!-- End of grid container -->
+
+</section>

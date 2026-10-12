@@ -1,0 +1,253 @@
+---
+import '../styles/global.css';
+import Navbar from '../components/Navbar.astro';
+import yayasanImg from '../assets/yayasan.png';
+import logoImg from '../assets/logo.png';
+import pendiriImg from '../assets/pendiri.jpeg';
+import Footer from '../components/footer.astro';
+---
+
+<html lang="id">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yayasan - PPMHS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-lime-50">
+    
+    <Navbar hasDarkHero={false} />
+
+    <!-- Main Container -->
+    <main class="w-full max-w-[1440px] mx-auto px-4 lg:px-12 pt-28 lg:pt-36">
+      
+      <!-- 2. Scaled text down to 5xl and tightened the bottom gap with mb-8 lg:mb-12 -->
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-lime-900 mb-15 md:mb-8 lg:mb-12 tracking-tight md:pr-20 lg:pr-0">
+        Yayasan Pendidikan Islam Miftahul Huda Soko
+      </h1>
+
+      <div class="relative w-full">
+        
+        <img 
+          src={yayasanImg.src} 
+          alt="Kegiatan Yayasan Miftahul Huda Soko" 
+          class="w-full h-[350px] md:h-[500px] lg:h-[650px] object-cover rounded-[2.5rem] lg:rounded-[4rem]"
+        />
+        
+
+        <!-- 3. Adjusted the logo overlap -->
+        <!-- p-3 lg:p-5 creates the thicker background border -->
+        <!-- -top-16 lg:-right-4 pushes it lower vertically and further inside horizontally -->
+        <div class="absolute -top-16 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:-top-16 md:-right-8 lg:-top-20 lg:-right-12 w-48 h-48 md:w-60 md:h-60 lg:w-80 lg:h-80 bg-lime-50 rounded-full flex items-center justify-center p-2 md:p-3 lg:p-4 z-20">
+          
+          <img 
+            src={logoImg.src} 
+            alt="Logo PPMHS" 
+            class="w-full h-full object-contain rounded-full"
+          />
+          
+        </div>
+
+      </div>
+
+      <section class="w-full max-w-[1300px] mx-auto mt-16 md:mt-24 lg:mt-32 mb-24 lg:px-12">
+        
+        <!-- Big Intro Text -->
+        <h2 class="max-w-4xl mx-auto text-2xl md:text-3xl lg:text-3xl text-center font-medium text-lime-900 leading-relaxed lg:leading-snug">
+          Pondok Pesantren Miftahul Huda Soko adalah bentuk satuan pendidikan yang pertama didirikan di bawah naungan YPI Miftahul Huda Soko.
+        </h2>
+        
+        <!-- Flexbox Container (Pushes content to opposite edges) -->
+        <div class="mt-12 lg:mt-24 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+          
+          <!-- Left Column: Text (Takes up 7 out of 12 columns) -->
+          <div class="lg:col-span-7 flex flex-col gap-6 text-base lg:text-lg text-lime-950 leading-loose">
+            <p>
+              YPI Miftahul Huda Soko didirikan oleh H. Kholilur Rohman dan istrinya Hj. Durotul Munawaroh pada tahun 2016 di Soko, Menang, Kec. Pagu, Kabupaten Kediri, Jawa Timur. Yayasan ini didirikan sebagai upaya ikut serta mewujudkan generasi muda Indonesia yang berakhlakul karimah, kompetitif, kreatif, dan produktif berhaluan ahlussunnah wal jamaa'ah.
+            </p>
+
+            <p>
+              YPI MIftahul Huda Soko <span class="font-semibold text-lime-600">menjunjung budaya dan tradisi islam NUsantara</span> serta terasosiasi dengan organisasi Nahdlatul Ulama di Indonesia. Setiap satuan pendidikan yang dibangun menjunjung dan menanamkan 4 pilar karakter: Aswaja, Kreatif, Kompetitif, dan Kontribusi Produktif. Keempat karakter tersebut dipupuk melalui sistem pembelajaran salafiyah yang berfokus pada ilmu diniyah islamiyah serta dipadukan dengan kegiatan eksplorasi minat dan potensi santri melalui kegiatan ekstrakulikuler dengan berbagai disiplin, dari ilmu alamiah hingga bidang kreatif dan olahraga.
+            </p>
+          </div>
+
+          <!-- Right Column: Image & Caption (Takes up 5 out of 12 columns) -->
+          <div class="lg:col-span-5 w-full max-w-[350px] md:max-w-[450px] mx-auto lg:max-w-none flex flex-col items-center">
+            
+            <!-- Abstract Organic Circular Mask (Blob Shape) -->
+            <!-- Removed shadow, changed border to lime-50, thickened it to 8px for a nice frame -->
+            <div 
+              class="aspect-square w-full overflow-hidden border-[8px] border-lime-50 bg-lime-200"
+              style="border-radius: 53% 47% 41% 59% / 46% 58% 42% 54%;"
+            >
+              <img 
+                src={pendiriImg.src} 
+                alt="Pendiri Yayasan" 
+                class="w-full h-full object-cover"
+              />
+            </div>
+
+            <!-- New Caption Layout for Long Text -->
+            <!-- Uses a clean, expanding rounded box sitting below the blob -->
+            <div class="mt-6 w-full bg-lime-50 rounded-2xl p-3 md:p-5 text-center">
+              <p class="text-sm lg:text-base font-medium text-lime-900/50 leading-relaxed">
+                H. Kholilur Rohman, S.Pd.I., M.Pd.I. (kanan) dan Hj. Durotul Munawaroh S.Pd.I. (kiri)
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+        
+      </section>
+
+      <section class="w-full max-w-[1300px] mx-auto my-20 md:my-32 lg:px-12">
+        
+        <!-- Two Column Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          
+          <!-- Left Column: Big Heading (5/12 width) -->
+          <div class="lg:col-span-5">
+            <h2 class="text-3xl md:text-4xl lg:text-[2.5rem] font-bold text-lime-900 tracking-tight leading-snug">
+              Mengapa Pribadi Luhur Dibentuk Melalui Penerapan <span class="italic text-lime-600">Tradisi Islam NUsantara?</span>
+            </h2>
+          </div>
+
+          <!-- Right Column: The Two Paragraphs (7/12 width) -->
+          <div class="lg:col-span-7 flex flex-col gap-6 text-base lg:text-lg text-lime-950 leading-loose">
+            <p>
+              Membentuk pribadi yang luhur memerlukan titik keseimbangan antara akar spiritual yang kokoh dan kemampuan adaptasi yang luas. Tradisi Islam Nusantara, yang berakar kuat pada nilai-nilai Ahlussunnah wal Jamaah (Aswaja), mengajarkan moderasi (<em>wasathiyah</em>), toleransi, dan penghormatan terhadap adab serta kearifan lokal.
+            </p>
+            <p>
+              Di Pondok Pesantren Miftahul Huda Soko, tradisi salafiyah ini dipadukan secara harmonis dengan pendidikan modern. Kami percaya bahwa nilai-nilai keislaman Nusantara memberikan unsur akar yang kokoh berupa ketulusan dan kebersihan hati, sementara sains, kreativitas, dan kompetensi produktif berfungsi sebagai sayap bagi santri untuk terbang menghadapi masa depan tanpa kehilangan jati diri.
+            </p>
+            <div class="pt-2">
+              <a 
+                href="/visimisi" 
+                class="inline-flex items-center gap-2 text-lime-800 font-semibold hover:text-lime-400 active:text-lime-400 transition-colors group"
+              >
+                <span>Kenali Visi Misi kami</span>
+                <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1.5" 
+                  fill="none" 
+                  viewBox="0 0 24 24" 
+                  stroke="currentColor" 
+                  stroke-width="2.5"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 12h14m-7-7l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+      <section class="relative w-screen left-1/2 -translate-x-1/2 mt-8 lg:mt-12 overflow-hidden">
+        
+        <!-- The Gentle SVG Curve -->
+        <svg 
+          class="relative w-full h-12 md:h-20 lg:h-28 text-lime-100/60 z-10" 
+          viewBox="0 0 1440 100" 
+          fill="currentColor" 
+          preserveAspectRatio="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M0 100 Q 720 0 1440 100 Z" />
+        </svg>
+        
+        <!-- The Section Background -->
+        <!-- flex flex-col items-center lets us control the layout vertically -->
+        <div class="relative w-full bg-lime-100/80 pt-12 pb-16 md:py-24 lg:py-32 min-h-[450px] lg:min-h-[550px] flex flex-col items-center">
+          
+          <!-- THE GIANT BACKGROUND WATERMARK -->
+          <div class="absolute inset-0 flex items-center justify-center w-full px-6 z-0 pointer-events-none">
+            <div class="w-[350px] md:w-[500px] lg:w-[700px] text-lime-50 opacity-80">
+              
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                viewBox="0 0 100 100" 
+                class="w-full h-full" 
+                fill="none" 
+                stroke="currentColor" 
+                stroke-width="1.5" 
+                stroke-linecap="round" 
+                stroke-linejoin="round"
+              >
+                <!-- Ground -->
+                <line x1="5" y1="95" x2="95" y2="95" />
+
+                <!-- Center Building Walls & Roof -->
+                <path d="M 35 95 V 40 L 50 25 L 65 40 V 95" />
+                <path d="M 28 42 L 50 20 L 72 42" />
+
+                <!-- Flag -->
+                <path d="M 50 20 V 4 M 50 6 H 64 L 59 11 L 64 16 H 50" />
+
+                <!-- Clock with Checkmark Hands -->
+                <circle cx="50" cy="36" r="6.5" />
+                <path d="M 47 36 L 50 39 L 54 34" />
+
+                <!-- Center Windows (12 Squares) -->
+                <rect x="38" y="50" width="6" height="6" />
+                <rect x="47" y="50" width="6" height="6" />
+                <rect x="56" y="50" width="6" height="6" />
+                
+                <rect x="38" y="60" width="6" height="6" />
+                <rect x="47" y="60" width="6" height="6" />
+                <rect x="56" y="60" width="6" height="6" />
+                
+                <rect x="38" y="70" width="6" height="6" />
+                <rect x="47" y="70" width="6" height="6" />
+                <rect x="56" y="70" width="6" height="6" />
+                
+                <rect x="38" y="80" width="6" height="6" />
+                <rect x="47" y="80" width="6" height="6" />
+                <rect x="56" y="80" width="6" height="6" />
+
+                <!-- Left Building Wing -->
+                <rect x="12" y="60" width="23" height="35" />
+                <path d="M 6 60 L 23.5 40 L 35 53" />
+                <circle cx="17" cy="72" r="3.5" />
+                <circle cx="30" cy="72" r="3.5" />
+                <path d="M 18 95 V 85 A 5.5 5.5 0 0 1 29 85 V 95" />
+
+                <!-- Right Building Wing -->
+                <rect x="65" y="60" width="23" height="35" />
+                <path d="M 65 53 L 76.5 40 L 94 60" />
+                <circle cx="70" cy="72" r="3.5" />
+                <circle cx="83" cy="72" r="3.5" />
+                <path d="M 71 95 V 85 A 5.5 5.5 0 0 1 82 85 V 95" />
+              </svg>
+            </div>
+          </div>
+
+          <!-- INNER CONTENT CONTAINER -->
+          <div class="relative z-10 max-w-5xl mx-auto px-6 lg:px-12 w-full flex flex-col items-center text-center h-full">
+            
+            <!-- Heading stays anchored near the top -->
+            <h2 class="text-3xl md:text-4xl lg:text-[2.5rem] font-bold text-lime-900 tracking-tight">
+              Selanjutnya di YPI Miftahul Huda Soko
+            </h2>
+            
+            <!-- Flex-1 pushes this paragraph down into the absolute center of the remaining space -->
+            <div class="flex-1 flex items-center justify-center my-auto py-12">
+              <p class="text-base lg:text-lg text-lime-900/80 leading-relaxed max-w-3xl">
+                Dimulai dengan Program Kitab di PP Miftahul Huda Soko dan mulai berkembang dengan Program Tahfidz, YPI Miftahul Huda Soko berencana mengembangkan satuan pendidikan formal jenjang Menengah Atas dalam waktu dekat.
+              </p>
+            </div>
+            
+          </div>
+          
+        </div>
+
+      </section>
+
+    </main>
+    <Footer />
+  </body>
+</html>
