@@ -1,6 +1,6 @@
 ---
 judul: "Lomba Film Pendek Santri 2026"
-deskripsi: "Dalam rangka memperingati hari santri, PPMHS mengadakan sayembara film santri untuk mengembangkan kreativitas dalam ranah filmografi dan media digital."
+deskripsi: "Dalam rangka memperingati hari santri, PPMHS mengadakan sayembara film santri untuk mengembangkan kreativitas dalam ranah sinematografi dan media digital."
 tanggal: 2026-10-10
 kategori: "Berita Kegiatan"
 tipe: ["Kegiatan Internal", "Lokakarya/Workshop"]
@@ -8,10 +8,10 @@ penulis: "Pengurus/Admin"
 gambar: "../../assets/konten/kompetisi film.png"
 sorotan: true
 ---
-Sebagai bagian dari rangkaian peringatan hari santri, PPMHS mengadakan sayembara film santri untuk mengembangkan kreativitas dalam ranah filmografi dan media digital.
+Sebagai bagian dari rangkaian peringatan hari santri, PPMHS mengadakan sayembara film santri untuk mengembangkan kreativitas dalam ranah sinematografi dan media digital.
 
 
-Sebelum memulai perlombaan, santri dibekali dengan teknik dasar filmografi melalui seminar *editing* dan desain grafis pada tanggal 26 September 2026 lalu. Seminar ini dipandu oleh Ustadz Ariel Naafi, S. Kom.
+Sebelum memulai perlombaan, santri dibekali dengan teknik dasar pembuatan film pendek melalui seminar *editing* dan desain grafis pada tanggal 26 September 2026 lalu. Seminar ini dipandu oleh Ustadz Ariel Naafi, S. Kom.
 
 ![Pelatihan posisi pengambilan gambar](../../assets/konten/filmografi.png)
 
