@@ -11,13 +11,35 @@ const formatDate = (dateString) => {
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
   return new Date(dateString).toLocaleDateString('id-ID', options);
 };
+
+// 1. MENYIAPKAN DATA UNTUK THUMBNAIL WHATSAPP (OPEN GRAPH)
+const judulTopik = `${frontmatter.judul} | PPMHS`;
+const deskripsiTopik = frontmatter.deskripsi || "Kabar terbaru dari Pondok Pesantren Miftahul Huda Soko.";
+const jalurGambar = frontmatter.gambar?.src || frontmatter.gambar || "/logo.png";
+
+// Membuat URL lengkap (https://ppmhsoko.ponpes.id/...) agar terbaca oleh WhatsApp
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const imageUrl = new URL(jalurGambar, Astro.site);
 ---
 
 <html lang="id" class="scroll-smooth">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{frontmatter.judul} | PPMHS</title>
+    
+    <!-- Tag Judul dan Deskripsi Standar -->
+    <title>{judulTopik}</title>
+    <meta name="description" content={deskripsiTopik} />
+
+    <!-- 2. TAG OPEN GRAPH UNTUK THUMBNAIL WHATSAPP/SOSMED -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={judulTopik} />
+    <meta property="og:description" content={deskripsiTopik} />
+    <meta property="og:image" content={imageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={imageUrl} />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" type="image/png" href="/logo.png?v=2" />
