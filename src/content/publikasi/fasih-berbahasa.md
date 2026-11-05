@@ -5,7 +5,7 @@ tanggal: 2026-09-23
 kategori: "Artikel Pengasuh"
 penulis: "KH. Kholil Rurohman, M.Pd., M.Pd.I."
 gambar: "../../assets/konten/fasih-berbahasa.jpg"
-sorotan: true
+sorotan: false
 ---
 
 Dalam dunia Pendidikan di pondok pesantren, keberhasilan komunikasi ustadz dan santri berdampak besar pada keberhasilan pendidikan secara keseluruhan.

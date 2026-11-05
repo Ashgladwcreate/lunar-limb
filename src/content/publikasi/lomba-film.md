@@ -6,7 +6,7 @@ kategori: "Berita Kegiatan"
 tipe: ["Kegiatan Internal", "Lokakarya/Workshop"]
 penulis: "Pengurus/Admin"
 gambar: "../../assets/konten/kompetisi film.png"
-sorotan: true
+sorotan: false
 ---
 Sebagai bagian dari rangkaian peringatan hari santri, PPMHS mengadakan sayembara film santri untuk mengembangkan kreativitas dalam ranah sinematografi dan media digital.
 

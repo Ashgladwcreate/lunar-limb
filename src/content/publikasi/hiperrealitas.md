@@ -5,7 +5,7 @@ tanggal: 2026-08-03
 kategori: "Artikel Pengasuh"
 penulis: "KH. Kholil Rurohman, M.Pd., M.Pd.I."
 gambar: "../../assets/spiritual.jpg"
-sorotan: true
+sorotan: false
 ---
  Pada periode antara tahun 610 M sampai 632 M Nabi Muhammad SAW menerima wahyu Al-Qur’an melalui Malaikat Jibril. Sejak pertama kali turun, Al-Qur’an membawa misi mulia, yaitu memberi petunjuk (*hudan*) bagi manusia yang hidup di ruang dan waktu yang tak terbatas. Akankah Al-Qur’an terus dijadikan tuntunan hidup di saat dunia sedang dan terus mengalami perubahan? Akankah Al-Qur’an terus dijadikan obat (*syifa’*) penyakit masyarakat modern yang cenderung bersikap apatis? 
 

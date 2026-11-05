@@ -5,7 +5,7 @@ tanggal: 2026-10-09
 kategori: "Artikel Pengasuh"
 penulis: "KH. Kholil Rurohman, M.Pd., M.Pd.I."
 gambar: "../../assets/pendidik.webp"
-sorotan: true
+sorotan: false
 ---
 
 Pondok Pesantren secara substantif sejak awal didirikan adalah lembaga yang berperan dalam penguatan nilai-nilai agama. Namun, seiring dengan berjalannya waktu, alumni Pondok Pesantren sebagian menjadi muslim yang intoleran, eksklusif, radikal, dan berbagai sifat yang tidak moderat dalam beragama. 
